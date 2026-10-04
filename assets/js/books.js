@@ -1,6 +1,9 @@
-// 책장: data/books.json을 읽어 검색·필터·나눠 보여 주기를 한다.
+// 책장: 구글 시트 '도서 목록'(서버의 sheet_rows)을 읽어 검색·필터·나눠 보여 주기를 한다.
+// 시트가 연결되기 전에는 data/books.json(예시)을 읽는다.
 // 소장본이 500권 안팎이므로 한 번에 PAGE권씩만 그리고 '더 보기'로 이어서 그린다.
 // 빌린 사람 정보는 이 파일에도, 데이터에도 없다.
+
+import { sheetRows } from './reservations-api.js';
 
 const DATA_URL = 'data/books.json';
 const PAGE = 30;
@@ -100,7 +103,7 @@ function apply() {
 
 function showError() {
   form.hidden = true;
-  synced.textContent = '마지막 동기화 시각 알 수 없음';
+  synced.textContent = '';
   count.textContent = '정보를 불러오지 못했습니다. 잠시 뒤 새로고침해 주세요.';
   count.classList.add('is-error');
 }
@@ -115,24 +118,63 @@ function isBook(b) {
   );
 }
 
+// '2026-10-11', '2026. 10. 11', '2026/10/11' → '2026-10-11'
+function toIsoDate(text) {
+  const m = String(text ?? '').trim().match(/^(\d{4})\s*[-./]\s*(\d{1,2})\s*[-./]\s*(\d{1,2})/);
+  return m ? `${m[1]}-${m[2].padStart(2, '0')}-${m[3].padStart(2, '0')}` : null;
+}
+
+// 시트 한 행 → 책 한 권. 상태 열은 시트 수식이 계산한다('대출 중' / '대출 가능' / '확인 필요').
+function fromSheet(r) {
+  const onLoan = r['상태'] === '대출 중' || r['상태'] === '확인 필요';
+  return {
+    copyId: r['관리번호'],
+    seriesNo: Number(r['전집 권번호']),
+    title: r['제목'],
+    author: r['작가'],
+    translator: r['번역자'],
+    isbn: r['ISBN'],
+    status: onLoan ? 'on_loan' : 'available',
+    dueDate: onLoan ? toIsoDate(r['반납 예정일']) : null,
+  };
+}
+
+// 시트가 연결되어 있으면 시트, 아니면 예시 파일
+async function loadBooks() {
+  let sheet = null;
+  try {
+    sheet = await sheetRows('books', false);
+  } catch {
+    sheet = { status: 'error' };
+  }
+  if (sheet.status === 'ok') {
+    return { syncedAt: sheet.fetchedAt, books: sheet.rows.map(fromSheet), fromSheet: true, fetchedRows: JSON.stringify(sheet.rows) };
+  }
+  if (sheet.status !== 'not_configured') throw new Error('시트를 읽지 못함');
+  const res = await fetch(DATA_URL, { cache: 'no-cache' });
+  if (!res.ok) throw new Error(String(res.status));
+  const data = await res.json();
+  if (!Array.isArray(data.books)) throw new Error('형식 오류');
+  return data;
+}
+
+function sortBooks(list) {
+  return list.filter(isBook).sort((a, b) => a.seriesNo - b.seriesNo || a.copyId.localeCompare(b.copyId));
+}
+
 async function init() {
   let data;
   try {
-    const res = await fetch(DATA_URL, { cache: 'no-cache' });
-    if (!res.ok) throw new Error(String(res.status));
-    data = await res.json();
-    if (!Array.isArray(data.books)) throw new Error('형식 오류');
+    data = await loadBooks();
   } catch {
     showError();
     return;
   }
 
-  books = data.books
-    .filter(isBook)
-    .sort((a, b) => a.seriesNo - b.seriesNo || a.copyId.localeCompare(b.copyId));
+  books = sortBooks(data.books);
 
   const when = formatSynced(data.syncedAt);
-  synced.textContent = when ? `마지막 동기화 ${when}` : '마지막 동기화 시각 알 수 없음';
+  synced.textContent = when ? `마지막으로 시트를 읽은 시각 ${when}` : '마지막으로 시트를 읽은 시각 알 수 없음';
   notice.hidden = data.example !== true;
 
   let timer;
@@ -153,6 +195,21 @@ async function init() {
   });
 
   apply();
+  if (data.fromSheet) refreshFromSheet(data.fetchedRows);
+}
+
+// 저장된 목록으로 먼저 그린 뒤, 시트를 다시 읽어 바뀐 게 있으면 다시 그린다
+async function refreshFromSheet(shownRows) {
+  try {
+    const fresh = await sheetRows('books', true);
+    if (fresh.status !== 'ok' || JSON.stringify(fresh.rows) === shownRows) return;
+    books = sortBooks(fresh.rows.map(fromSheet));
+    const when = formatSynced(fresh.fetchedAt);
+    if (when) synced.textContent = `마지막으로 시트를 읽은 시각 ${when}`;
+    apply();
+  } catch {
+    // 저장된 목록을 계속 보여 준다
+  }
 }
 
 init();

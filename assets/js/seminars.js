@@ -1,8 +1,9 @@
-// 세미나: 일정은 data/seminars.json에서, 인원과 신청·취소는 reservations-api.js로 처리한다.
+// 세미나: 일정은 구글 시트(서버의 sheet_rows)에서, 시트가 연결되기 전에는 data/seminars.json(예시)에서 읽는다.
+// 인원과 신청·취소는 reservations-api.js로 처리한다.
 // 정원(capacity)에는 발제자 1명이 포함된다. 화면 인원 = 서버 신청 수 + 1.
 // 신청자 이름은 어디에도 표시하지 않는다.
 
-import { mode, reserve, cancelReservation, seminarCounts, setMockSeminars } from './reservations-api.js';
+import { mode, reserve, cancelReservation, seminarCounts, setMockSeminars, sheetRows } from './reservations-api.js';
 
 const DATA_URL = 'data/seminars.json';
 const DEFAULT_PLACE = '동아리방';
@@ -316,20 +317,42 @@ async function refreshCounts() {
   }
 }
 
-async function init() {
-  let data;
+// 시트가 연결되어 있으면 시트 일정, 아니면 예시 파일
+async function loadSeminars() {
+  let sheet = null;
   try {
-    const res = await fetch(DATA_URL, { cache: 'no-cache' });
-    if (!res.ok) throw new Error(String(res.status));
-    data = await res.json();
-    if (!Array.isArray(data.seminars)) throw new Error('형식 오류');
+    sheet = await sheetRows('seminars', false);
   } catch {
-    statusLine.textContent = '정보를 불러오지 못했습니다. 잠시 뒤 새로고침해 주세요.';
-    statusLine.classList.add('is-error');
-    return;
+    sheet = { status: 'error' };
   }
+  if (sheet.status === 'ok') {
+    return { syncedAt: sheet.fetchedAt, seminars: sheet.rows, fromSheet: true, fetchedRows: JSON.stringify(sheet.rows) };
+  }
+  if (sheet.status !== 'not_configured') throw new Error('시트를 읽지 못함');
+  const res = await fetch(DATA_URL, { cache: 'no-cache' });
+  if (!res.ok) throw new Error(String(res.status));
+  const data = await res.json();
+  if (!Array.isArray(data.seminars)) throw new Error('형식 오류');
+  return data;
+}
 
-  seminars = data.seminars.filter(
+// 저장된 일정으로 먼저 그린 뒤, 시트를 다시 읽어 바뀐 게 있으면 다시 그린다
+async function refreshFromSheet(shownRows) {
+  try {
+    const fresh = await sheetRows('seminars', true);
+    if (fresh.status !== 'ok' || JSON.stringify(fresh.rows) === shownRows) return;
+    // 입력 중인 양식이 있으면 지우지 않도록 다시 그리지 않는다
+    if ([...document.querySelectorAll('.rsv-form')].some((f) => !f.hidden)) return;
+    seminars = normalize(fresh.rows);
+    await refreshCounts();
+    render();
+  } catch {
+    // 저장된 일정을 계속 보여 준다
+  }
+}
+
+function normalize(list) {
+  const out = list.filter(
     (s) =>
       s &&
       typeof s.id === 'string' &&
@@ -337,7 +360,21 @@ async function init() {
       !Number.isNaN(new Date(s.startsAt).getTime()) &&
       (s.status === 'published' || s.status === 'cancelled'),
   );
-  for (const s of seminars) s.capacity = Number.isInteger(s.capacity) && s.capacity > 1 ? s.capacity : 11;
+  for (const s of out) s.capacity = Number.isInteger(s.capacity) && s.capacity > 1 ? s.capacity : 11;
+  return out;
+}
+
+async function init() {
+  let data;
+  try {
+    data = await loadSeminars();
+  } catch {
+    statusLine.textContent = '정보를 불러오지 못했습니다. 잠시 뒤 새로고침해 주세요.';
+    statusLine.classList.add('is-error');
+    return;
+  }
+
+  seminars = normalize(data.seminars);
 
   notice.hidden = data.example !== true;
   // 예시 일정은 서버에 없는 세미나이므로 실제 서버에는 신청을 보내지 않는다
@@ -351,6 +388,7 @@ async function init() {
   }
 
   await refreshCounts();
+  if (data.fromSheet) refreshFromSheet(data.fetchedRows);
   statusLine.textContent =
     !signupOpen
       ? mode === 'live'

@@ -1,5 +1,7 @@
-// 세미나 신청 서버 호출을 한곳에 모은 모듈.
-// Supabase의 서버 함수 세 개(reserve, cancel_reservation, seminar_counts)만 부른다. 표는 직접 건드리지 않는다.
+// 서버 호출을 한곳에 모은 모듈. Supabase의 공개 함수만 부르고 표는 직접 건드리지 않는다.
+//  - sheet_rows: 구글 시트(세미나 일정·도서 목록)를 서버가 읽어 돌려줌 (supabase/sheets.sql)
+//  - reserve_from_sheet, cancel_from_sheet: 시트의 최신 일정으로 맞춘 뒤 신청·취소
+//  - seminar_counts: 세미나별 신청 수
 //
 // config.js가 비어 있을 때:
 //  - localhost에서는 가짜 응답(메모리)으로 동작한다. 주소 뒤에 ?mock=결과 를 붙이면 모든 호출이 그 결과를 돌려준다.
@@ -90,12 +92,22 @@ function call(fn, args) {
 
 // 결과: 'ok' | 'duplicate' | 'full' | 'closed' | 'invalid'
 export function reserve(seminarId, name, pin) {
-  return call('reserve', { p_seminar_id: seminarId, p_name: name, p_pin: pin });
+  const args = { p_seminar_id: seminarId, p_name: name, p_pin: pin };
+  return mode === 'live' ? rpc('reserve_from_sheet', args) : call('reserve', args);
 }
 
 // 결과: 'ok' | 'not_found' | 'closed'
 export function cancelReservation(seminarId, name, pin) {
-  return call('cancel_reservation', { p_seminar_id: seminarId, p_name: name, p_pin: pin });
+  const args = { p_seminar_id: seminarId, p_name: name, p_pin: pin };
+  return mode === 'live' ? rpc('cancel_from_sheet', args) : call('cancel_reservation', args);
+}
+
+// 구글 시트 데이터. 결과: { status: 'ok', fetchedAt, rows } | { status: 'not_configured' } | { status: 'error' }
+// 서버가 연결되지 않았으면(내 컴퓨터의 가짜 응답 모드 포함) not_configured → 화면은 예시 데이터를 쓴다.
+// fresh=false: 서버에 저장된 값을 바로 받음(빠름) / fresh=true: 필요하면 시트를 다시 읽음(몇 초)
+export async function sheetRows(kind, fresh = true) {
+  if (mode !== 'live') return { status: 'not_configured' };
+  return rpc('sheet_rows', { p_kind: kind, p_fresh: fresh });
 }
 
 // 결과: Map(seminar_id → 신청 수, 발제자 제외)
