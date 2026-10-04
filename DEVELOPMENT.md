@@ -207,7 +207,7 @@ supabase/
 
 `scripts/update-quote.mjs`와 `.github/workflows/daily-quote.yml`이 있습니다. 동작 규칙은 README에 있습니다. 가짜 서버로 정상·같은 날 재실행·실패·중복 문장은 확인했지만, **실제 API 호출과 GitHub에서의 실행은 아직 확인하지 못했습니다.** 저장소에 올린 뒤 수동 실행으로 확인하고, 결과를 README에 반영합니다.
 
-### 7.2 시트 동기화 (`sync-sheets.mjs`, `sync-sheets.yml`)
+### 7.2 시트 연동 (`supabase/sheets.sql`)
 
 (2026-10-04 사용자 결정으로 변경) GitHub Actions를 쓰지 않습니다. Supabase가 구글 시트의 CSV(링크 공유 시트의 export 주소, 또는 '웹에 게시' 주소)를 최대 1분 간격으로 직접 읽어 저장하고, 사이트는 서버 함수 `sheet_rows`로 받아 그립니다(`supabase/sheets.sql`). 세미나는 기존 「26-2 주간세미나」 시트1 형식을 그대로 읽고(ID는 날짜), 신청·취소 전에 서버가 시트로 일정을 맞춥니다. 대출은 '도서 목록' 탭만 웹에 게시하고 상태는 시트 수식으로 계산합니다. 아래 세부 규칙 중 Actions·커밋에 관한 내용은 더 이상 적용하지 않습니다.
 
