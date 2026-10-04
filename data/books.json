@@ -1,17 +1,4856 @@
 {
-  "example": true,
-  "syncedAt": "2026-10-04T12:00:00.000Z",
-  "books": [
-    { "copyId": "M-001-1", "seriesNo": 1, "title": "변신 이야기 1", "author": "오비디우스", "translator": "이윤기", "isbn": "", "status": "available", "dueDate": null },
-    { "copyId": "M-002-1", "seriesNo": 2, "title": "변신 이야기 2", "author": "오비디우스", "translator": "이윤기", "isbn": "", "status": "on_loan", "dueDate": "2026-10-11" },
-    { "copyId": "M-003-1", "seriesNo": 3, "title": "햄릿", "author": "윌리엄 셰익스피어", "translator": "최종철", "isbn": "", "status": "available", "dueDate": null },
-    { "copyId": "M-004-1", "seriesNo": 4, "title": "변신·시골의사", "author": "프란츠 카프카", "translator": "전영애", "isbn": "", "status": "on_loan", "dueDate": "2026-10-08" },
-    { "copyId": "M-005-1", "seriesNo": 5, "title": "동물농장", "author": "조지 오웰", "translator": "도정일", "isbn": "", "status": "available", "dueDate": null },
-    { "copyId": "M-006-1", "seriesNo": 6, "title": "허클베리 핀의 모험", "author": "마크 트웨인", "translator": "김욱동", "isbn": "", "status": "available", "dueDate": null },
-    { "copyId": "M-007-1", "seriesNo": 7, "title": "암흑의 핵심", "author": "조지프 콘래드", "translator": "이상옥", "isbn": "", "status": "on_loan", "dueDate": "2026-10-15" },
-    { "copyId": "M-008-1", "seriesNo": 8, "title": "토니오 크뢰거·트리스탄·베니스에서의 죽음", "author": "토마스 만", "translator": "안삼환 외", "isbn": "", "status": "available", "dueDate": null },
-    { "copyId": "M-009-1", "seriesNo": 9, "title": "문학이란 무엇인가", "author": "장폴 사르트르", "translator": "정명환", "isbn": "", "status": "available", "dueDate": null },
-    { "copyId": "M-010-1", "seriesNo": 10, "title": "데미안", "author": "헤르만 헤세", "translator": "전영애", "isbn": "", "status": "on_loan", "dueDate": "2026-10-09" },
-    { "copyId": "M-010-2", "seriesNo": 10, "title": "데미안", "author": "헤르만 헤세", "translator": "전영애", "isbn": "", "status": "available", "dueDate": null }
-  ]
+ "example": true,
+ "syncedAt": "2026-10-04T12:00:00.000Z",
+ "books": [
+  {
+   "copyId": "M-001-1",
+   "seriesNo": 1,
+   "title": "변신 이야기 1",
+   "author": "오비디우스",
+   "translator": "이윤기",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-002-1",
+   "seriesNo": 2,
+   "title": "변신 이야기 2",
+   "author": "오비디우스",
+   "translator": "이윤기",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-003-1",
+   "seriesNo": 3,
+   "title": "햄릿",
+   "author": "윌리엄 셰익스피어",
+   "translator": "최종철",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-004-1",
+   "seriesNo": 4,
+   "title": "변신, 시골의사",
+   "author": "프란츠 카프카",
+   "translator": "전영애",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-005-1",
+   "seriesNo": 5,
+   "title": "동물농장",
+   "author": "조지 오웰",
+   "translator": "도정일",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-006-1",
+   "seriesNo": 6,
+   "title": "허클베리 핀의 모험",
+   "author": "마크 트웨인",
+   "translator": "김욱동",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-007-1",
+   "seriesNo": 7,
+   "title": "암흑의 핵심",
+   "author": "조지프 콘래드",
+   "translator": "이상옥",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-008-1",
+   "seriesNo": 8,
+   "title": "토니오 크뢰거, 트리스탄, 베니스에서의 죽음",
+   "author": "토마스 만",
+   "translator": "임홍배, 안삼환, 한성자, 박동자",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-15"
+  },
+  {
+   "copyId": "M-009-1",
+   "seriesNo": 9,
+   "title": "문학이란 무엇인가",
+   "author": "장폴 사르트르",
+   "translator": "정명환",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-010-1",
+   "seriesNo": 10,
+   "title": "한국단편문학선 1",
+   "author": "김동인, 현진건, 이광수, 나도향, 최서해, 채만식, 이상, 이효석, 이태준, 정비석, 염상섭, 이남호, 김유정",
+   "translator": "",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-011-1",
+   "seriesNo": 11,
+   "title": "인간의 굴레에서 1",
+   "author": "서머싯 몸",
+   "translator": "송무",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-012-1",
+   "seriesNo": 12,
+   "title": "인간의 굴레에서 2",
+   "author": "서머싯 몸",
+   "translator": "송무",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-013-1",
+   "seriesNo": 13,
+   "title": "이반 데니소비치, 수용소의 하루",
+   "author": "알렉산드르 솔제니친",
+   "translator": "이영의",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-014-1",
+   "seriesNo": 14,
+   "title": "너새니얼 호손 단편선",
+   "author": "너새니얼 호손",
+   "translator": "천승걸",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-015-1",
+   "seriesNo": 15,
+   "title": "나의 미카엘",
+   "author": "아모스 오즈",
+   "translator": "최창모",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-016-1",
+   "seriesNo": 16,
+   "title": "중국신화전설 1",
+   "author": "위앤커",
+   "translator": "전인초, 김선자",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-08"
+  },
+  {
+   "copyId": "M-017-1",
+   "seriesNo": 17,
+   "title": "중국신화전설 2",
+   "author": "위앤커",
+   "translator": "전인초, 김선자",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-018-1",
+   "seriesNo": 18,
+   "title": "고리오 영감",
+   "author": "오노레 드 발자크",
+   "translator": "박영근",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-019-1",
+   "seriesNo": 19,
+   "title": "파리대왕",
+   "author": "윌리엄 골딩",
+   "translator": "유종호",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-13"
+  },
+  {
+   "copyId": "M-020-1",
+   "seriesNo": 20,
+   "title": "한국단편문학선 2",
+   "author": "김동리, 황순원, 오영수, 손창섭, 정한숙, 이호철, 장용학, 서기원, 박경리, 강신재, 선우휘, 이남호",
+   "translator": "",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-021-1",
+   "seriesNo": 21,
+   "title": "파우스트 1",
+   "author": "요한 볼프강 폰 괴테",
+   "translator": "정서웅",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-022-1",
+   "seriesNo": 22,
+   "title": "파우스트 2",
+   "author": "요한 볼프강 폰 괴테",
+   "translator": "정서웅",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-023-1",
+   "seriesNo": 23,
+   "title": "빌헬름 마이스터의 수업시대 1",
+   "author": "요한 볼프강 폰 괴테",
+   "translator": "안삼환",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-024-1",
+   "seriesNo": 24,
+   "title": "빌헬름 마이스터의 수업시대 2",
+   "author": "요한 볼프강 폰 괴테",
+   "translator": "안삼환",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-025-1",
+   "seriesNo": 25,
+   "title": "젊은 베르테르의 슬픔",
+   "author": "요한 볼프강 폰 괴테",
+   "translator": "박찬기",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-026-1",
+   "seriesNo": 26,
+   "title": "이피게니에, 스텔라",
+   "author": "요한 볼프강 폰 괴테",
+   "translator": "박찬기, 김주연, 송윤엽, 최민숙, 최승수",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-027-1",
+   "seriesNo": 27,
+   "title": "다섯째 아이",
+   "author": "도리스 레싱",
+   "translator": "정덕애",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-17"
+  },
+  {
+   "copyId": "M-028-1",
+   "seriesNo": 28,
+   "title": "삶의 한가운데",
+   "author": "루이제 린저",
+   "translator": "박찬일",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-029-1",
+   "seriesNo": 29,
+   "title": "농담",
+   "author": "밀란 쿤데라",
+   "translator": "방미경",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-030-1",
+   "seriesNo": 30,
+   "title": "야성의 부름",
+   "author": "잭 런던",
+   "translator": "권택영",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-11"
+  },
+  {
+   "copyId": "M-031-1",
+   "seriesNo": 31,
+   "title": "아메리칸",
+   "author": "헨리 제임스",
+   "translator": "최경도",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-032-1",
+   "seriesNo": 32,
+   "title": "양철북 1",
+   "author": "귄터 그라스",
+   "translator": "장희창",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-033-1",
+   "seriesNo": 33,
+   "title": "양철북 2",
+   "author": "귄터 그라스",
+   "translator": "장희창",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-034-1",
+   "seriesNo": 34,
+   "title": "백년의 고독 1",
+   "author": "가브리엘 가르시아 마르케스",
+   "translator": "조구호",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-035-1",
+   "seriesNo": 35,
+   "title": "백년의 고독 2",
+   "author": "가브리엘 가르시아 마르케스",
+   "translator": "조구호",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-036-1",
+   "seriesNo": 36,
+   "title": "마담 보바리",
+   "author": "귀스타브 플로베르",
+   "translator": "김화영",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-037-1",
+   "seriesNo": 37,
+   "title": "거미여인의 키스",
+   "author": "마누엘 푸익",
+   "translator": "송병선",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-038-1",
+   "seriesNo": 38,
+   "title": "달과 6펜스",
+   "author": "서머싯 몸",
+   "translator": "송무",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-15"
+  },
+  {
+   "copyId": "M-039-1",
+   "seriesNo": 39,
+   "title": "폴란드의 풍차",
+   "author": "장 지오노",
+   "translator": "박인철",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-040-1",
+   "seriesNo": 40,
+   "title": "독일어 시간 1",
+   "author": "지그프리트 렌츠",
+   "translator": "정서웅",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-041-1",
+   "seriesNo": 41,
+   "title": "독일어 시간 2",
+   "author": "지그프리트 렌츠",
+   "translator": "정서웅",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-09"
+  },
+  {
+   "copyId": "M-042-1",
+   "seriesNo": 42,
+   "title": "말테의 수기",
+   "author": "라이너 마리아 릴케",
+   "translator": "문현미",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-043-1",
+   "seriesNo": 43,
+   "title": "고도를 기다리며",
+   "author": "사뮈엘 베케트",
+   "translator": "오증자",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-044-1",
+   "seriesNo": 44,
+   "title": "데미안",
+   "author": "헤르만 헤세",
+   "translator": "전영애",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-044-2",
+   "seriesNo": 44,
+   "title": "데미안",
+   "author": "헤르만 헤세",
+   "translator": "전영애",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-045-1",
+   "seriesNo": 45,
+   "title": "젊은 예술가의 초상",
+   "author": "제임스 조이스",
+   "translator": "이상옥",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-046-1",
+   "seriesNo": 46,
+   "title": "카탈로니아 찬가",
+   "author": "조지 오웰",
+   "translator": "정영목",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-047-1",
+   "seriesNo": 47,
+   "title": "호밀밭의 파수꾼",
+   "author": "제롬 데이비드 샐린저",
+   "translator": "정영목",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-048-1",
+   "seriesNo": 48,
+   "title": "파르마의 수도원 1",
+   "author": "스탕달",
+   "translator": "원윤수, 임미경",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-049-1",
+   "seriesNo": 49,
+   "title": "파르마의 수도원 2",
+   "author": "스탕달",
+   "translator": "원윤수, 임미경",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-13"
+  },
+  {
+   "copyId": "M-050-1",
+   "seriesNo": 50,
+   "title": "수레바퀴 아래서",
+   "author": "헤르만 헤세",
+   "translator": "김이섭",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-053-1",
+   "seriesNo": 53,
+   "title": "오셀로",
+   "author": "윌리엄 셰익스피어",
+   "translator": "최종철",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-054-1",
+   "seriesNo": 54,
+   "title": "조서",
+   "author": "르 클레지오",
+   "translator": "김윤진",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-056-1",
+   "seriesNo": 56,
+   "title": "부덴브로크 가의 사람들 1",
+   "author": "토마스 만",
+   "translator": "홍성광",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-057-1",
+   "seriesNo": 57,
+   "title": "부덴브로크 가의 사람들 2",
+   "author": "토마스 만",
+   "translator": "홍성광",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-059-1",
+   "seriesNo": 59,
+   "title": "아들과 연인 1",
+   "author": "D. H. 로렌스",
+   "translator": "정상준",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-060-1",
+   "seriesNo": 60,
+   "title": "아들과 연인 2",
+   "author": "D. H. 로렌스",
+   "translator": "정상준",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-11"
+  },
+  {
+   "copyId": "M-061-1",
+   "seriesNo": 61,
+   "title": "설국",
+   "author": "가와바타 야스나리",
+   "translator": "유숙자",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-062-1",
+   "seriesNo": 62,
+   "title": "벨킨 이야기, 스페이드 여왕",
+   "author": "알렉산드르 푸시킨",
+   "translator": "최선",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-063-1",
+   "seriesNo": 63,
+   "title": "넙치 1",
+   "author": "귄터 그라스",
+   "translator": "김재혁",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-064-1",
+   "seriesNo": 64,
+   "title": "넙치 2",
+   "author": "귄터 그라스",
+   "translator": "김재혁",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-065-1",
+   "seriesNo": 65,
+   "title": "소망 없는 불행",
+   "author": "페터 한트케",
+   "translator": "윤용호",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-066-1",
+   "seriesNo": 66,
+   "title": "나르치스와 골드문트",
+   "author": "헤르만 헤세",
+   "translator": "임홍배",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-067-1",
+   "seriesNo": 67,
+   "title": "황야의 이리",
+   "author": "헤르만 헤세",
+   "translator": "김누리",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-068-1",
+   "seriesNo": 68,
+   "title": "페테르부르크 이야기",
+   "author": "니콜라이 고골",
+   "translator": "조주관",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-069-1",
+   "seriesNo": 69,
+   "title": "밤으로의 긴 여로",
+   "author": "유진 오닐",
+   "translator": "민승남",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-070-1",
+   "seriesNo": 70,
+   "title": "체호프 단편선",
+   "author": "안톤 체호프",
+   "translator": "박현섭",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-071-1",
+   "seriesNo": 71,
+   "title": "버스 정류장",
+   "author": "가오싱젠",
+   "translator": "오수경",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-13"
+  },
+  {
+   "copyId": "M-072-1",
+   "seriesNo": 72,
+   "title": "구운몽",
+   "author": "김만중",
+   "translator": "송성욱",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-073-1",
+   "seriesNo": 73,
+   "title": "대머리 여가수",
+   "author": "외젠 이오네스코",
+   "translator": "오세곤",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-074-1",
+   "seriesNo": 74,
+   "title": "이솝 우화집",
+   "author": "이솝",
+   "translator": "유종호",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-075-1",
+   "seriesNo": 75,
+   "title": "위대한 개츠비",
+   "author": "F. 스콧 피츠제럴드",
+   "translator": "김욱동",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-076-1",
+   "seriesNo": 76,
+   "title": "푸른 꽃",
+   "author": "노발리스",
+   "translator": "김재혁",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-077-1",
+   "seriesNo": 77,
+   "title": "1984",
+   "author": "조지 오웰",
+   "translator": "정회성",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-078-1",
+   "seriesNo": 78,
+   "title": "영혼의 집 1",
+   "author": "이사벨 아옌데",
+   "translator": "권미선",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-079-1",
+   "seriesNo": 79,
+   "title": "영혼의 집 2",
+   "author": "이사벨 아옌데",
+   "translator": "권미선",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-17"
+  },
+  {
+   "copyId": "M-080-1",
+   "seriesNo": 80,
+   "title": "첫사랑",
+   "author": "이반 세르게예비치 투르게네프",
+   "translator": "이항재",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-081-1",
+   "seriesNo": 81,
+   "title": "내가 죽어 누워 있을 때",
+   "author": "윌리엄 포크너",
+   "translator": "김명주",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-082-1",
+   "seriesNo": 82,
+   "title": "런던 스케치",
+   "author": "도리스 레싱",
+   "translator": "서숙",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-11"
+  },
+  {
+   "copyId": "M-083-1",
+   "seriesNo": 83,
+   "title": "팡세",
+   "author": "파스칼",
+   "translator": "이환",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-084-1",
+   "seriesNo": 84,
+   "title": "질투",
+   "author": "로브그리예",
+   "translator": "박이문, 박희원",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-085-1",
+   "seriesNo": 85,
+   "title": "채털리 부인의 연인 1",
+   "author": "D. H. 로렌스",
+   "translator": "이인규",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-086-1",
+   "seriesNo": 86,
+   "title": "채털리 부인의 연인 2",
+   "author": "D. H. 로렌스",
+   "translator": "이인규",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-087-1",
+   "seriesNo": 87,
+   "title": "그 후",
+   "author": "나쓰메 소세키",
+   "translator": "",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-088-1",
+   "seriesNo": 88,
+   "title": "오만과 편견",
+   "author": "제인 오스틴",
+   "translator": "윤지관, 전승희",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-089-1",
+   "seriesNo": 89,
+   "title": "부활 1",
+   "author": "레프 니콜라예비치 톨스토이",
+   "translator": "연진희",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-090-1",
+   "seriesNo": 90,
+   "title": "부활 2",
+   "author": "레프 니콜라예비치 톨스토이",
+   "translator": "연진희",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-15"
+  },
+  {
+   "copyId": "M-091-1",
+   "seriesNo": 91,
+   "title": "방드르디, 태평양의 끝",
+   "author": "미셸 투르니에",
+   "translator": "김화영",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-092-1",
+   "seriesNo": 92,
+   "title": "미겔 스트리트",
+   "author": "V. S. 나이폴",
+   "translator": "이상옥",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-093-1",
+   "seriesNo": 93,
+   "title": "페드로 파라모",
+   "author": "후안 룰포",
+   "translator": "정창",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-09"
+  },
+  {
+   "copyId": "M-094-1",
+   "seriesNo": 94,
+   "title": "차라투스트라는 이렇게 말했다",
+   "author": "프리드리히 니체",
+   "translator": "장희창",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-096-1",
+   "seriesNo": 96,
+   "title": "적과 흑 2",
+   "author": "스탕달",
+   "translator": "이동렬",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-097-1",
+   "seriesNo": 97,
+   "title": "콜레라 시대의 사랑 1",
+   "author": "가브리엘 가르시아 마르케스",
+   "translator": "송병선",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-098-1",
+   "seriesNo": 98,
+   "title": "콜레라 시대의 사랑 2",
+   "author": "가브리엘 가르시아 마르케스",
+   "translator": "송병선",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-099-1",
+   "seriesNo": 99,
+   "title": "맥베스",
+   "author": "윌리엄 셰익스피어",
+   "translator": "최종철",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-100-1",
+   "seriesNo": 100,
+   "title": "춘향전",
+   "author": "백범영, 미상",
+   "translator": "송성욱",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-101-1",
+   "seriesNo": 101,
+   "title": "페르디두르케",
+   "author": "비톨트 곰브로비치",
+   "translator": "윤진",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-13"
+  },
+  {
+   "copyId": "M-102-1",
+   "seriesNo": 102,
+   "title": "포르노그라피아",
+   "author": "비톨트 곰브로비치",
+   "translator": "임미경",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-103-1",
+   "seriesNo": 103,
+   "title": "인간 실격",
+   "author": "다자이 오사무",
+   "translator": "김춘미",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-104-1",
+   "seriesNo": 104,
+   "title": "네루다의 우편배달부",
+   "author": "안토니오 스카르메타",
+   "translator": "우석균",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-08"
+  },
+  {
+   "copyId": "M-105-1",
+   "seriesNo": 105,
+   "title": "이탈리아 기행 1",
+   "author": "요한 볼프강 폰 괴테",
+   "translator": "박찬기, 이봉무, 주경순",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-106-1",
+   "seriesNo": 106,
+   "title": "이탈리아 기행 2",
+   "author": "요한 볼프강 폰 괴테",
+   "translator": "박찬기, 주경순, 이봉무",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-107-1",
+   "seriesNo": 107,
+   "title": "나무 위의 남작",
+   "author": "이탈로 칼비노",
+   "translator": "이현경",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-108-1",
+   "seriesNo": 108,
+   "title": "달콤 쌉싸름한 초콜릿",
+   "author": "라우라 에스키벨",
+   "translator": "권미선",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-109-1",
+   "seriesNo": 109,
+   "title": "제인 에어 1",
+   "author": "샬럿 브론테",
+   "translator": "유종호",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-110-1",
+   "seriesNo": 110,
+   "title": "제인 에어 2",
+   "author": "샬럿 브론테",
+   "translator": "유종호",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-111-1",
+   "seriesNo": 111,
+   "title": "크눌프",
+   "author": "헤르만 헤세",
+   "translator": "이노은",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-112-1",
+   "seriesNo": 112,
+   "title": "시계태엽 오렌지",
+   "author": "앤서니 버지스",
+   "translator": "박시영",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-11"
+  },
+  {
+   "copyId": "M-113-1",
+   "seriesNo": 113,
+   "title": "파리의 노트르담 1",
+   "author": "빅토르 위고",
+   "translator": "정기수",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-114-1",
+   "seriesNo": 114,
+   "title": "파리의 노트르담 2",
+   "author": "빅토르 위고",
+   "translator": "정기수",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-115-1",
+   "seriesNo": 115,
+   "title": "새로운 인생",
+   "author": "단테 알리기에리, 단테 가브리엘 로세티",
+   "translator": "박우수",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-116-1",
+   "seriesNo": 116,
+   "title": "로드 짐 1",
+   "author": "조지프 콘래드",
+   "translator": "이상옥",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-117-1",
+   "seriesNo": 117,
+   "title": "로드 짐 2",
+   "author": "조지프 콘래드",
+   "translator": "이상옥",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-118-1",
+   "seriesNo": 118,
+   "title": "폭풍의 언덕",
+   "author": "에밀리 브론테",
+   "translator": "김종길",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-119-1",
+   "seriesNo": 119,
+   "title": "텔크테에서의 만남",
+   "author": "귄터 그라스",
+   "translator": "안삼환",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-120-1",
+   "seriesNo": 120,
+   "title": "검찰관",
+   "author": "니콜라이 고골",
+   "translator": "조주관",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-121-1",
+   "seriesNo": 121,
+   "title": "안개",
+   "author": "미겔 데 우나무노",
+   "translator": "조민현",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-122-1",
+   "seriesNo": 122,
+   "title": "나사의 회전",
+   "author": "헨리 제임스",
+   "translator": "최경도",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-123-1",
+   "seriesNo": 123,
+   "title": "피츠제럴드 단편선 1",
+   "author": "F. 스콧 피츠제럴드",
+   "translator": "김욱동",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-09"
+  },
+  {
+   "copyId": "M-124-1",
+   "seriesNo": 124,
+   "title": "목화밭의 고독 속에서",
+   "author": "베르나르마리 콜테스",
+   "translator": "임수현",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-125-1",
+   "seriesNo": 125,
+   "title": "돼지꿈",
+   "author": "황석영",
+   "translator": "",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-126-1",
+   "seriesNo": 126,
+   "title": "라셀라스",
+   "author": "새뮤얼 존슨",
+   "translator": "이인규",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-127-1",
+   "seriesNo": 127,
+   "title": "리어 왕",
+   "author": "윌리엄 셰익스피어",
+   "translator": "최종철",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-128-1",
+   "seriesNo": 128,
+   "title": "쿠오 바디스 1",
+   "author": "헨릭 시엔키에비츠",
+   "translator": "최성은",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-129-1",
+   "seriesNo": 129,
+   "title": "쿠오 바디스 2",
+   "author": "헨릭 시엔키에비츠",
+   "translator": "최성은",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-130-1",
+   "seriesNo": 130,
+   "title": "자기만의 방·3기니 (세계문학전집)",
+   "author": "버지니아 울프",
+   "translator": "이미애",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-131-1",
+   "seriesNo": 131,
+   "title": "시르트의 바닷가",
+   "author": "쥘리앙 그라크",
+   "translator": "송진석",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-17"
+  },
+  {
+   "copyId": "M-132-1",
+   "seriesNo": 132,
+   "title": "이성과 감성",
+   "author": "제인 오스틴",
+   "translator": "윤지관",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-133-1",
+   "seriesNo": 133,
+   "title": "바덴바덴에서의 여름",
+   "author": "레오니드 치프킨",
+   "translator": "이장욱",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-134-1",
+   "seriesNo": 134,
+   "title": "새로운 인생",
+   "author": "오르한 파묵",
+   "translator": "이난아",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-11"
+  },
+  {
+   "copyId": "M-135-1",
+   "seriesNo": 135,
+   "title": "무지개 1",
+   "author": "D. H. 로렌스",
+   "translator": "김정매",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-136-1",
+   "seriesNo": 136,
+   "title": "무지개 2",
+   "author": "D. H. 로렌스",
+   "translator": "김정매",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-137-1",
+   "seriesNo": 137,
+   "title": "인생의 베일",
+   "author": "서머싯 몸",
+   "translator": "황소연",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-138-1",
+   "seriesNo": 138,
+   "title": "보이지 않는 도시들",
+   "author": "이탈로 칼비노",
+   "translator": "이현경",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-139-1",
+   "seriesNo": 139,
+   "title": "연초 도매상 1",
+   "author": "존 바스",
+   "translator": "이운경",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-140-1",
+   "seriesNo": 140,
+   "title": "연초 도매상 2",
+   "author": "존 바스",
+   "translator": "이운경",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-141-1",
+   "seriesNo": 141,
+   "title": "연초 도매상 3",
+   "author": "존 바스",
+   "translator": "이운경",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-142-1",
+   "seriesNo": 142,
+   "title": "플로스 강의 물방앗간 1",
+   "author": "조지 엘리엇",
+   "translator": "한애경, 이봉지",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-15"
+  },
+  {
+   "copyId": "M-143-1",
+   "seriesNo": 143,
+   "title": "플로스 강의 물방앗간 2",
+   "author": "조지 엘리엇",
+   "translator": "한애경, 이봉지",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-144-1",
+   "seriesNo": 144,
+   "title": "연인",
+   "author": "마르그리트 뒤라스",
+   "translator": "김인환",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-145-1",
+   "seriesNo": 145,
+   "title": "이름 없는 주드 1",
+   "author": "토머스 하디",
+   "translator": "정종화",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-09"
+  },
+  {
+   "copyId": "M-146-1",
+   "seriesNo": 146,
+   "title": "이름 없는 주드 2",
+   "author": "토머스 하디",
+   "translator": "정종화",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-147-1",
+   "seriesNo": 147,
+   "title": "제49호 품목의 경매",
+   "author": "토머스 핀천",
+   "translator": "김성곤",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-148-1",
+   "seriesNo": 148,
+   "title": "성역",
+   "author": "윌리엄 포크너",
+   "translator": "이진준",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-149-1",
+   "seriesNo": 149,
+   "title": "무진기행",
+   "author": "김승옥",
+   "translator": "",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-150-1",
+   "seriesNo": 150,
+   "title": "신곡 1",
+   "author": "단테 알리기에리",
+   "translator": "박상진",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-152-1",
+   "seriesNo": 152,
+   "title": "신곡 3",
+   "author": "단테 알리기에리",
+   "translator": "박상진",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-153-1",
+   "seriesNo": 153,
+   "title": "구덩이",
+   "author": "안드레이 플라토노프",
+   "translator": "정보라",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-13"
+  },
+  {
+   "copyId": "M-154-1",
+   "seriesNo": 154,
+   "title": "카라마조프가의 형제들 1",
+   "author": "표도르 도스토옙스키",
+   "translator": "김연경",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-155-1",
+   "seriesNo": 155,
+   "title": "카라마조프가의 형제들 2",
+   "author": "표도르 도스토옙스키",
+   "translator": "김연경",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-156-1",
+   "seriesNo": 156,
+   "title": "카라마조프가의 형제들 3",
+   "author": "표도르 도스토옙스키",
+   "translator": "김연경",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-08"
+  },
+  {
+   "copyId": "M-157-1",
+   "seriesNo": 157,
+   "title": "지상의 양식",
+   "author": "앙드레 지드",
+   "translator": "김화영",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-158-1",
+   "seriesNo": 158,
+   "title": "밤의 군대들",
+   "author": "노먼 메일러",
+   "translator": "권택영",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-159-1",
+   "seriesNo": 159,
+   "title": "주홍 글자",
+   "author": "너새니얼 호손",
+   "translator": "김욱동",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-160-1",
+   "seriesNo": 160,
+   "title": "깊은 강",
+   "author": "엔도 슈사쿠",
+   "translator": "유숙자",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-161-1",
+   "seriesNo": 161,
+   "title": "욕망이라는 이름의 전차",
+   "author": "테네시 윌리엄스",
+   "translator": "김소임",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-162-1",
+   "seriesNo": 162,
+   "title": "마사 퀘스트",
+   "author": "도리스 레싱",
+   "translator": "나영균",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-163-1",
+   "seriesNo": 163,
+   "title": "운명의 딸 1",
+   "author": "이사벨 아옌데",
+   "translator": "권미선",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-164-1",
+   "seriesNo": 164,
+   "title": "운명의 딸 2",
+   "author": "이사벨 아옌데",
+   "translator": "권미선",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-11"
+  },
+  {
+   "copyId": "M-165-1",
+   "seriesNo": 165,
+   "title": "모렐의 발명",
+   "author": "아돌포 비오이 카사레스",
+   "translator": "송병선",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-167-1",
+   "seriesNo": 167,
+   "title": "풀잎은 노래한다",
+   "author": "도리스 레싱",
+   "translator": "이태동",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-168-1",
+   "seriesNo": 168,
+   "title": "파리의 우울",
+   "author": "보들레르",
+   "translator": "윤영애",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-169-1",
+   "seriesNo": 169,
+   "title": "포스트맨은 벨을 두 번 울린다",
+   "author": "제임스 M. 케인",
+   "translator": "이만식",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-170-1",
+   "seriesNo": 170,
+   "title": "썩은 잎",
+   "author": "가브리엘 가르시아 마르케스",
+   "translator": "송병선",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-171-1",
+   "seriesNo": 171,
+   "title": "모든 것이 산산이 부서지다",
+   "author": "치누아 아체베",
+   "translator": "조규형",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-172-1",
+   "seriesNo": 172,
+   "title": "한여름 밤의 꿈",
+   "author": "윌리엄 셰익스피어",
+   "translator": "최종철",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-173-1",
+   "seriesNo": 173,
+   "title": "로미오와 줄리엣",
+   "author": "윌리엄 셰익스피어",
+   "translator": "최종철",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-174-1",
+   "seriesNo": 174,
+   "title": "분노의 포도 1",
+   "author": "존 스타인벡",
+   "translator": "김승욱",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-175-1",
+   "seriesNo": 175,
+   "title": "분노의 포도 2",
+   "author": "존 스타인벡",
+   "translator": "김승욱",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-09"
+  },
+  {
+   "copyId": "M-176-1",
+   "seriesNo": 176,
+   "title": "괴테와의 대화 1",
+   "author": "요한 페터 에커만",
+   "translator": "장희창",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-177-1",
+   "seriesNo": 177,
+   "title": "괴테와의 대화 2",
+   "author": "요한 페터 에커만",
+   "translator": "장희창",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-178-1",
+   "seriesNo": 178,
+   "title": "그물을 헤치고",
+   "author": "아이리스 머독",
+   "translator": "유종호",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-179-1",
+   "seriesNo": 179,
+   "title": "브람스를 좋아하세요...",
+   "author": "프랑수아즈 사강",
+   "translator": "김남주",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-180-1",
+   "seriesNo": 180,
+   "title": "카타리나 블룸의 잃어버린 명예",
+   "author": "하인리히 뵐",
+   "translator": "김연수",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-181-1",
+   "seriesNo": 181,
+   "title": "에덴의 동쪽 1",
+   "author": "존 스타인벡",
+   "translator": "정회성",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-182-1",
+   "seriesNo": 182,
+   "title": "에덴의 동쪽 2",
+   "author": "존 스타인벡",
+   "translator": "정회성",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-183-1",
+   "seriesNo": 183,
+   "title": "순수의 시대",
+   "author": "이디스 워튼",
+   "translator": "송은주",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-184-1",
+   "seriesNo": 184,
+   "title": "도둑 일기",
+   "author": "장 주네",
+   "translator": "박형섭",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-185-1",
+   "seriesNo": 185,
+   "title": "나자",
+   "author": "앙드레 브르통",
+   "translator": "오생근",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-186-1",
+   "seriesNo": 186,
+   "title": "캐치-22 1",
+   "author": "조지프 헬러",
+   "translator": "안정효",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-11"
+  },
+  {
+   "copyId": "M-187-1",
+   "seriesNo": 187,
+   "title": "캐치-22 2",
+   "author": "조지프 헬러",
+   "translator": "안정효",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-188-1",
+   "seriesNo": 188,
+   "title": "숄로호프 단편선",
+   "author": "미하일 알렉산드로비치 숄로호프",
+   "translator": "이항재",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-189-1",
+   "seriesNo": 189,
+   "title": "말",
+   "author": "장폴 사르트르",
+   "translator": "정명환",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-190-1",
+   "seriesNo": 190,
+   "title": "보이지 않는 인간 1",
+   "author": "랠프 엘리슨",
+   "translator": "조영환",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-191-1",
+   "seriesNo": 191,
+   "title": "보이지 않는 인간 2",
+   "author": "랠프 엘리슨",
+   "translator": "조영환",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-192-1",
+   "seriesNo": 192,
+   "title": "왑샷 가문 연대기",
+   "author": "존 치버",
+   "translator": "김승욱",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-193-1",
+   "seriesNo": 193,
+   "title": "왑샷 가문 몰락기",
+   "author": "존 치버",
+   "translator": "김승욱",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-194-1",
+   "seriesNo": 194,
+   "title": "필립과 다른 사람들",
+   "author": "세스 노터봄",
+   "translator": "지명숙",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-15"
+  },
+  {
+   "copyId": "M-195-1",
+   "seriesNo": 195,
+   "title": "하드리아누스 황제의 회상록 1",
+   "author": "마르그리트 유르스나르",
+   "translator": "곽광수",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-196-1",
+   "seriesNo": 196,
+   "title": "하드리아누스 황제의 회상록 2",
+   "author": "마르그리트 유르스나르",
+   "translator": "곽광수",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-197-1",
+   "seriesNo": 197,
+   "title": "소피의 선택 1",
+   "author": "윌리엄 스타이런",
+   "translator": "한정아",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-09"
+  },
+  {
+   "copyId": "M-198-1",
+   "seriesNo": 198,
+   "title": "소피의 선택 2",
+   "author": "윌리엄 스타이런",
+   "translator": "한정아",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-199-1",
+   "seriesNo": 199,
+   "title": "피츠제럴드 단편선 2",
+   "author": "F. 스콧 피츠제럴드",
+   "translator": "한은경",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-200-1",
+   "seriesNo": 200,
+   "title": "홍길동전",
+   "author": "허균, 백범영",
+   "translator": "김탁환",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-201-1",
+   "seriesNo": 201,
+   "title": "요술 부지깽이",
+   "author": "로버트 쿠버",
+   "translator": "양윤희",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-202-1",
+   "seriesNo": 202,
+   "title": "북호텔",
+   "author": "외젠 다비",
+   "translator": "원윤수",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-203-1",
+   "seriesNo": 203,
+   "title": "톰 소여의 모험",
+   "author": "마크 트웨인",
+   "translator": "김욱동",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-204-1",
+   "seriesNo": 204,
+   "title": "금오신화",
+   "author": "김시습",
+   "translator": "이지하",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-205-1",
+   "seriesNo": 205,
+   "title": "테스 1",
+   "author": "토머스 하디",
+   "translator": "정종화",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-13"
+  },
+  {
+   "copyId": "M-206-1",
+   "seriesNo": 206,
+   "title": "테스 2",
+   "author": "토머스 하디",
+   "translator": "정종화",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-207-1",
+   "seriesNo": 207,
+   "title": "브루스터플레이스의 여자들",
+   "author": "글로리아 네일러",
+   "translator": "이소영",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-208-1",
+   "seriesNo": 208,
+   "title": "더 이상 평안은 없다",
+   "author": "치누아 아체베",
+   "translator": "이소영",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-08"
+  },
+  {
+   "copyId": "M-209-1",
+   "seriesNo": 209,
+   "title": "그레인지 코플랜드의 세 번째 인생",
+   "author": "앨리스 워커",
+   "translator": "김시현",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-210-1",
+   "seriesNo": 210,
+   "title": "어느 시골 신부의 일기",
+   "author": "조르주 베르나노스",
+   "translator": "정영란",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-211-1",
+   "seriesNo": 211,
+   "title": "타라스 불바",
+   "author": "니콜라이 고골",
+   "translator": "조주관",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-212-1",
+   "seriesNo": 212,
+   "title": "위대한 유산 1",
+   "author": "찰스 디킨스",
+   "translator": "이인규",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-213-1",
+   "seriesNo": 213,
+   "title": "위대한 유산 2",
+   "author": "찰스 디킨스",
+   "translator": "이인규",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-214-1",
+   "seriesNo": 214,
+   "title": "면도날",
+   "author": "서머싯 몸",
+   "translator": "안진환",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-215-1",
+   "seriesNo": 215,
+   "title": "성채 1",
+   "author": "A. J. 크로닌",
+   "translator": "이은정",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-216-1",
+   "seriesNo": 216,
+   "title": "성채 2",
+   "author": "A. J. 크로닌",
+   "translator": "이은정",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-11"
+  },
+  {
+   "copyId": "M-217-1",
+   "seriesNo": 217,
+   "title": "오이디푸스 왕",
+   "author": "소포클레스",
+   "translator": "강대진",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-218-1",
+   "seriesNo": 218,
+   "title": "세일즈맨의 죽음",
+   "author": "아서 밀러",
+   "translator": "강유나",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-219-1",
+   "seriesNo": 219,
+   "title": "안나 카레니나 1",
+   "author": "레프 니콜라예비치 톨스토이",
+   "translator": "연진희",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-220-1",
+   "seriesNo": 220,
+   "title": "안나 카레니나 2",
+   "author": "레프 니콜라예비치 톨스토이",
+   "translator": "연진희",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-221-1",
+   "seriesNo": 221,
+   "title": "안나 카레니나 3",
+   "author": "레프 니콜라예비치 톨스토이",
+   "translator": "연진희",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-222-1",
+   "seriesNo": 222,
+   "title": "오스카 와일드 작품선",
+   "author": "오스카 와일드",
+   "translator": "정영목",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-223-1",
+   "seriesNo": 223,
+   "title": "벨아미",
+   "author": "기 드 모파상",
+   "translator": "송덕호",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-224-1",
+   "seriesNo": 224,
+   "title": "파스쿠알 두아르테 가족",
+   "author": "카밀로 호세 셀라",
+   "translator": "정동섭",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-225-1",
+   "seriesNo": 225,
+   "title": "시칠리아에서의 대화",
+   "author": "엘리오 비토리니",
+   "translator": "김운찬",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-226-1",
+   "seriesNo": 226,
+   "title": "길 위에서 1",
+   "author": "잭 케루악",
+   "translator": "이만식",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-227-1",
+   "seriesNo": 227,
+   "title": "길 위에서 2",
+   "author": "잭 케루악",
+   "translator": "이만식",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-09"
+  },
+  {
+   "copyId": "M-228-1",
+   "seriesNo": 228,
+   "title": "우리 시대의 영웅",
+   "author": "미하일 유리예비치 레르몬토프",
+   "translator": "오정미",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-229-1",
+   "seriesNo": 229,
+   "title": "아우라",
+   "author": "카를로스 푸엔테스",
+   "translator": "송상기",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-230-1",
+   "seriesNo": 230,
+   "title": "클링조어의 마지막 여름",
+   "author": "헤르만 헤세",
+   "translator": "황승환",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-231-1",
+   "seriesNo": 231,
+   "title": "리스본의 겨울",
+   "author": "안토니오 무뇨스 몰리나",
+   "translator": "나송주",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-232-1",
+   "seriesNo": 232,
+   "title": "뻐꾸기 둥지 위로 날아간 새",
+   "author": "켄 키지",
+   "translator": "정회성",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-233-1",
+   "seriesNo": 233,
+   "title": "페널티킥 앞에 선 골키퍼의 불안",
+   "author": "페터 한트케",
+   "translator": "윤용호",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-234-1",
+   "seriesNo": 234,
+   "title": "참을 수 없는 존재의 가벼움",
+   "author": "밀란 쿤데라",
+   "translator": "이재룡",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-235-1",
+   "seriesNo": 235,
+   "title": "바다여, 바다여 1",
+   "author": "아이리스 머독",
+   "translator": "최옥영",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-236-1",
+   "seriesNo": 236,
+   "title": "바다여, 바다여 2",
+   "author": "아이리스 머독",
+   "translator": "최옥영",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-237-1",
+   "seriesNo": 237,
+   "title": "한 줌의 먼지",
+   "author": "에벌린 워",
+   "translator": "안진환",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-238-1",
+   "seriesNo": 238,
+   "title": "뜨거운 양철 지붕 위의 고양이·유리 동물원",
+   "author": "테네시 윌리엄스",
+   "translator": "김소임",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-08"
+  },
+  {
+   "copyId": "M-239-1",
+   "seriesNo": 239,
+   "title": "지하로부터의 수기",
+   "author": "표도르 도스토옙스키",
+   "translator": "김연경",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-240-1",
+   "seriesNo": 240,
+   "title": "키메라",
+   "author": "존 바스",
+   "translator": "이운경",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-241-1",
+   "seriesNo": 241,
+   "title": "반쪼가리 자작",
+   "author": "이탈로 칼비노",
+   "translator": "이현경",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-242-1",
+   "seriesNo": 242,
+   "title": "벌집",
+   "author": "카밀로 호세 셀라",
+   "translator": "남진희",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-243-1",
+   "seriesNo": 243,
+   "title": "불멸",
+   "author": "밀란 쿤데라",
+   "translator": "김병욱",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-244-1",
+   "seriesNo": 244,
+   "title": "파우스트 박사 1",
+   "author": "토마스 만",
+   "translator": "임홍배, 박병덕",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-245-1",
+   "seriesNo": 245,
+   "title": "파우스트 박사 2",
+   "author": "토마스 만",
+   "translator": "임홍배, 박병덕",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-246-1",
+   "seriesNo": 246,
+   "title": "사랑할 때와 죽을 때",
+   "author": "에리히 마리아 레마르크",
+   "translator": "장희창",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-11"
+  },
+  {
+   "copyId": "M-247-1",
+   "seriesNo": 247,
+   "title": "누가 버지니아 울프를 두려워하랴?",
+   "author": "에드워드 올비",
+   "translator": "강유나",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-248-1",
+   "seriesNo": 248,
+   "title": "인형의 집",
+   "author": "헨리크 입센",
+   "translator": "안미란",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-249-1",
+   "seriesNo": 249,
+   "title": "위폐범들",
+   "author": "앙드레 지드",
+   "translator": "원윤수",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-09"
+  },
+  {
+   "copyId": "M-250-1",
+   "seriesNo": 250,
+   "title": "무정",
+   "author": "이광수, 정영훈",
+   "translator": "",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-251-1",
+   "seriesNo": 251,
+   "title": "의지와 운명 1",
+   "author": "카를로스 푸엔테스",
+   "translator": "김현철",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-252-1",
+   "seriesNo": 252,
+   "title": "의지와 운명 2",
+   "author": "카를로스 푸엔테스",
+   "translator": "김현철",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-253-1",
+   "seriesNo": 253,
+   "title": "폭력적인 삶",
+   "author": "피에르 파올로 파솔리니",
+   "translator": "이승수",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-254-1",
+   "seriesNo": 254,
+   "title": "거장과 마르가리타",
+   "author": "미하일 불가코프",
+   "translator": "정보라",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-255-1",
+   "seriesNo": 255,
+   "title": "경이로운 도시 1",
+   "author": "에두아르도 멘도사",
+   "translator": "김현철",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-256-1",
+   "seriesNo": 256,
+   "title": "경이로운 도시 2",
+   "author": "에두아르도 멘도사",
+   "translator": "김현철",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-257-1",
+   "seriesNo": 257,
+   "title": "야콥을 둘러싼 추측들",
+   "author": "우베 욘존",
+   "translator": "손대영",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-13"
+  },
+  {
+   "copyId": "M-258-1",
+   "seriesNo": 258,
+   "title": "왕자와 거지",
+   "author": "마크 트웨인",
+   "translator": "김욱동",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-259-1",
+   "seriesNo": 259,
+   "title": "존재하지 않는 기사",
+   "author": "이탈로 칼비노",
+   "translator": "이현경",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-260-1",
+   "seriesNo": 260,
+   "title": "눈먼 암살자 1 (세계문학전집)",
+   "author": "마거릿 애트우드",
+   "translator": "차은정",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-08"
+  },
+  {
+   "copyId": "M-261-1",
+   "seriesNo": 261,
+   "title": "눈먼 암살자 2 (세계문학전집)",
+   "author": "마거릿 애트우드",
+   "translator": "차은정",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-262-1",
+   "seriesNo": 262,
+   "title": "베니스의 상인",
+   "author": "윌리엄 셰익스피어",
+   "translator": "최종철",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-263-1",
+   "seriesNo": 263,
+   "title": "말리나",
+   "author": "잉에보르크 바흐만",
+   "translator": "남정애",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-264-1",
+   "seriesNo": 264,
+   "title": "사볼타 사건의 진실",
+   "author": "에두아르도 멘도사",
+   "translator": "권미선",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-265-1",
+   "seriesNo": 265,
+   "title": "뒤렌마트 희곡선",
+   "author": "프리드리히 뒤렌마트",
+   "translator": "김혜숙",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-266-1",
+   "seriesNo": 266,
+   "title": "이방인",
+   "author": "알베르 카뮈",
+   "translator": "김화영",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-267-1",
+   "seriesNo": 267,
+   "title": "페스트",
+   "author": "알베르 카뮈",
+   "translator": "김화영",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-268-1",
+   "seriesNo": 268,
+   "title": "검은 튤립",
+   "author": "알렉상드르 뒤마",
+   "translator": "",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-11"
+  },
+  {
+   "copyId": "M-269-1",
+   "seriesNo": 269,
+   "title": "베를린 알렉산더 광장 1",
+   "author": "알프레트 되블린",
+   "translator": "김재혁",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-270-1",
+   "seriesNo": 270,
+   "title": "베를린 알렉산더 광장 2",
+   "author": "알프레트 되블린",
+   "translator": "김재혁",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-271-1",
+   "seriesNo": 271,
+   "title": "하얀 성",
+   "author": "오르한 파묵",
+   "translator": "이난아",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-272-1",
+   "seriesNo": 272,
+   "title": "푸슈킨 선집",
+   "author": "알렉산드르 푸시킨",
+   "translator": "최선",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-273-1",
+   "seriesNo": 273,
+   "title": "유리알 유희 1",
+   "author": "헤르만 헤세",
+   "translator": "이영임",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-274-1",
+   "seriesNo": 274,
+   "title": "유리알 유희 2",
+   "author": "헤르만 헤세",
+   "translator": "이영임",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-275-1",
+   "seriesNo": 275,
+   "title": "픽션들",
+   "author": "호르헤 루이스 보르헤스",
+   "translator": "송병선",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-276-1",
+   "seriesNo": 276,
+   "title": "신의 화살",
+   "author": "치누아 아체베",
+   "translator": "이소영",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-277-1",
+   "seriesNo": 277,
+   "title": "빌헬름 텔·간계와 사랑",
+   "author": "프리드리히 실러",
+   "translator": "홍성광",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-278-1",
+   "seriesNo": 278,
+   "title": "노인과 바다",
+   "author": "어니스트 헤밍웨이",
+   "translator": "김욱동",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-279-1",
+   "seriesNo": 279,
+   "title": "무기여 잘 있어라",
+   "author": "어니스트 헤밍웨이",
+   "translator": "김욱동",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-09"
+  },
+  {
+   "copyId": "M-280-1",
+   "seriesNo": 280,
+   "title": "태양은 다시 떠오른다",
+   "author": "어니스트 헤밍웨이",
+   "translator": "김욱동",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-281-1",
+   "seriesNo": 281,
+   "title": "알레프",
+   "author": "호르헤 루이스 보르헤스",
+   "translator": "송병선",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-282-1",
+   "seriesNo": 282,
+   "title": "일곱 박공의 집",
+   "author": "너새니얼 호손",
+   "translator": "정소영",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-283-1",
+   "seriesNo": 283,
+   "title": "에마",
+   "author": "제인 오스틴",
+   "translator": "윤지관, 김영희",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-284-1",
+   "seriesNo": 284,
+   "title": "죄와 벌 1",
+   "author": "표도르 도스토옙스키",
+   "translator": "김연경",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-285-1",
+   "seriesNo": 285,
+   "title": "죄와 벌 2",
+   "author": "표도르 도스토옙스키",
+   "translator": "김연경",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-286-1",
+   "seriesNo": 286,
+   "title": "시련",
+   "author": "아서 밀러",
+   "translator": "최영",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-287-1",
+   "seriesNo": 287,
+   "title": "모두가 나의 아들",
+   "author": "아서 밀러",
+   "translator": "최영",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-288-1",
+   "seriesNo": 288,
+   "title": "누구를 위하여 종은 울리나 1",
+   "author": "어니스트 헤밍웨이",
+   "translator": "김욱동",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-289-1",
+   "seriesNo": 289,
+   "title": "누구를 위하여 종은 울리나 2",
+   "author": "어니스트 헤밍웨이",
+   "translator": "김욱동",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-290-1",
+   "seriesNo": 290,
+   "title": "구르브 연락 없다",
+   "author": "에두아르도 멘도사",
+   "translator": "정창",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-08"
+  },
+  {
+   "copyId": "M-291-1",
+   "seriesNo": 291,
+   "title": "데카메론 1",
+   "author": "조반니 보카치오",
+   "translator": "박상진",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-292-1",
+   "seriesNo": 292,
+   "title": "데카메론 2",
+   "author": "조반니 보카치오",
+   "translator": "박상진",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-293-1",
+   "seriesNo": 293,
+   "title": "데카메론 3",
+   "author": "조반니 보카치오",
+   "translator": "박상진",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-294-1",
+   "seriesNo": 294,
+   "title": "나누어진 하늘",
+   "author": "크리스타 볼프",
+   "translator": "전영애",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-295-1",
+   "seriesNo": 295,
+   "title": "제브데트 씨와 아들들 1",
+   "author": "오르한 파묵",
+   "translator": "이난아",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-296-1",
+   "seriesNo": 296,
+   "title": "제브데트 씨와 아들들 2",
+   "author": "오르한 파묵",
+   "translator": "이난아",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-297-1",
+   "seriesNo": 297,
+   "title": "여인의 초상 1",
+   "author": "헨리 제임스",
+   "translator": "최경도",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-298-1",
+   "seriesNo": 298,
+   "title": "여인의 초상 2",
+   "author": "헨리 제임스",
+   "translator": "최경도",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-11"
+  },
+  {
+   "copyId": "M-299-1",
+   "seriesNo": 299,
+   "title": "압살롬, 압살롬!",
+   "author": "윌리엄 포크너",
+   "translator": "이태동",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-300-1",
+   "seriesNo": 300,
+   "title": "이상 소설 전집",
+   "author": "이상, 권영민",
+   "translator": "",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-301-1",
+   "seriesNo": 301,
+   "title": "레 미제라블1",
+   "author": "빅토르 위고",
+   "translator": "정기수",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-17"
+  },
+  {
+   "copyId": "M-302-1",
+   "seriesNo": 302,
+   "title": "레 미제라블2",
+   "author": "빅토르 위고",
+   "translator": "정기수",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-303-1",
+   "seriesNo": 303,
+   "title": "레 미제라블3",
+   "author": "빅토르 위고",
+   "translator": "정기수",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-304-1",
+   "seriesNo": 304,
+   "title": "레 미제라블4",
+   "author": "빅토르 위고",
+   "translator": "정기수",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-305-1",
+   "seriesNo": 305,
+   "title": "레 미제라블5",
+   "author": "빅토르 위고",
+   "translator": "정기수",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-306-1",
+   "seriesNo": 306,
+   "title": "관객모독",
+   "author": "페터 한트케",
+   "translator": "윤용호",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-307-1",
+   "seriesNo": 307,
+   "title": "더블린 사람들",
+   "author": "제임스 조이스",
+   "translator": "이종일",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-308-1",
+   "seriesNo": 308,
+   "title": "에드거 앨런 포 단편선",
+   "author": "에드거 앨런 포",
+   "translator": "전승희",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-309-1",
+   "seriesNo": 309,
+   "title": "보이체크·당통의 죽음",
+   "author": "게오르크 뷔히너",
+   "translator": "홍성광",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-13"
+  },
+  {
+   "copyId": "M-310-1",
+   "seriesNo": 310,
+   "title": "노르웨이의 숲 (세계문학전집)",
+   "author": "무라카미 하루키",
+   "translator": "양억관",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-311-1",
+   "seriesNo": 311,
+   "title": "운명론자 자크와 그의 주인",
+   "author": "드니 디드로",
+   "translator": "김희영",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-312-1",
+   "seriesNo": 312,
+   "title": "헤밍웨이 단편선 1",
+   "author": "어니스트 헤밍웨이",
+   "translator": "",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-08"
+  },
+  {
+   "copyId": "M-313-1",
+   "seriesNo": 313,
+   "title": "헤밍웨이 단편선 2",
+   "author": "어니스트 헤밍웨이",
+   "translator": "",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-314-1",
+   "seriesNo": 314,
+   "title": "피라미드",
+   "author": "윌리엄 골딩",
+   "translator": "안지현",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-315-1",
+   "seriesNo": 315,
+   "title": "닫힌 방. 악마와 선한 신",
+   "author": "장폴 사르트르",
+   "translator": "지영래",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-316-1",
+   "seriesNo": 316,
+   "title": "등대로",
+   "author": "버지니아 울프",
+   "translator": "이미애",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-317-1",
+   "seriesNo": 317,
+   "title": "한국 희곡선 1",
+   "author": "양승국",
+   "translator": "",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-318-1",
+   "seriesNo": 318,
+   "title": "한국 희곡선 2",
+   "author": "양승국",
+   "translator": "",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-319-1",
+   "seriesNo": 319,
+   "title": "여자의 일생",
+   "author": "기 드 모파상",
+   "translator": "이동렬",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-320-1",
+   "seriesNo": 320,
+   "title": "의식",
+   "author": "세스 노터봄",
+   "translator": "김영중",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-11"
+  },
+  {
+   "copyId": "M-321-1",
+   "seriesNo": 321,
+   "title": "육체의 악마",
+   "author": "레몽 라디게",
+   "translator": "원윤수",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-322-1",
+   "seriesNo": 322,
+   "title": "감정 교육 1",
+   "author": "귀스타브 플로베르",
+   "translator": "지영화",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-323-1",
+   "seriesNo": 323,
+   "title": "감정 교육 2",
+   "author": "귀스타브 플로베르",
+   "translator": "지영화",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-324-1",
+   "seriesNo": 324,
+   "title": "불타는 평원",
+   "author": "후안 룰포",
+   "translator": "정창",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-325-1",
+   "seriesNo": 325,
+   "title": "위대한 몬느",
+   "author": "알랭푸르니에",
+   "translator": "박영근",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-326-1",
+   "seriesNo": 326,
+   "title": "라쇼몬",
+   "author": "아쿠타가와 류노스케",
+   "translator": "서은혜",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-327-1",
+   "seriesNo": 327,
+   "title": "반바지 당나귀",
+   "author": "앙리 보스코",
+   "translator": "정영란",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-328-1",
+   "seriesNo": 328,
+   "title": "정복자들",
+   "author": "앙드레 말로",
+   "translator": "최윤주",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-329-1",
+   "seriesNo": 329,
+   "title": "우리 동네 아이들 1",
+   "author": "나지브 마흐푸즈",
+   "translator": "배혜경",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-330-1",
+   "seriesNo": 330,
+   "title": "우리 동네 아이들 2",
+   "author": "나지브 마흐푸즈",
+   "translator": "배혜경",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-331-1",
+   "seriesNo": 331,
+   "title": "개선문 1",
+   "author": "에리히 마리아 레마르크",
+   "translator": "장희창",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-09"
+  },
+  {
+   "copyId": "M-332-1",
+   "seriesNo": 332,
+   "title": "개선문 2",
+   "author": "에리히 마리아 레마르크",
+   "translator": "장희창",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-333-1",
+   "seriesNo": 333,
+   "title": "사바나의 개미 언덕",
+   "author": "치누아 아체베",
+   "translator": "이소영",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-334-1",
+   "seriesNo": 334,
+   "title": "게걸음으로",
+   "author": "귄터 그라스",
+   "translator": "장희창",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-335-1",
+   "seriesNo": 335,
+   "title": "코스모스",
+   "author": "비톨트 곰브로비치",
+   "translator": "최성은",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-336-1",
+   "seriesNo": 336,
+   "title": "좁은 문•전원교향곡•배덕자",
+   "author": "앙드레 지드",
+   "translator": "동성식",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-337-1",
+   "seriesNo": 337,
+   "title": "암 병동 1",
+   "author": "알렉산드르 솔제니친",
+   "translator": "이영의",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-338-1",
+   "seriesNo": 338,
+   "title": "암 병동 2",
+   "author": "알렉산드르 솔제니친",
+   "translator": "이영의",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-339-1",
+   "seriesNo": 339,
+   "title": "피의 꽃잎들",
+   "author": "응구기 와 시옹오",
+   "translator": "왕은철",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-340-1",
+   "seriesNo": 340,
+   "title": "운명",
+   "author": "임레 케르테스",
+   "translator": "유진일",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-341-1",
+   "seriesNo": 341,
+   "title": "벌거벗은 자와 죽은 자 1",
+   "author": "노먼 메일러",
+   "translator": "이운경",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-342-1",
+   "seriesNo": 342,
+   "title": "벌거벗은 자와 죽은 자 2",
+   "author": "노먼 메일러",
+   "translator": "이운경",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-08"
+  },
+  {
+   "copyId": "M-343-1",
+   "seriesNo": 343,
+   "title": "시지프 신화",
+   "author": "알베르 카뮈",
+   "translator": "김화영",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-344-1",
+   "seriesNo": 344,
+   "title": "뇌우",
+   "author": "차오위",
+   "translator": "오수경",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-345-1",
+   "seriesNo": 345,
+   "title": "모옌 중단편선",
+   "author": "모옌",
+   "translator": "심규호, 유소영",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-346-1",
+   "seriesNo": 346,
+   "title": "일야서",
+   "author": "한사오궁",
+   "translator": "심규호, 유소영",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-347-1",
+   "seriesNo": 347,
+   "title": "상속자들",
+   "author": "윌리엄 골딩",
+   "translator": "안지현",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-348-1",
+   "seriesNo": 348,
+   "title": "설득",
+   "author": "제인 오스틴",
+   "translator": "전승희",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-349-1",
+   "seriesNo": 349,
+   "title": "히로시마 내 사랑",
+   "author": "마르그리트 뒤라스",
+   "translator": "방미경",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-350-1",
+   "seriesNo": 350,
+   "title": "오 헨리 단편선",
+   "author": "오 헨리",
+   "translator": "김희용",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-11"
+  },
+  {
+   "copyId": "M-351-1",
+   "seriesNo": 351,
+   "title": "올리버 트위스트 1",
+   "author": "찰스 디킨스",
+   "translator": "이인규",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-352-1",
+   "seriesNo": 352,
+   "title": "올리버 트위스트 2",
+   "author": "찰스 디킨스",
+   "translator": "이인규",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-353-1",
+   "seriesNo": 353,
+   "title": "전쟁과 평화 1",
+   "author": "레프 니콜라예비치 톨스토이",
+   "translator": "연진희",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-17"
+  },
+  {
+   "copyId": "M-354-1",
+   "seriesNo": 354,
+   "title": "전쟁과 평화 2",
+   "author": "레프 니콜라예비치 톨스토이",
+   "translator": "연진희",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-355-1",
+   "seriesNo": 355,
+   "title": "전쟁과 평화 3",
+   "author": "레프 니콜라예비치 톨스토이",
+   "translator": "연진희",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-356-1",
+   "seriesNo": 356,
+   "title": "전쟁과 평화 4",
+   "author": "레프 니콜라예비치 톨스토이",
+   "translator": "연진희",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-357-1",
+   "seriesNo": 357,
+   "title": "다시 찾은 브라이즈헤드",
+   "author": "에벌린 워",
+   "translator": "백지민",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-359-1",
+   "seriesNo": 359,
+   "title": "사양",
+   "author": "다자이 오사무",
+   "translator": "유숙자",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-360-1",
+   "seriesNo": 360,
+   "title": "좌절",
+   "author": "임레 케르테스",
+   "translator": "한경민",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-362-1",
+   "seriesNo": 362,
+   "title": "닥터 지바고 2",
+   "author": "보리스 파스테르나크",
+   "translator": "김연경",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-363-1",
+   "seriesNo": 363,
+   "title": "노생거 사원",
+   "author": "제인 오스틴(Jane Austen)",
+   "translator": "윤지관",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-364-1",
+   "seriesNo": 364,
+   "title": "개구리",
+   "author": "모옌",
+   "translator": "심규호, 유소영",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-08"
+  },
+  {
+   "copyId": "M-365-1",
+   "seriesNo": 365,
+   "title": "마왕",
+   "author": "미셸 투르니에",
+   "translator": "이원복",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-366-1",
+   "seriesNo": 366,
+   "title": "맨스필드 파크",
+   "author": "제인 오스틴",
+   "translator": "김영희",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-367-1",
+   "seriesNo": 367,
+   "title": "이선 프롬",
+   "author": "이디스 워튼",
+   "translator": "김욱동",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-368-1",
+   "seriesNo": 368,
+   "title": "여름",
+   "author": "이디스 워튼",
+   "translator": "김욱동",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-369-1",
+   "seriesNo": 369,
+   "title": "나는 고백한다 1",
+   "author": "자우메 카브레",
+   "translator": "권가람",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-370-1",
+   "seriesNo": 370,
+   "title": "나는 고백한다 2",
+   "author": "자우메 카브레",
+   "translator": "권가람",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-371-1",
+   "seriesNo": 371,
+   "title": "나는 고백한다 3",
+   "author": "자우메 카브레",
+   "translator": "권가람",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-372-1",
+   "seriesNo": 372,
+   "title": "태엽 감는 새 연대기 1",
+   "author": "무라카미 하루키",
+   "translator": "김난주",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-11"
+  },
+  {
+   "copyId": "M-373-1",
+   "seriesNo": 373,
+   "title": "태엽 감는 새 연대기 2",
+   "author": "무라카미 하루키",
+   "translator": "김난주",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-374-1",
+   "seriesNo": 374,
+   "title": "태엽 감는 새 연대기 3",
+   "author": "무라카미 하루키",
+   "translator": "김난주",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-375-1",
+   "seriesNo": 375,
+   "title": "대사들 1",
+   "author": "헨리 제임스",
+   "translator": "정소영",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-376-1",
+   "seriesNo": 376,
+   "title": "대사들 2",
+   "author": "헨리 제임스",
+   "translator": "정소영",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-377-1",
+   "seriesNo": 377,
+   "title": "족장의 가을",
+   "author": "가브리엘 가르시아 마르케스",
+   "translator": "송병선",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-379-1",
+   "seriesNo": 379,
+   "title": "모두 다 예쁜 말들",
+   "author": "코맥 매카시",
+   "translator": "김시현",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-380-1",
+   "seriesNo": 380,
+   "title": "국경을 넘어",
+   "author": "코맥 매카시",
+   "translator": "김시현",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-381-1",
+   "seriesNo": 381,
+   "title": "평원의 도시들",
+   "author": "코맥 매카시",
+   "translator": "김시현",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-382-1",
+   "seriesNo": 382,
+   "title": "만년",
+   "author": "다자이 오사무",
+   "translator": "유숙자",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-383-1",
+   "seriesNo": 383,
+   "title": "반항하는 인간",
+   "author": "알베르 카뮈",
+   "translator": "김화영",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-09"
+  },
+  {
+   "copyId": "M-384-1",
+   "seriesNo": 384,
+   "title": "악령 1",
+   "author": "표도르 도스토옙스키",
+   "translator": "김연경",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-385-1",
+   "seriesNo": 385,
+   "title": "악령 2",
+   "author": "표도르 도스토옙스키",
+   "translator": "김연경",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-386-1",
+   "seriesNo": 386,
+   "title": "악령 3",
+   "author": "표도르 도스토옙스키",
+   "translator": "김연경",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-387-1",
+   "seriesNo": 387,
+   "title": "태평양을 막는 제방",
+   "author": "마르그리트 뒤라스",
+   "translator": "윤진",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-388-1",
+   "seriesNo": 388,
+   "title": "남아 있는 나날",
+   "author": "가즈오 이시구로",
+   "translator": "송은경",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-389-1",
+   "seriesNo": 389,
+   "title": "앙리 브륄라르의 생애",
+   "author": "스탕달",
+   "translator": "원윤수",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-390-1",
+   "seriesNo": 390,
+   "title": "찻집",
+   "author": "라오서",
+   "translator": "오수경",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-391-1",
+   "seriesNo": 391,
+   "title": "태어나지 않은 아이를 위한 기도",
+   "author": "임레 케르테스",
+   "translator": "이상동",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-392-1",
+   "seriesNo": 392,
+   "title": "서머싯 몸 단편선 1",
+   "author": "서머싯 몸",
+   "translator": "황소연",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-393-1",
+   "seriesNo": 393,
+   "title": "서머싯 몸 단편선 2",
+   "author": "서머싯 몸",
+   "translator": "황소연",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-394-1",
+   "seriesNo": 394,
+   "title": "케이크와 맥주",
+   "author": "서머싯 몸",
+   "translator": "황소연",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-08"
+  },
+  {
+   "copyId": "M-395-1",
+   "seriesNo": 395,
+   "title": "월든",
+   "author": "헨리 데이비드 소로",
+   "translator": "정회성",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-396-1",
+   "seriesNo": 396,
+   "title": "모래 사나이",
+   "author": "E.T.A. 호프만",
+   "translator": "신동화",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-397-1",
+   "seriesNo": 397,
+   "title": "검은 책 1",
+   "author": "오르한 파묵",
+   "translator": "이난아",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-398-1",
+   "seriesNo": 398,
+   "title": "검은 책 2",
+   "author": "오르한 파묵",
+   "translator": "이난아",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-399-1",
+   "seriesNo": 399,
+   "title": "방랑자들",
+   "author": "올가 토카르추크",
+   "translator": "최성은",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-400-1",
+   "seriesNo": 400,
+   "title": "시여, 침을 뱉어라",
+   "author": "김수영, 이영준",
+   "translator": "",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-401-1",
+   "seriesNo": 401,
+   "title": "환락의 집 1",
+   "author": "이디스 워튼",
+   "translator": "전승희",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-402-1",
+   "seriesNo": 402,
+   "title": "환락의 집 2",
+   "author": "이디스 워튼",
+   "translator": "전승희",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-11"
+  },
+  {
+   "copyId": "M-403-1",
+   "seriesNo": 403,
+   "title": "달려라 메로스",
+   "author": "다자이 오사무",
+   "translator": "유숙자",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-404-1",
+   "seriesNo": 404,
+   "title": "아버지와 자식",
+   "author": "이반 세르게예비치 투르게네프",
+   "translator": "연진희",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-405-1",
+   "seriesNo": 405,
+   "title": "청부 살인자의 성모",
+   "author": "페르난도 바예호",
+   "translator": "송병선",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-17"
+  },
+  {
+   "copyId": "M-406-1",
+   "seriesNo": 406,
+   "title": "세피아빛 초상",
+   "author": "이사벨 아옌데",
+   "translator": "조영실",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-407-1",
+   "seriesNo": 407,
+   "title": "사기 열전1",
+   "author": "사마천",
+   "translator": "김원중",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-408-1",
+   "seriesNo": 408,
+   "title": "사기 열전2",
+   "author": "사마천",
+   "translator": "김원중",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-409-1",
+   "seriesNo": 409,
+   "title": "사기 열전3",
+   "author": "사마천",
+   "translator": "김원중",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-410-1",
+   "seriesNo": 410,
+   "title": "사기 열전4",
+   "author": "사마천",
+   "translator": "김원중",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-411-1",
+   "seriesNo": 411,
+   "title": "이상 시 전집",
+   "author": "이상, 권영민",
+   "translator": "",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-412-1",
+   "seriesNo": 412,
+   "title": "어둠 속의 사건",
+   "author": "오노레 드 발자크",
+   "translator": "이동렬",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-413-1",
+   "seriesNo": 413,
+   "title": "태평천하",
+   "author": "채만식, 권영민",
+   "translator": "",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-09"
+  },
+  {
+   "copyId": "M-414-1",
+   "seriesNo": 414,
+   "title": "노스트로모 1",
+   "author": "조지프 콘래드",
+   "translator": "이미애",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-415-1",
+   "seriesNo": 415,
+   "title": "노스트로모 2",
+   "author": "조지프 콘래드",
+   "translator": "이미애",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-416-1",
+   "seriesNo": 416,
+   "title": "제르미날 1",
+   "author": "에밀 졸라",
+   "translator": "강충권",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-15"
+  },
+  {
+   "copyId": "M-417-1",
+   "seriesNo": 417,
+   "title": "제르미날 2",
+   "author": "에밀 졸라",
+   "translator": "강충권",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-418-1",
+   "seriesNo": 418,
+   "title": "명인",
+   "author": "가와바타 야스나리",
+   "translator": "유숙자",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-419-1",
+   "seriesNo": 419,
+   "title": "핀처 마틴",
+   "author": "윌리엄 골딩",
+   "translator": "백지민",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-420-1",
+   "seriesNo": 420,
+   "title": "사라진·샤베르 대령",
+   "author": "오노레 드 발자크",
+   "translator": "선영아",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-421-1",
+   "seriesNo": 421,
+   "title": "빅 서",
+   "author": "잭 케루악",
+   "translator": "김재성",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-422-1",
+   "seriesNo": 422,
+   "title": "코뿔소",
+   "author": "외젠 이오네스코",
+   "translator": "박형섭",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-423-1",
+   "seriesNo": 423,
+   "title": "블랙박스",
+   "author": "아모스 오즈",
+   "translator": "윤성덕, 김영화",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-424-1",
+   "seriesNo": 424,
+   "title": "고양이 눈 1",
+   "author": "마거릿 애트우드",
+   "translator": "차은정",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-08"
+  },
+  {
+   "copyId": "M-425-1",
+   "seriesNo": 425,
+   "title": "고양이 눈 2",
+   "author": "마거릿 애트우드",
+   "translator": "차은정",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-426-1",
+   "seriesNo": 426,
+   "title": "도둑 신부 1",
+   "author": "마거릿 애트우드",
+   "translator": "이은선",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-427-1",
+   "seriesNo": 427,
+   "title": "도둑 신부 2",
+   "author": "마거릿 애트우드",
+   "translator": "이은선",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-428-1",
+   "seriesNo": 428,
+   "title": "슈니츨러 작품선",
+   "author": "아르투어 슈니츨러(Arthur Schnitzler)",
+   "translator": "신동화",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-429-1",
+   "seriesNo": 429,
+   "title": "세계의 끝과 하드보일드 원더랜드 1",
+   "author": "무라카미 하루키",
+   "translator": "김난주",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-430-1",
+   "seriesNo": 430,
+   "title": "세계의 끝과 하드보일드 원더랜드 2",
+   "author": "무라카미 하루키",
+   "translator": "김난주",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-431-1",
+   "seriesNo": 431,
+   "title": "멜랑콜리아 I-II",
+   "author": "욘 포세",
+   "translator": "손화수",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-432-1",
+   "seriesNo": 432,
+   "title": "도적들",
+   "author": "프리드리히 실러",
+   "translator": "홍성광",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-433-1",
+   "seriesNo": 433,
+   "title": "예브게니 오네긴·대위의 딸",
+   "author": "알렉산드르 푸시킨",
+   "translator": "최선",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-434-1",
+   "seriesNo": 434,
+   "title": "초대받은 여자 1",
+   "author": "시몬 드 보부아르",
+   "translator": "강초롱",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-435-1",
+   "seriesNo": 435,
+   "title": "초대받은 여자 2",
+   "author": "시몬 드 보부아르",
+   "translator": "강초롱",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-09"
+  },
+  {
+   "copyId": "M-436-1",
+   "seriesNo": 436,
+   "title": "미들마치 1",
+   "author": "조지 엘리엇",
+   "translator": "",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-437-1",
+   "seriesNo": 437,
+   "title": "미들마치 2",
+   "author": "조지 엘리엇",
+   "translator": "",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-438-1",
+   "seriesNo": 438,
+   "title": "이반 일리치의 죽음",
+   "author": "레프 니콜라예비치 톨스토이",
+   "translator": "김연경",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-439-1",
+   "seriesNo": 439,
+   "title": "캔터베리 이야기 1",
+   "author": "제프리 초서",
+   "translator": "이동일, 이동춘",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-440-1",
+   "seriesNo": 440,
+   "title": "캔터베리 이야기 2",
+   "author": "제프리 초서",
+   "translator": "이동일, 이동춘",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-441-1",
+   "seriesNo": 441,
+   "title": "아소무아르(목로주점) 1",
+   "author": "에밀 졸라",
+   "translator": "윤진",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-442-1",
+   "seriesNo": 442,
+   "title": "아소무아르(목로주점) 2",
+   "author": "에밀 졸라",
+   "translator": "윤진",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-443-1",
+   "seriesNo": 443,
+   "title": "가난한 사람들",
+   "author": "표도르 도스토옙스키",
+   "translator": "이항재",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-444-1",
+   "seriesNo": 444,
+   "title": "마차오 사전 1",
+   "author": "한사오궁",
+   "translator": "심규호, 유소영",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-445-1",
+   "seriesNo": 445,
+   "title": "마차오 사전 2",
+   "author": "한사오궁",
+   "translator": "심규호, 유소영",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-446-1",
+   "seriesNo": 446,
+   "title": "집으로 날아가다",
+   "author": "랠프 엘리슨",
+   "translator": "왕은철",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-08"
+  },
+  {
+   "copyId": "M-447-1",
+   "seriesNo": 447,
+   "title": "집으로부터 멀리",
+   "author": "피터 케리",
+   "translator": "황가한",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-448-1",
+   "seriesNo": 448,
+   "title": "바스커빌가의 사냥개",
+   "author": "아서 코넌 도일",
+   "translator": "박산호",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-449-1",
+   "seriesNo": 449,
+   "title": "사냥꾼의 스케치",
+   "author": "이반 세르게예비치 투르게네프",
+   "translator": "연진희",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-450-1",
+   "seriesNo": 450,
+   "title": "필경사 바틀비‧선원 빌리 버드",
+   "author": "허먼 멜빌",
+   "translator": "이삼출",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-451-1",
+   "seriesNo": 451,
+   "title": "8월은 악마의 달",
+   "author": "에드나 오브라이언",
+   "translator": "임슬애",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-452-1",
+   "seriesNo": 452,
+   "title": "헌등사",
+   "author": "다와다 요코",
+   "translator": "유라주",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-453-1",
+   "seriesNo": 453,
+   "title": "색, 계",
+   "author": "장아이링(張愛玲)",
+   "translator": "문현선",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-454-1",
+   "seriesNo": 454,
+   "title": "겨울 여행",
+   "author": "자우메 카브레",
+   "translator": "권가람",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-11"
+  },
+  {
+   "copyId": "M-455-1",
+   "seriesNo": 455,
+   "title": "기억의 빛",
+   "author": "마이클 온다치",
+   "translator": "",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-456-1",
+   "seriesNo": 456,
+   "title": "표범",
+   "author": "주세페 토마시 디 람페두사",
+   "translator": "이현경",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-457-1",
+   "seriesNo": 457,
+   "title": "크리스마스 캐럴",
+   "author": "찰스 디킨스",
+   "translator": "김희용",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-17"
+  },
+  {
+   "copyId": "M-458-1",
+   "seriesNo": 458,
+   "title": "버진 수어사이드",
+   "author": "제프리 유제니디스Jeffrey Eugenides",
+   "translator": "이화연",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-459-1",
+   "seriesNo": 459,
+   "title": "미들섹스 1",
+   "author": "제프리 유제니디스Jeffrey Eugenides",
+   "translator": "이화연",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-460-1",
+   "seriesNo": 460,
+   "title": "미들섹스 2",
+   "author": "제프리 유제니디스Jeffrey Eugenides",
+   "translator": "이화연, 송은주",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-461-1",
+   "seriesNo": 461,
+   "title": "사랑에 대하여",
+   "author": "안톤 체호프",
+   "translator": "이항재",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-462-1",
+   "seriesNo": 462,
+   "title": "나?",
+   "author": "페터 플람",
+   "translator": "",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-463-1",
+   "seriesNo": 463,
+   "title": "지킬 박사와 하이드 씨의 기이한 사건",
+   "author": "로버트 루이스 스티븐슨",
+   "translator": "전승희",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-464-1",
+   "seriesNo": 464,
+   "title": "박지원 소설선",
+   "author": "박지원",
+   "translator": "안대회",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-465-1",
+   "seriesNo": 465,
+   "title": "안과 겉‧결혼‧여름",
+   "author": "알베르 카뮈",
+   "translator": "김화영",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-09"
+  },
+  {
+   "copyId": "M-466-1",
+   "seriesNo": 466,
+   "title": "소중한 저주",
+   "author": "제럴드 머네인",
+   "translator": "차은정",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-467-1",
+   "seriesNo": 467,
+   "title": "향성",
+   "author": "나탈리 사로트",
+   "translator": "위효정",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-468-1",
+   "seriesNo": 468,
+   "title": "퀴어",
+   "author": "윌리엄 S. 버로스",
+   "translator": "조동섭",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-15"
+  },
+  {
+   "copyId": "M-469-1",
+   "seriesNo": 469,
+   "title": "악수도 없이 헤어졌다",
+   "author": "피천득",
+   "translator": "",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-471-1",
+   "seriesNo": 471,
+   "title": "쓰가루",
+   "author": "다자이 오사무",
+   "translator": "유숙자",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-472-1",
+   "seriesNo": 472,
+   "title": "사람은 무엇으로 사는가",
+   "author": "레프 니콜라예비치 톨스토이",
+   "translator": "연진희",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-473-1",
+   "seriesNo": 473,
+   "title": "도련님",
+   "author": "나쓰메 소세키",
+   "translator": "김경원",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-474-1",
+   "seriesNo": 474,
+   "title": "골짜기의 백합",
+   "author": "오노레 드 발자크",
+   "translator": "송덕호",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-475-1",
+   "seriesNo": 475,
+   "title": "체호프 희곡선",
+   "author": "안톤 체호프",
+   "translator": "김혜란",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-476-1",
+   "seriesNo": 476,
+   "title": "레볼루셔너리 로드",
+   "author": "리처드 예이츠",
+   "translator": "이삼출",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-08"
+  },
+  {
+   "copyId": "M-480-1",
+   "seriesNo": 480,
+   "title": "노스탈지아",
+   "author": "미르체아 커르터레스쿠",
+   "translator": "한성숙",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-481-1",
+   "seriesNo": 481,
+   "title": "명심보감",
+   "author": "범입본",
+   "translator": "안대회",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-484-1",
+   "seriesNo": 484,
+   "title": "댈러웨이 부인",
+   "author": "버지니아 울프",
+   "translator": "이미애",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-485-1",
+   "seriesNo": 485,
+   "title": "올빼미의 낮",
+   "author": "레오나르도 샤샤, 이현경",
+   "translator": "",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-486-1",
+   "seriesNo": 486,
+   "title": "잃어버린 환상 1",
+   "author": "오노레 드 발자크",
+   "translator": "",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-487-1",
+   "seriesNo": 487,
+   "title": "잃어버린 환상 2",
+   "author": "오노레 드 발자크",
+   "translator": "",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-09"
+  },
+  {
+   "copyId": "M-488-1",
+   "seriesNo": 488,
+   "title": "잃어버린 환상 3",
+   "author": "오노레 드 발자크",
+   "translator": "",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-489-1",
+   "seriesNo": 489,
+   "title": "사교계의 영광과 비참 1",
+   "author": "오노레 드 발자크",
+   "translator": "",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-490-1",
+   "seriesNo": 490,
+   "title": "사교계의 영광과 비참 2",
+   "author": "오노레 드 발자크",
+   "translator": "",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-491-1",
+   "seriesNo": 491,
+   "title": "모범소설 1",
+   "author": "미겔 데 세르반테스",
+   "translator": "박철",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-492-1",
+   "seriesNo": 492,
+   "title": "모범소설 2",
+   "author": "미겔 데 세르반테스",
+   "translator": "박철",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-493-1",
+   "seriesNo": 493,
+   "title": "패싱",
+   "author": "넬라 라슨",
+   "translator": "서숙",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-494-1",
+   "seriesNo": 494,
+   "title": "사건",
+   "author": "아니 에르노",
+   "translator": "윤석헌",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-496-1",
+   "seriesNo": 496,
+   "title": "바라모",
+   "author": "세사르 아이라",
+   "translator": "권미선",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-497-1",
+   "seriesNo": 497,
+   "title": "백치 1",
+   "author": "표도르 도스토옙스키",
+   "translator": "김연경",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-498-1",
+   "seriesNo": 498,
+   "title": "백치 2",
+   "author": "표도르 도스토옙스키",
+   "translator": "김연경",
+   "isbn": "",
+   "status": "on_loan",
+   "dueDate": "2026-10-08"
+  },
+  {
+   "copyId": "M-500-1",
+   "seriesNo": 500,
+   "title": "압록강은 흐른다",
+   "author": "이미륵",
+   "translator": "안삼환",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-501-1",
+   "seriesNo": 501,
+   "title": "밀회",
+   "author": "아베 코보",
+   "translator": "송태욱",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  },
+  {
+   "copyId": "M-502-1",
+   "seriesNo": 502,
+   "title": "순수",
+   "author": "가브리엘레 단눈치오",
+   "translator": "이현경",
+   "isbn": "",
+   "status": "available",
+   "dueDate": null
+  }
+ ]
 }
