@@ -30,10 +30,13 @@ const MESSAGES = {
   },
   error: '일시적인 오류로 처리하지 못했습니다. 잠시 뒤 다시 시도해 주세요.',
   off: '온라인 신청은 아직 준비 중입니다.',
+  example: '예시 일정이라 신청을 받지 않습니다. 실제 일정이 연결되면 신청할 수 있습니다.',
 };
 
 let seminars = [];
 let counts = null; // Map | null(불러오지 못함)
+// 신청을 받는지: 가짜 응답(localhost)이거나, 서버가 연결되어 있고 실제 일정일 때만
+let signupOpen = false;
 
 // ── 표시 형식 (모두 한국시간) ──
 const KST = 'Asia/Seoul';
@@ -182,7 +185,7 @@ function buildForm(s, state) {
       pin.focus();
       return;
     }
-    if (mode === 'off') {
+    if (!signupOpen) {
       result.textContent = MESSAGES.off;
       return;
     }
@@ -264,7 +267,7 @@ function buildCard(s) {
   }
 
   let result = null;
-  if (mode !== 'off' && (state.key === 'open' || state.key === 'full')) {
+  if (signupOpen && (state.key === 'open' || state.key === 'full')) {
     const f = buildForm(s, state);
     body.append(f.wrap);
     result = f.result;
@@ -299,7 +302,7 @@ function render({ keep } = {}) {
 }
 
 async function refreshCounts() {
-  if (mode === 'off') {
+  if (!signupOpen) {
     counts = null;
     return;
   }
@@ -334,6 +337,8 @@ async function init() {
   for (const s of seminars) s.capacity = Number.isInteger(s.capacity) && s.capacity > 1 ? s.capacity : 11;
 
   notice.hidden = data.example !== true;
+  // 예시 일정은 서버에 없는 세미나이므로 실제 서버에는 신청을 보내지 않는다
+  signupOpen = mode === 'mock' || (mode === 'live' && data.example !== true);
   mockNotice.hidden = mode !== 'mock';
   if (mode === 'mock') {
     // 화면 확인용 초기 인원: 첫 예정 세미나 3명, 둘째 10명(마감)
@@ -344,8 +349,10 @@ async function init() {
 
   await refreshCounts();
   statusLine.textContent =
-    mode === 'off'
-      ? MESSAGES.off
+    !signupOpen
+      ? mode === 'live'
+        ? MESSAGES.example
+        : MESSAGES.off
       : counts
         ? ''
         : '신청 인원을 불러오지 못했습니다. 신청은 할 수 있지만 인원 표시는 정확하지 않을 수 있습니다.';
