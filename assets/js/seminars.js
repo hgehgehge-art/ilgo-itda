@@ -59,6 +59,8 @@ function stateOf(s) {
   if (new Date(s.startsAt) <= new Date()) return { key: 'ended', label: '종료' };
   const n = counts?.get(s.id);
   if (n != null && n + 1 >= s.capacity) return { key: 'full', label: '마감' };
+  // 예시 일정이거나 서버가 연결되지 않아 신청을 받지 않는 동안
+  if (!signupOpen) return { key: 'pending', label: '신청 준비 중' };
   return { key: 'open', label: '접수 중' };
 }
 
@@ -69,7 +71,8 @@ function headcount(s) {
 
 function countText(s) {
   const hc = headcount(s);
-  return hc == null ? `인원 확인 불가 / ${s.capacity}` : `${hc}/${s.capacity}명`;
+  // 인원을 모를 때(신청을 받지 않는 동안, 또는 불러오기 실패)는 정원만 보여 준다
+  return hc == null ? `정원 ${s.capacity}명` : `${hc}/${s.capacity}명`;
 }
 
 function setMeter(bar, s) {
