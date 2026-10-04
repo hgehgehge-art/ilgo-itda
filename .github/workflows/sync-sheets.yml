@@ -36,6 +36,10 @@ jobs:
           LOAN_SHEET_ID: ${{ secrets.LOAN_SHEET_ID }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          # 탭 이름이 기본값(시트1 / 도서 목록 / 대출 기록)과 다르면 저장소 Variables에 등록
+          SEMINAR_TAB: ${{ vars.SEMINAR_TAB }}
+          BOOK_TAB: ${{ vars.BOOK_TAB }}
+          LOAN_TAB: ${{ vars.LOAN_TAB }}
 
       - name: 바뀐 경우에만 커밋
         if: steps.sync.outputs.code == '0' || steps.sync.outputs.code == '3'

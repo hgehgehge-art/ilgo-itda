@@ -262,7 +262,8 @@ async function upsertSupabase(seminars) {
     method: 'POST',
     headers: {
       apikey: key,
-      authorization: `Bearer ${key}`,
+      // 예전 방식 키(JWT)만 Authorization에도 보낸다. 새 키(sb_secret_)는 apikey만 쓴다.
+      ...(key.startsWith('eyJ') ? { authorization: `Bearer ${key}` } : {}),
       'content-type': 'application/json',
       prefer: 'resolution=merge-duplicates,return=minimal',
     },

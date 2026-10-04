@@ -14,14 +14,17 @@ const configured = Boolean(SUPABASE_URL && SUPABASE_ANON_KEY);
 export const mode = configured ? 'live' : isLocal ? 'mock' : 'off';
 
 // ── 실제 서버 ──
+// 예전 방식 키(eyJ…로 시작하는 JWT)만 Authorization에 함께 보낸다. 새 키(sb_publishable_/sb_secret_)는 apikey 헤더만 쓴다.
+function authHeaders(key) {
+  const h = { apikey: key, 'content-type': 'application/json' };
+  if (key.startsWith('eyJ')) h.authorization = `Bearer ${key}`;
+  return h;
+}
+
 async function rpc(fn, args = {}) {
   const res = await fetch(`${SUPABASE_URL.replace(/\/$/, '')}/rest/v1/rpc/${fn}`, {
     method: 'POST',
-    headers: {
-      apikey: SUPABASE_ANON_KEY,
-      authorization: `Bearer ${SUPABASE_ANON_KEY}`,
-      'content-type': 'application/json',
-    },
+    headers: authHeaders(SUPABASE_ANON_KEY),
     body: JSON.stringify(args),
     signal: AbortSignal.timeout(10_000),
   });

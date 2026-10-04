@@ -11,7 +11,9 @@ if (!URL_ || !KEY) {
   process.exit(2);
 }
 
-const headers = { apikey: KEY, authorization: `Bearer ${KEY}`, 'content-type': 'application/json' };
+// 예전 방식 키(eyJ…로 시작하는 JWT)만 Authorization에 함께 보낸다. 새 키(sb_publishable_/sb_secret_)는 apikey 헤더만 쓴다.
+const headers = { apikey: KEY, 'content-type': 'application/json' };
+if (KEY.startsWith('eyJ')) headers.authorization = `Bearer ${KEY}`;
 
 async function rpc(fn, args = {}) {
   const res = await fetch(`${URL_}/rest/v1/rpc/${fn}`, { method: 'POST', headers, body: JSON.stringify(args) });
