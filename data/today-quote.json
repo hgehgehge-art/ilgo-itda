@@ -1,11 +1,11 @@
 {
   "date": "2026-10-04",
-  "message": "인생은 가까이서 보면 비극이지만, 멀리서 보면 희극이다.",
-  "author": "찰리 채플린",
-  "authorProfile": "영국 출신 코미디언, 배우, 영화 감독",
+  "message": "그 사람이 읽은 책과 사귄 친구를 보면 그 사람을 알 수 있다.",
+  "author": "미겔 데 세르반테스",
+  "authorProfile": "스페인 작가",
   "source": {
     "name": "한국어 명언 API",
     "url": "https://github.com/gwongibeom/korean-advice-open-api"
   },
-  "fetchedAt": "2026-10-04T11:40:46.686Z"
+  "fetchedAt": "2026-10-04T12:02:13.755Z"
 }
