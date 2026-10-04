@@ -55,6 +55,13 @@ function el(tag, attrs = {}, text) {
   return node;
 }
 
+// 공개 사이트에는 발제자 이름을 가려서 보여 준다(예: 홍길동 → 홍○○)
+function maskName(name) {
+  const t = String(name).trim();
+  if (t.length <= 1) return t;
+  return t[0] + '○'.repeat(Math.min(t.length - 1, 3));
+}
+
 function stateOf(s) {
   if (s.status === 'cancelled') return { key: 'cancelled', label: '취소' };
   if (new Date(s.startsAt) <= new Date()) return { key: 'ended', label: '종료' };
@@ -255,7 +262,7 @@ function buildCard(s) {
     ` · ${s.place || DEFAULT_PLACE}`,
   );
   body.append(meta);
-  if (s.presenter) body.append(el('p', { class: 'seminar-presenter' }, `발제 ${s.presenter}`));
+  if (s.presenter) body.append(el('p', { class: 'seminar-presenter' }, `발제 ${maskName(s.presenter)}`));
 
   if (hc != null && state.key !== 'cancelled') {
     const bar = el('div', { class: 'meter', role: 'img' });
