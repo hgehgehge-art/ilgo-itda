@@ -355,7 +355,11 @@ $$;
 -- ── 공개 함수 ───────────────────────────────────────
 
 -- 사이트가 부르는 함수. 결과: { status: 'ok' | 'not_configured' | 'error', fetchedAt, rows }
-create or replace function public.sheet_rows(p_kind text)
+-- p_fresh = false 이면 저장된 값을 바로 돌려준다(빠름). 저장된 값이 없을 때만 시트를 읽는다.
+-- p_fresh = true 이면 1분이 지났을 때 시트를 다시 읽고 돌려준다(몇 초 걸릴 수 있음).
+-- 사이트는 false로 먼저 그리고, true로 한 번 더 불러 바뀐 게 있으면 다시 그린다.
+drop function if exists public.sheet_rows(text);
+create or replace function public.sheet_rows(p_kind text, p_fresh boolean default true)
 returns jsonb
 language plpgsql
 volatile
@@ -371,7 +375,9 @@ begin
   if not exists (select 1 from public.sheet_sources where kind = p_kind) then
     return jsonb_build_object('status', 'not_configured');
   end if;
-  perform public._refresh_sheet(p_kind);
+  if p_fresh or not exists (select 1 from public.sheet_cache where kind = p_kind) then
+    perform public._refresh_sheet(p_kind);
+  end if;
   select * into v_cache from public.sheet_cache where kind = p_kind;
   if not found then
     return jsonb_build_object('status', 'error');
@@ -416,10 +422,10 @@ revoke all on function public._csv_rows(text) from public, anon, authenticated;
 revoke all on function public._kst_time(text, text) from public, anon, authenticated;
 revoke all on function public._fetch_csv(text) from public, anon, authenticated;
 revoke all on function public._refresh_sheet(text) from public, anon, authenticated;
-revoke all on function public.sheet_rows(text) from public, anon, authenticated;
+revoke all on function public.sheet_rows(text, boolean) from public, anon, authenticated;
 revoke all on function public.reserve_from_sheet(text, text, text) from public, anon, authenticated;
 revoke all on function public.cancel_from_sheet(text, text, text) from public, anon, authenticated;
 
-grant execute on function public.sheet_rows(text) to anon;
+grant execute on function public.sheet_rows(text, boolean) to anon;
 grant execute on function public.reserve_from_sheet(text, text, text) to anon;
 grant execute on function public.cancel_from_sheet(text, text, text) to anon;
