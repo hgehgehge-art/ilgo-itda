@@ -1,11 +1,11 @@
 {
-  "date": "2026-10-04",
-  "message": "그 사람이 읽은 책과 사귄 친구를 보면 그 사람을 알 수 있다.",
-  "author": "미겔 데 세르반테스",
-  "authorProfile": "스페인 작가",
+  "date": "2026-10-05",
+  "message": "나는 항상 나의 최고의 걸작을 향해 나아가고 있다.",
+  "author": "마이클 앤젤로",
+  "authorProfile": "이탈리아 르네상스 시대 화가, 조각가",
   "source": {
     "name": "한국어 명언 API",
     "url": "https://github.com/gwongibeom/korean-advice-open-api"
   },
-  "fetchedAt": "2026-10-04T12:02:13.755Z"
+  "fetchedAt": "2026-10-04T18:32:00.346Z"
 }
