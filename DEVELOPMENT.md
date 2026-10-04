@@ -210,7 +210,7 @@ supabase/
 
 ### 7.2 시트 동기화 (`sync-sheets.mjs`, `sync-sheets.yml`)
 
-30분 간격 예약 실행과 수동 실행을 지원합니다. Google 서비스 계정으로 시트를 읽습니다.
+30분 간격 예약 실행과 수동 실행을 지원합니다. 시트는 Apps Script 웹 앱(`apps-script/Code.gs`)으로 읽습니다. 웹 앱은 사이트에 필요한 열만 JSON으로 내보내며, 빌린 회원 이름 열은 내보내지 않습니다. (2026-10-04 사용자 확인으로 변경: Google Cloud 서비스 계정 생성이 결제 정보 확인 단계에서 막힘. 서비스 계정 방식도 스크립트에 남겨 둠)
 
 **세미나**
 
@@ -230,7 +230,7 @@ supabase/
 
 - 내용이 바뀐 경우에만 커밋합니다. `syncedAt`만 달라진 경우에는 커밋하지 않습니다.
 - 시트를 읽지 못하면 기존 JSON을 그대로 두고 실패로 끝냅니다.
-- 필요한 비밀값: `GOOGLE_SERVICE_ACCOUNT_KEY`, `SEMINAR_SHEET_ID`, `LOAN_SHEET_ID`, `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`.
+- 필요한 비밀값: `SHEETS_JSON_URL`(Apps Script 웹 앱 주소), `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`. 서비스 계정 방식을 쓸 때는 `GOOGLE_SERVICE_ACCOUNT_KEY`, `SEMINAR_SHEET_ID`, `LOAN_SHEET_ID`.
 
 ### 7.3 배포
 
@@ -244,7 +244,7 @@ GitHub Pages로 배포합니다. Actions가 올린 커밋으로 Pages가 다시 
 - GitHub 저장소 주소와 Pages 주소
 - 디자인에 쓸 강조색 (정해 주지 않으면 한 가지를 제안하고 확인받음)
 - Supabase 프로젝트 주소와 공개용 키, 관리용 키(관리용 키는 GitHub 비밀 설정에 직접 등록)
-- Google 서비스 계정 키, 세미나 시트와 대출 시트의 ID, 실제 열 이름
+- Apps Script 웹 앱 주소(사용자가 GitHub 비밀 설정에 직접 등록), 세미나 시트 ID, 실제 열 이름
 - 도서 목록 원본: 민음사 세계문학전집의 내려받을 수 있는 공식 목록 파일은 없습니다. 사용자가 시트에 입력한 목록을 사용합니다.
 
 ## 9. 작업 순서

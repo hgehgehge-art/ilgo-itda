@@ -1,12 +1,11 @@
 // 시트 동기화: Google Sheets → data/seminars.json, data/books.json, Supabase seminars 표
 // 설치할 패키지 없음(Node.js 20 이상). GitHub Actions에서 30분마다 실행한다.
 //
-// 필요한 환경 변수(GitHub Secrets)
-//   GOOGLE_SERVICE_ACCOUNT_KEY  서비스 계정 키 JSON 전체
-//   SEMINAR_SHEET_ID            세미나 일정 시트 ID
-//   LOAN_SHEET_ID               대출 시트 ID(도서 목록·대출 기록 탭)
-//   SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY
-// 선택: SEMINAR_TAB, BOOK_TAB, LOAN_TAB (탭 이름이 기본값과 다를 때)
+// 시트를 읽는 방법은 둘 중 하나(GitHub Secrets)
+//   A. SHEETS_JSON_URL            Apps Script 웹 앱 주소(apps-script/Code.gs). 현재 쓰는 방법
+//   B. GOOGLE_SERVICE_ACCOUNT_KEY 서비스 계정 키 JSON 전체 + SEMINAR_SHEET_ID + LOAN_SHEET_ID
+// 공통: SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY
+// 선택(B 방법): SEMINAR_TAB, BOOK_TAB, LOAN_TAB (탭 이름이 기본값과 다를 때)
 //
 // 점검용: SHEETS_FIXTURE=파일.json 이면 시트 대신 그 파일의 값을 읽는다.
 //   { "seminars": [[머리행], [행]...], "books": [...], "loans": [...] }
@@ -103,13 +102,35 @@ async function googleToken() {
   return (await res.json()).access_token;
 }
 
+// A 방법: Apps Script 웹 앱이 { seminars, books, loans, errors } 를 돌려준다(필요한 열만).
+async function fetchAppsScript() {
+  const res = await fetch(env.SHEETS_JSON_URL, { redirect: 'follow', signal: AbortSignal.timeout(60_000) });
+  if (!res.ok) throw new Error(`Apps Script 응답 ${res.status}`);
+  try {
+    return JSON.parse(await res.text());
+  } catch {
+    // 주소나 응답 내용은 기록하지 않는다
+    throw new Error("Apps Script 응답이 JSON이 아님. 웹 앱 배포의 '액세스 권한'이 '모든 사용자'인지 확인");
+  }
+}
+
 let tokenPromise;
 let fixture;
+let bundle;
 async function readTab(sheetId, tab, kind) {
   if (fixturePath) {
     fixture ??= JSON.parse(await readFile(fixturePath, 'utf8'));
     if (!fixture[kind]) throw new Error(`점검 파일에 ${kind}가 없음`);
     return fixture[kind];
+  }
+  if (env.SHEETS_JSON_URL) {
+    bundle ??= fetchAppsScript();
+    const data = await bundle;
+    if (!Array.isArray(data[kind])) {
+      const why = (data.errors ?? []).find((e) => String(e).startsWith(`${kind}:`));
+      throw new Error(why ? `Apps Script ${why}` : `Apps Script 응답에 ${kind}가 없음`);
+    }
+    return data[kind];
   }
   tokenPromise ??= googleToken();
   const token = await tokenPromise;
@@ -145,7 +166,7 @@ function toRecords(values, kind) {
 // '2026-10-08', '2026. 10. 8', '2026/10/8' (+ '18:00' 또는 '오후 6:00')
 function parseDateTime(text, defaultTime) {
   const m = String(text).match(
-    /^(\d{4})\s*[-./]\s*(\d{1,2})\s*[-./]\s*(\d{1,2})\.?(?:\s*\([^)]*\))?(?:\s+(오전|오후)?\s*(\d{1,2}):(\d{2}))?\s*$/,
+    /^(\d{4})\s*[-./]\s*(\d{1,2})\s*[-./]\s*(\d{1,2})\.?(?:\s*\([^)]*\))?(?:\s+(오전|오후)?\s*(\d{1,2}):(\d{2})(?::\d{2})?)?\s*$/,
   );
   if (!m) return null;
   const [, y, mo, d, ampm, hh, mm] = m;
@@ -366,11 +387,11 @@ async function syncBooks() {
 }
 
 // ── 실행 ─────────────────────────────────────────────
-if (!fixturePath) {
+if (!fixturePath && !env.SHEETS_JSON_URL) {
   const need = ['GOOGLE_SERVICE_ACCOUNT_KEY', 'SEMINAR_SHEET_ID', 'LOAN_SHEET_ID'];
   const missing = need.filter((k) => !env[k]);
   if (missing.length) {
-    fail(`환경 변수가 없음: ${missing.join(', ')}`);
+    fail(`환경 변수가 없음: SHEETS_JSON_URL 또는 ${missing.join(', ')}`);
     process.exit(1);
   }
 }

@@ -31,6 +31,8 @@ jobs:
           node scripts/sync-sheets.mjs
           echo "code=$?" >> "$GITHUB_OUTPUT"
         env:
+          # 시트 읽기: Apps Script 웹 앱 주소(SHEETS_JSON_URL) 또는 서비스 계정(아래 세 값)
+          SHEETS_JSON_URL: ${{ secrets.SHEETS_JSON_URL }}
           GOOGLE_SERVICE_ACCOUNT_KEY: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY }}
           SEMINAR_SHEET_ID: ${{ secrets.SEMINAR_SHEET_ID }}
           LOAN_SHEET_ID: ${{ secrets.LOAN_SHEET_ID }}

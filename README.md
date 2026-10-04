@@ -301,16 +301,19 @@ FORCE=true node scripts/update-quote.mjs  # 오늘 문장이 있어도 교체
   3. Project Settings → API에서 Project URL과 공개용 키(anon public)를 `assets/js/config.js`에 넣습니다. 관리용 키(service_role)는 여기에 넣지 않고 GitHub 저장소의 Secrets에만 `SUPABASE_SERVICE_ROLE_KEY`로 등록합니다.
   4. 점검: SQL Editor에서 `supabase/test-seminars.sql`의 [준비] 부분을 실행한 뒤, 저장소 최상위 폴더에서 `SUPABASE_URL=… SUPABASE_ANON_KEY=… node scripts/check-supabase.mjs`를 실행합니다. 끝나면 같은 파일의 [정리] 부분을 실행합니다.
   5. 신청자 명단은 관리 화면 → Table Editor → `reservations`에서 봅니다. 대리 취소는 해당 행의 `cancelled_at`에 현재 시각을 넣습니다(행은 지우지 않습니다).
-- **설정 방법 — 시트 동기화:** 아래 절차는 작성만 했고 아직 실제 시트·GitHub에서 따라 해 보지 않았습니다.
-  1. Google Cloud 콘솔에서 프로젝트를 만들고 Google Sheets API를 켭니다. 서비스 계정을 만들고 JSON 키를 내려받습니다.
-  2. 세미나 시트와 대출 시트를 서비스 계정 이메일(`…@….iam.gserviceaccount.com`)에 **뷰어**로 공유합니다.
-  3. 시트 머리행(1행)을 아래 열 이름에 맞춥니다. 이름이 다르면 `scripts/sync-sheets.mjs` 맨 위 `COLUMNS`만 고칩니다. 탭 이름 기본값은 `시트1`(세미나), `도서 목록`, `대출 기록`입니다.
-     - 세미나: `세미나 ID`·`작가 및 작품명`·`개최 일시`(필수), `발제자`, `장소`, `정원`, `게시 상태`(초안/게시/취소, 비우면 초안), `발제문 URL`, `공개 안내`. 개최 일시는 `2026-10-08` 또는 `2026-10-08 18:00`처럼 연도를 넣습니다. 기존 `비고` 열은 사이트에 내보내지 않습니다.
-     - 도서 목록: `관리번호`·`전집 권번호`·`제목`(필수), `작가`, `번역자`, `ISBN`
-     - 대출 기록: `관리번호`·`실제 반납일`(필수), `반납 예정일`. `빌린 회원 이름` 열은 스크립트가 읽지 않습니다.
-  4. GitHub 저장소 → Settings → Secrets and variables → Actions에 `GOOGLE_SERVICE_ACCOUNT_KEY`(JSON 파일 내용 전체), `SEMINAR_SHEET_ID`, `LOAN_SHEET_ID`, `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`를 등록합니다. 시트 ID는 주소의 `/d/`와 `/edit` 사이 값입니다.
-  5. Actions → '시트 동기화' → Run workflow로 수동 실행하고 기록을 확인합니다. 이후 30분마다 자동 실행됩니다.
-  - 비밀값 없이 동작을 확인하려면 시트 값을 JSON으로 만든 뒤 `SHEETS_FIXTURE=파일.json node scripts/sync-sheets.mjs`로 실행합니다(이 경우 `data/*.json`이 실제로 바뀌니 복사본 폴더에서 실행하세요).
+- **설정 방법 — 시트 동기화(Apps Script):** Google Cloud 서비스 계정 대신 Apps Script 웹 앱으로 시트를 읽습니다. 카드 등록이나 키 파일이 필요 없습니다. 아래 절차는 작성만 했고 아직 실제 시트에서 따라 해 보지 않았습니다.
+  1. Google 드라이브에서 새 스프레드시트를 만듭니다(예: 「해외문학회 대출 기록 (비공개)」). 운영진에게만 공유합니다.
+  2. 그 시트에서 확장 프로그램 → Apps Script를 열고, 기본 코드를 지운 뒤 `apps-script/Code.gs` 내용을 붙여 넣습니다. 맨 위 `SEMINAR_SHEET_ID`에 세미나 시트 ID(주소의 `/d/`와 `/edit` 사이)를 넣고 저장합니다.
+  3. 위쪽 함수 선택에서 `setupSheets`를 고르고 실행합니다. 처음에는 권한 허용 창이 뜹니다(본인 계정 선택 → 고급 → 안전하지 않은 페이지로 이동 → 허용. 본인이 만든 스크립트라서 나오는 경고입니다). 대출 시트에 `도서 목록`·`대출 기록` 탭이, 세미나 시트에 `사이트 연동` 탭이 머리행과 함께 생깁니다. 기존 `시트1`은 건드리지 않습니다.
+  4. `도서 목록` 탭을 선택하고 파일 → 가져오기 → 업로드에서 `apps-script/book-list-draft.csv`(민음사 공식 목록 484종 초안)를 올립니다. '현재 시트 바꾸기'를 고릅니다. 실물과 대조해 없는 권은 지우고, 같은 책이 두 권이면 `M-044-2`처럼 줄을 추가합니다.
+  5. `사이트 연동` 탭에 세미나 일정을 적습니다(아래 열 설명 참고). `testPreview`를 실행하면 실행 로그에서 읽힌 행 수와 열을 확인할 수 있습니다.
+  6. 배포 → 새 배포 → 유형 '웹 앱' → 실행 사용자 '나', 액세스 권한 '모든 사용자' → 배포. 나온 웹 앱 URL(`https://script.google.com/macros/s/…/exec`)을 복사합니다.
+  7. GitHub 저장소 → Settings → Secrets and variables → Actions에 `SHEETS_JSON_URL`(웹 앱 URL), `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`(Supabase Secret key)를 등록합니다.
+  8. Actions → '시트 동기화' → Enable workflow로 켜고 Run workflow로 수동 실행해 기록을 확인합니다. 이후 30분마다 자동 실행됩니다.
+  - 열 이름: 세미나 `세미나 ID`·`작가 및 작품명`·`개최 일시`(필수), `발제자`, `장소`, `정원`, `게시 상태`(초안/게시/취소, 비우면 초안), `발제문 URL`, `공개 안내` / 도서 목록 `관리번호`·`전집 권번호`·`제목`(필수), `작가`, `번역자`, `ISBN` / 대출 기록 `관리번호`·`실제 반납일`(필수), `반납 예정일`. 개최 일시는 `2026-10-08` 또는 `2026-10-08 18:00`처럼 연도를 넣습니다.
+  - 웹 앱은 위 열만 내보냅니다. `빌린 회원 이름`, `대출일`, 기존 세미나 시트의 `비고`는 스크립트 밖으로 나가지 않습니다. 웹 앱 주소를 아는 사람은 사이트에 이미 공개된 정보(일정, 책 목록, 대출 여부·반납 예정일)를 볼 수 있으므로, 주소는 GitHub Secrets에만 둡니다.
+  - Apps Script 코드를 고친 뒤에는 배포 → 배포 관리 → 수정 → 버전 '새 버전'으로 다시 배포해야 반영됩니다(주소는 그대로).
+  - 비밀값 없이 동작을 확인하려면 시트 값을 JSON으로 만든 뒤 `SHEETS_FIXTURE=파일.json node scripts/sync-sheets.mjs`로 실행합니다(이 경우 `data/*.json`이 실제로 바뀌니 복사본 폴더에서 실행하세요). Google Cloud 서비스 계정 방식(`GOOGLE_SERVICE_ACCOUNT_KEY`, `SEMINAR_SHEET_ID`, `LOAN_SHEET_ID`)도 스크립트에 남겨 두었습니다.
 
 운영 중에는 다음과 같이 수정할 계획입니다.
 
@@ -346,7 +349,7 @@ FORCE=true node scripts/update-quote.mjs  # 오늘 문장이 있어도 교체
 | 오늘의 한 문장 원본을 명언 API로 변경 | 기획 반영 완료. API 응답 형식 확인 완료 |
 | 문장 갱신 스크립트·워크플로 | 작성 완료. 가짜 서버로 정상·같은 날 재실행·실패·중복 문장을 확인함. 2026-10-04 내 컴퓨터에서 실제 API 호출로 파일 생성, 같은 날 재실행 시 변경 없음을 확인함. 같은 날 GitHub에서 수동 실행해 성공·커밋 없음을, force 수동 실행으로 새 문장 커밋과 공개 홈페이지 반영을 확인함. 다음 날 예약 실행은 미확인 |
 | 오늘의 한 문장 카드·배너 화면 | 구현. 로컬에서 첫 방문 자동 열림, Esc·닫기·둘러보기 버튼, 초점 이동·복귀, 재방문 시 다시 안 뜸, 날짜 지난 문장 표기, 파일 없을 때 숨김, 저장소 차단 시 정상 동작, 360px 폭을 확인함. 공개 홈페이지에서는 미확인 |
-| 일정·대출 상태 동기화 Actions | `scripts/sync-sheets.mjs`·`.github/workflows/sync-sheets.yml` 작성. 가짜 시트 값으로 빈 값·잘못된 값 건너뛰기, 초안 비공개, 기본 시간·장소, 미반납 2건 오류와 이전 상태 유지, 내용이 같을 때 파일 미변경, 필수 열 누락 시 파일 유지, 가짜 Supabase 서버로 반영·실패 시 일정 파일 유지를 확인함. 빌린 회원 이름이 출력·기록에 없음을 확인함. 실제 시트·Supabase·GitHub에서의 실행은 미확인. 실제 열 이름 미확인 Google Cloud 서비스 계정 생성 중 결제 정보 확인 단계에서 막혀 연결하지 못함. 실패가 반복되지 않도록 워크플로를 꺼 둠. 대안으로 Apps Script로 시트를 읽는 방식을 검토 중 |
+| 일정·대출 상태 동기화 Actions | `scripts/sync-sheets.mjs`·`.github/workflows/sync-sheets.yml`·`apps-script/Code.gs` 작성. Google Cloud 결제 확인 단계에서 막혀 Apps Script 웹 앱으로 시트를 읽도록 바꿈. 가짜 시트 값·가짜 Apps Script 응답·가짜 Supabase 서버로 빈 값·잘못된 값 건너뛰기, 초안 비공개, 기본 시간·장소, '오후 6:00:00' 같은 시트 표시 형식, 미반납 2건 오류와 이전 상태 유지, 내용이 같을 때 파일 미변경, 탭·열 누락과 웹 앱 권한 오류 시 파일 유지를 확인함. 빌린 회원 이름이 출력·기록에 없음을 확인함. 실제 시트·Apps Script·GitHub에서의 실행은 미확인. 워크플로는 꺼 둠 |
 | 공개 URL·GitHub 저장소 연결 | 완료(2026-10-04). GitHub Pages(main 브랜치 최상위 폴더)로 배포. 공개 주소에서 세 페이지가 열리고, 세미나는 서버 미연결 상태라 '온라인 신청은 아직 준비 중'으로 신청이 막혀 있음을 확인함 |
 
 ### 직접 점검할 내용
