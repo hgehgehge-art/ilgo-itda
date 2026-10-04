@@ -1,0 +1,17 @@
+{
+  "example": true,
+  "syncedAt": "2026-10-04T12:00:00.000Z",
+  "books": [
+    { "copyId": "M-001-1", "seriesNo": 1, "title": "변신 이야기 1", "author": "오비디우스", "translator": "이윤기", "isbn": "", "status": "available", "dueDate": null },
+    { "copyId": "M-002-1", "seriesNo": 2, "title": "변신 이야기 2", "author": "오비디우스", "translator": "이윤기", "isbn": "", "status": "on_loan", "dueDate": "2026-10-11" },
+    { "copyId": "M-003-1", "seriesNo": 3, "title": "햄릿", "author": "윌리엄 셰익스피어", "translator": "최종철", "isbn": "", "status": "available", "dueDate": null },
+    { "copyId": "M-004-1", "seriesNo": 4, "title": "변신·시골의사", "author": "프란츠 카프카", "translator": "전영애", "isbn": "", "status": "on_loan", "dueDate": "2026-10-08" },
+    { "copyId": "M-005-1", "seriesNo": 5, "title": "동물농장", "author": "조지 오웰", "translator": "도정일", "isbn": "", "status": "available", "dueDate": null },
+    { "copyId": "M-006-1", "seriesNo": 6, "title": "허클베리 핀의 모험", "author": "마크 트웨인", "translator": "김욱동", "isbn": "", "status": "available", "dueDate": null },
+    { "copyId": "M-007-1", "seriesNo": 7, "title": "암흑의 핵심", "author": "조지프 콘래드", "translator": "이상옥", "isbn": "", "status": "on_loan", "dueDate": "2026-10-15" },
+    { "copyId": "M-008-1", "seriesNo": 8, "title": "토니오 크뢰거·트리스탄·베니스에서의 죽음", "author": "토마스 만", "translator": "안삼환 외", "isbn": "", "status": "available", "dueDate": null },
+    { "copyId": "M-009-1", "seriesNo": 9, "title": "문학이란 무엇인가", "author": "장폴 사르트르", "translator": "정명환", "isbn": "", "status": "available", "dueDate": null },
+    { "copyId": "M-010-1", "seriesNo": 10, "title": "데미안", "author": "헤르만 헤세", "translator": "전영애", "isbn": "", "status": "on_loan", "dueDate": "2026-10-09" },
+    { "copyId": "M-010-2", "seriesNo": 10, "title": "데미안", "author": "헤르만 헤세", "translator": "전영애", "isbn": "", "status": "available", "dueDate": null }
+  ]
+}

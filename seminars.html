@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>세미나 — 읽고, 잇다</title>
+  <meta name="description" content="한국외대 해외문학회의 책장(대출 상태)과 주간 세미나 참석 신청">
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script type="module" src="assets/js/site.js"></script>
+  <script type="module" src="assets/js/quote.js"></script>
+  <script type="module" src="assets/js/seminars.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+
+  <header class="site-nav">
+    <nav class="container" aria-label="주 메뉴">
+      <a class="brand" href="index.html">읽고, 잇다</a>
+      <ul class="nav-links">
+        <li><a href="index.html">홈</a></li>
+        <li><a href="books.html">책장</a></li>
+        <li><a href="seminars.html" aria-current="page">세미나</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div id="quote-banner" class="quote-banner" hidden></div>
+
+  <main id="main">
+    <section class="section page-head" aria-labelledby="seminars-title">
+      <div class="container">
+        <p class="eyebrow">주간 세미나</p>
+        <h1 class="headline" id="seminars-title">세미나</h1>
+        <p class="lead">매주 오후 6시, 동아리방. 발제자를 포함해 11명까지 선착순으로 받습니다. 이름과 확인번호 4자리로 신청하고 취소합니다.</p>
+        <p class="sync-note">모든 시간은 한국시간입니다. 신청자 이름은 공개하지 않고 운영진만 확인합니다.</p>
+        <p class="example-note" id="seminar-example" hidden>지금 보이는 일정은 화면 확인용 예시 데이터입니다. 실제 세미나 일정이 아닙니다.</p>
+        <p class="example-note" id="seminar-mock" hidden>가짜 응답 모드(내 컴퓨터 전용): 신청·취소가 서버에 저장되지 않고, 새로고침하면 초기화됩니다.</p>
+      </div>
+    </section>
+
+    <section class="section section--tight" aria-labelledby="upcoming-title">
+      <div class="container">
+        <h2 class="visually-hidden" id="upcoming-title">다가오는 세미나</h2>
+        <p class="result-count" id="seminar-status" role="status" aria-live="polite"></p>
+        <ul class="seminars" id="seminar-upcoming"></ul>
+      </div>
+    </section>
+
+    <section class="section section--soft" id="seminar-past-wrap" aria-labelledby="past-title" hidden>
+      <div class="container">
+        <h2 class="title" id="past-title">지난 세미나</h2>
+        <ul class="seminars seminars--past" id="seminar-past"></ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>읽고, 잇다 — 한국외대 해외문학회 개인 프로젝트</p>
+      <p>오늘의 한 문장 출처: <a href="https://github.com/gwongibeom/korean-advice-open-api">한국어 명언 API</a></p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,867 @@
+/* 읽고, 잇다 — 공통 스타일
+   흰색·옅은 회색·거의 검은 글자를 바탕으로, 강조색(--accent) 하나만 링크와 버튼에 쓴다. */
+
+:root {
+  --bg: #ffffff;
+  --bg-soft: #f5f5f7;
+  --text: #1d1d1f;
+  --text-muted: #6e6e73;
+  --line: #d2d2d7;
+  /* 강조색: 해외문학회 로고의 남색. 바꾸려면 이 두 줄만 수정 */
+  --accent: #1f3c6e;
+  --accent-hover: #142a52;
+
+  --font: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard",
+    "Noto Sans KR", "Segoe UI", sans-serif;
+  --radius: 22px;
+  --nav-h: 48px;
+  --gutter: 22px;
+  --max: 980px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-padding-top: calc(var(--nav-h) + 16px);
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 17px;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* display를 지정한 요소에도 hidden 속성이 항상 이기도록 */
+[hidden] {
+  display: none !important;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -60px;
+  z-index: 100;
+  padding: 8px 14px;
+  background: var(--text);
+  color: #fff;
+  border-radius: 999px;
+}
+.skip-link:focus {
+  top: 8px;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* ── 상단 메뉴: 얇고 반투명, 위에 고정 ── */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  height: var(--nav-h);
+  background: rgba(251, 251, 253, 0.8);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+.site-nav .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  gap: 16px;
+}
+.brand {
+  color: var(--text);
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+.brand:hover {
+  text-decoration: none;
+}
+.nav-links {
+  display: flex;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.nav-links a {
+  display: block;
+  padding: 6px 12px;
+  color: var(--text);
+  font-size: 14px;
+  border-radius: 999px;
+  opacity: 0.8;
+}
+.nav-links a:hover {
+  opacity: 1;
+  text-decoration: none;
+}
+.nav-links a[aria-current="page"] {
+  opacity: 1;
+  font-weight: 600;
+}
+
+/* ── 구역: 한 화면에 한 가지 이야기 ── */
+.section {
+  padding: 96px 0;
+}
+.section--soft {
+  background: var(--bg-soft);
+}
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--accent);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.headline {
+  margin: 0;
+  font-size: clamp(32px, 6vw, 56px);
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+.title {
+  margin: 0;
+  font-size: clamp(28px, 4.4vw, 44px);
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+.lead {
+  margin: 16px 0 0;
+  max-width: 36em;
+  color: var(--text-muted);
+  font-size: clamp(18px, 2.2vw, 21px);
+  line-height: 1.55;
+}
+.center {
+  text-align: center;
+}
+.center .lead {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ── 버튼: 둥근 알약 ── */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  align-items: center;
+  margin-top: 28px;
+}
+.center .actions {
+  justify-content: center;
+}
+.btn {
+  display: inline-block;
+  padding: 11px 22px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font: inherit;
+  font-size: 16px;
+  line-height: 1.2;
+  cursor: pointer;
+}
+.btn:hover {
+  background: var(--accent-hover);
+  text-decoration: none;
+}
+.link-arrow::after {
+  content: " ›";
+}
+
+/* ── 홈 첫 화면 ── */
+.hero {
+  padding: 88px 0 0;
+  overflow: hidden;
+}
+
+/* 장식: 해외문학회 로고의 '기울어 이어지는 책' 모티프. 책 한 권씩 차례로 일어선다 */
+.dominoes {
+  display: block;
+  width: 100%;
+  max-width: 720px;
+  height: auto;
+  margin: 64px auto 0;
+}
+.domino {
+  fill: url(#spine);
+}
+.js .domino {
+  opacity: 0;
+  animation: domino-in 0.6s ease forwards;
+  animation-delay: calc(var(--i) * 45ms + 200ms);
+}
+@keyframes domino-in {
+  to {
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .js .domino {
+    opacity: 1;
+    animation: none;
+  }
+}
+
+/* ── 카드: 둥근 모서리, 옅은 배경 ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: 20px;
+  margin-top: 48px;
+}
+.card {
+  padding: 36px 32px;
+  background: var(--bg-soft);
+  border-radius: var(--radius);
+}
+.section--soft .card {
+  background: var(--bg);
+}
+.card h3 {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+.card p {
+  margin: 10px 0 0;
+  color: var(--text-muted);
+}
+.card .actions {
+  margin-top: 20px;
+}
+
+/* ── 현재 상태 목록 ── */
+.status-list {
+  margin: 48px 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+.status-list li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px 16px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+.status-list .label {
+  font-weight: 600;
+}
+.status-list .note {
+  grid-column: 1 / -1;
+  color: var(--text-muted);
+  font-size: 15px;
+}
+.badge {
+  align-self: start;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: var(--bg-soft);
+  color: var(--text-muted);
+  font-size: 13px;
+  white-space: nowrap;
+}
+.badge--done {
+  background: var(--text);
+  color: #fff;
+}
+.section--soft .badge {
+  background: var(--bg);
+}
+.section--soft .badge--done {
+  background: var(--text);
+}
+
+/* 사용자가 채워야 할 자리. 눈에 띄게 둔다 */
+.placeholder {
+  display: inline;
+  padding: 1px 6px;
+  background: #fff4cc;
+  color: #6b4e00;
+  border-radius: 6px;
+  outline: 1px dashed #c9a227;
+}
+
+/* ── 하위 페이지 머리 ── */
+.page-head {
+  padding-bottom: 32px;
+}
+.section--tight {
+  padding-top: 0;
+}
+.sync-note {
+  margin: 20px 0 0;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+.example-note {
+  display: inline-block;
+  margin: 16px 0 0;
+  padding: 6px 12px;
+  border-radius: 10px;
+  background: #fff4cc;
+  color: #6b4e00;
+  font-size: 14px;
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ── 책장: 검색 ── */
+.search {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 24px;
+}
+.search-input {
+  flex: 1 1 280px;
+  min-width: 0;
+  padding: 14px 20px;
+  border: 0;
+  border-radius: 14px;
+  background: var(--bg-soft);
+  color: var(--text);
+  font: inherit;
+}
+.search-input:focus-visible {
+  outline-offset: 0;
+}
+.check {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+.check input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent);
+}
+.result-count {
+  margin: 24px 0 0;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+.result-count.is-error {
+  color: var(--text);
+  font-size: 17px;
+}
+
+/* ── 책장: 목록 ── */
+.books {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr));
+  gap: 16px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.book {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 22px 20px 30px;
+  background: var(--bg-soft);
+  border-radius: 18px;
+  overflow: hidden;
+}
+/* 책등처럼 보이는 왼쪽 띠 */
+.book::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 8px;
+  background: linear-gradient(#2c5288, #0a1730);
+}
+.book.is-out::before {
+  background: #c7c7cc;
+}
+.book-no {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+.book-title {
+  margin: 4px 0 0;
+  font-size: 19px;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+}
+.book-by {
+  margin: 6px 0 0;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+.book-status {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 8px;
+  margin: auto 0 0;
+  padding-top: 16px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+.pill {
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+.is-free .pill {
+  background: var(--accent);
+  color: #fff;
+}
+.is-loan .pill {
+  background: #e8e8ed;
+  color: var(--text);
+}
+.book-copy {
+  margin: 8px 0 0;
+  color: var(--text-muted);
+  font-size: 12px;
+}
+.btn--quiet {
+  margin-top: 32px;
+  background: var(--bg-soft);
+  color: var(--accent);
+}
+.btn--quiet:hover {
+  background: #e8e8ed;
+}
+
+/* ── 세미나 ── */
+.seminars {
+  display: grid;
+  gap: 16px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.seminars--past {
+  margin-top: 32px;
+}
+.seminar {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 24px;
+  padding: 28px 32px;
+  background: var(--bg-soft);
+  border-radius: var(--radius);
+}
+.section--soft .seminar {
+  background: var(--bg);
+}
+.seminar-date {
+  display: flex;
+  flex-direction: column;
+  color: var(--text-muted);
+}
+.seminar-month {
+  font-size: 13px;
+}
+.seminar-day {
+  color: var(--text);
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+.seminar-body {
+  min-width: 0;
+}
+.seminar-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.state {
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  background: #e8e8ed;
+  color: var(--text);
+}
+.state--open {
+  background: var(--accent);
+  color: #fff;
+}
+.seminar-count {
+  font-size: 15px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.seminar-title {
+  margin: 12px 0 0;
+  font-size: 24px;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+.seminar-meta,
+.seminar-presenter,
+.seminar-note,
+.seminar-doc {
+  margin: 6px 0 0;
+  color: var(--text-muted);
+  font-size: 15px;
+}
+.seminar-note {
+  color: var(--text);
+}
+.is-cancelled .seminar-title {
+  text-decoration: line-through;
+  text-decoration-color: var(--text-muted);
+}
+.is-ended,
+.is-cancelled {
+  opacity: 0.75;
+}
+.meter {
+  height: 6px;
+  margin-top: 16px;
+  border-radius: 999px;
+  background: #e8e8ed;
+  overflow: hidden;
+}
+.section--soft .meter {
+  background: var(--bg-soft);
+}
+.meter span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--accent);
+  transition: width 0.4s ease;
+}
+.is-full .meter span,
+.is-ended .meter span {
+  background: #86868b;
+}
+
+/* 신청·취소 양식 */
+.rsv-actions,
+.rsv-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+.rsv-actions .btn--quiet {
+  margin-top: 0;
+  background: var(--bg);
+}
+.rsv-form {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 16px;
+  background: var(--bg);
+}
+.rsv-legend {
+  margin: 0 0 12px;
+  font-weight: 700;
+}
+.rsv-fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+  gap: 12px;
+}
+.field label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+.field input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+}
+.rsv-help {
+  margin: 12px 0 0;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+.rsv-row {
+  align-items: center;
+}
+.rsv-close {
+  padding: 8px 4px;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  font: inherit;
+  cursor: pointer;
+}
+.btn:disabled {
+  opacity: 0.5;
+  cursor: progress;
+}
+.rsv-result {
+  margin: 12px 0 0;
+  font-weight: 600;
+}
+.rsv-result:empty {
+  display: none;
+}
+.empty {
+  padding: 32px;
+  border-radius: var(--radius);
+  background: var(--bg-soft);
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* ── 오늘의 한 문장: 상단 배너 ── */
+.quote-banner {
+  background: var(--bg-soft);
+  font-size: 13px;
+}
+.quote-banner-inner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 40px;
+}
+.quote-banner-label {
+  flex: none;
+  color: var(--accent);
+  font-weight: 600;
+}
+.quote-banner-text {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--text);
+}
+.quote-banner-btn {
+  flex: none;
+  padding: 4px 0;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  font: inherit;
+  cursor: pointer;
+}
+.quote-banner-btn:hover {
+  text-decoration: underline;
+}
+
+/* ── 오늘의 한 문장: 첫 방문 카드 ── */
+.quote-dialog {
+  width: min(560px, calc(100% - 32px));
+  max-height: calc(100% - 32px);
+  padding: 56px 44px 40px;
+  border: 0;
+  border-radius: 28px;
+  background: var(--bg);
+  color: var(--text);
+  text-align: center;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.18);
+}
+.quote-dialog::backdrop {
+  background: rgba(29, 29, 31, 0.35);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+.quote-dialog[open] {
+  animation: quote-in 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.quote-dialog[open]::backdrop {
+  animation: quote-fade 0.5s ease;
+}
+@keyframes quote-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+}
+@keyframes quote-fade {
+  from {
+    opacity: 0;
+  }
+}
+.quote-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--bg-soft);
+  color: var(--text-muted);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+}
+.quote-close:hover {
+  color: var(--text);
+}
+.quote-message {
+  margin: 8px 0 0;
+}
+.quote-message p {
+  margin: 0;
+  font-size: clamp(24px, 4.6vw, 32px);
+  line-height: 1.4;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+.quote-author {
+  margin: 24px 0 0;
+}
+.quote-author strong {
+  display: block;
+  font-size: 17px;
+}
+.quote-author span {
+  display: block;
+  color: var(--text-muted);
+  font-size: 15px;
+}
+.quote-meta {
+  margin: 12px 0 0;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+.quote-dialog .btn {
+  margin-top: 32px;
+}
+
+/* ── 바닥글 ── */
+.site-footer {
+  padding: 32px 0 48px;
+  background: var(--bg-soft);
+  color: var(--text-muted);
+  font-size: 13px;
+}
+.site-footer p {
+  margin: 4px 0;
+}
+
+/* ── 스크롤할 때 부드럽게 나타남 ── */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .quote-dialog[open],
+  .quote-dialog[open]::backdrop {
+    animation: none;
+  }
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+@media (max-width: 600px) {
+  :root {
+    --gutter: 16px;
+  }
+  body {
+    font-size: 16px;
+  }
+  .section {
+    padding: 64px 0;
+  }
+  .hero {
+    padding-top: 56px;
+  }
+  .dominoes {
+    margin-top: 40px;
+  }
+  .card {
+    padding: 28px 22px;
+  }
+  .quote-dialog {
+    padding: 52px 24px 32px;
+  }
+  .seminar {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 24px 20px;
+  }
+  .seminar-date {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .seminar-day {
+    font-size: 32px;
+    order: -1;
+  }
+  .rsv-form {
+    padding: 16px;
+  }
+  .nav-links a {
+    padding: 6px 9px;
+  }
+}

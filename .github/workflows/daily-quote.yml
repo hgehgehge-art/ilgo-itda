@@ -1,0 +1,48 @@
+name: 오늘의 한 문장 갱신
+
+on:
+  schedule:
+    # 매일 한국시간 00:05 (UTC 15:05). 예약 실행은 늦어질 수 있다.
+    - cron: '5 15 * * *'
+  workflow_dispatch:
+    inputs:
+      force:
+        description: '오늘 문장이 이미 있어도 새 문장으로 교체'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-quote
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 문장 받아 오기
+        run: node scripts/update-quote.mjs
+        env:
+          FORCE: ${{ inputs.force || 'false' }}
+
+      - name: 바뀐 경우에만 커밋
+        run: |
+          git add data/today-quote.json
+          if git diff --cached --quiet; then
+            echo "변경 없음"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "오늘의 한 문장 갱신"
+          # 시트 동기화 커밋과 겹칠 수 있어 최신으로 맞춘 뒤 올린다
+          git pull --rebase
+          git push

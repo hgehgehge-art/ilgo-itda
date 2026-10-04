@@ -1,0 +1,11 @@
+{
+  "example": true,
+  "syncedAt": "2026-10-04T12:00:00.000Z",
+  "seminars": [
+    { "id": "2026-2-w04", "title": "헤르만 헤세 『데미안』", "presenter": "회원 A", "startsAt": "2026-10-01T18:00:00+09:00", "place": "동아리방", "capacity": 11, "status": "published", "docUrl": null, "note": "" },
+    { "id": "2026-2-w05", "title": "프란츠 카프카 『변신』", "presenter": "회원 B", "startsAt": "2026-10-08T18:00:00+09:00", "place": "동아리방", "capacity": 11, "status": "published", "docUrl": null, "note": "" },
+    { "id": "2026-2-w06", "title": "조지 오웰 『동물농장』", "presenter": "회원 C", "startsAt": "2026-10-15T18:00:00+09:00", "place": "동아리방", "capacity": 11, "status": "published", "docUrl": null, "note": "" },
+    { "id": "2026-2-w07", "title": "조지프 콘래드 『암흑의 핵심』", "presenter": "회원 D", "startsAt": "2026-10-22T18:00:00+09:00", "place": "동아리방", "capacity": 11, "status": "cancelled", "docUrl": null, "note": "중간고사 기간이라 쉽니다." },
+    { "id": "2026-2-w08", "title": "윌리엄 셰익스피어 『햄릿』", "presenter": "회원 E", "startsAt": "2026-10-29T18:00:00+09:00", "place": "동아리방", "capacity": 11, "status": "published", "docUrl": "https://docs.google.com/", "note": "발제문을 미리 읽어 오세요." }
+  ]
+}
