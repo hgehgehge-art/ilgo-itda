@@ -1,11 +1,11 @@
 {
-  "date": "2026-10-05",
-  "message": "나는 항상 나의 최고의 걸작을 향해 나아가고 있다.",
-  "author": "마이클 앤젤로",
-  "authorProfile": "이탈리아 르네상스 시대 화가, 조각가",
+  "date": "2026-10-06",
+  "message": "당신에 대한 누군가의 의견이 당신의 현실이 될 필요가 없다.",
+  "author": "레스 브라운",
+  "authorProfile": "동기부여 연설가",
   "source": {
     "name": "한국어 명언 API",
     "url": "https://github.com/gwongibeom/korean-advice-open-api"
   },
-  "fetchedAt": "2026-10-04T18:32:00.346Z"
+  "fetchedAt": "2026-10-05T21:50:46.022Z"
 }
