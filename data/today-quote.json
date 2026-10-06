@@ -1,11 +1,11 @@
 {
-  "date": "2026-10-06",
-  "message": "당신에 대한 누군가의 의견이 당신의 현실이 될 필요가 없다.",
-  "author": "레스 브라운",
-  "authorProfile": "동기부여 연설가",
+  "date": "2026-10-07",
+  "message": "나는 특별한 재능이 있는 것이 아니다. 단지 열정적으로 호기심을 가질 뿐이다.",
+  "author": "앨버트 아인슈타인",
+  "authorProfile": "이론 물리학자",
   "source": {
     "name": "한국어 명언 API",
     "url": "https://github.com/gwongibeom/korean-advice-open-api"
   },
-  "fetchedAt": "2026-10-05T21:50:46.022Z"
+  "fetchedAt": "2026-10-06T19:59:16.017Z"
 }
