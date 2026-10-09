@@ -1,11 +1,11 @@
 {
-  "date": "2026-10-09",
-  "message": "모든 성취의 시작점은 갈망이다.",
-  "author": "나폴레온 힐",
-  "authorProfile": "작가, 세계적인 성공학 연구자",
+  "date": "2026-10-10",
+  "message": "나는 내 인생에서 9천 번 이상의 슛을 놓쳤다. 나는 수백 번의 경기를 패배했다. 그러나 실패를 거듭한 것이 내가 성공한 이유이다.",
+  "author": "마이클 조던",
+  "authorProfile": "미국 농구 선수",
   "source": {
     "name": "한국어 명언 API",
     "url": "https://github.com/gwongibeom/korean-advice-open-api"
   },
-  "fetchedAt": "2026-10-08T20:31:03.493Z"
+  "fetchedAt": "2026-10-09T20:00:22.369Z"
 }
