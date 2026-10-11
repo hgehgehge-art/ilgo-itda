@@ -1,11 +1,11 @@
 {
-  "date": "2026-10-11",
-  "message": "긴 인생은 충분히 좋지 않을 수 있다. 그러나 좋은 인생은 충분히 길다.",
-  "author": "벤자민 프랭클린",
-  "authorProfile": "정치인, 미국 건국의 아버지",
+  "date": "2026-10-12",
+  "message": "불행의 원인은 늘 자신에게 있다.",
+  "author": "블레즈 파스칼",
+  "authorProfile": "수학자, 계산기의 발명자",
   "source": {
     "name": "한국어 명언 API",
     "url": "https://github.com/gwongibeom/korean-advice-open-api"
   },
-  "fetchedAt": "2026-10-10T19:08:05.265Z"
+  "fetchedAt": "2026-10-11T19:22:00.468Z"
 }
