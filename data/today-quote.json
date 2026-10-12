@@ -1,11 +1,11 @@
 {
-  "date": "2026-10-12",
-  "message": "불행의 원인은 늘 자신에게 있다.",
-  "author": "블레즈 파스칼",
-  "authorProfile": "수학자, 계산기의 발명자",
+  "date": "2026-10-13",
+  "message": "어떤 진리라도 그것을 밝히는 자는 항상 외로움을 견뎌야 한다.",
+  "author": "갈릴레오 갈릴레이",
+  "authorProfile": "이탈리아 천문학자, 물리학자, 철학자",
   "source": {
     "name": "한국어 명언 API",
     "url": "https://github.com/gwongibeom/korean-advice-open-api"
   },
-  "fetchedAt": "2026-10-11T19:22:00.468Z"
+  "fetchedAt": "2026-10-12T22:24:11.012Z"
 }
