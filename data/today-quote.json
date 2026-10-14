@@ -1,11 +1,11 @@
 {
-  "date": "2026-10-14",
-  "message": "20년 후, 당신은 하지 않은 일들 때문에 더 실망할 것이다. 그러니 안락의자를 벗어나라.",
-  "author": "마크 트웨인",
-  "authorProfile": "미국 작가, 유머리스트",
+  "date": "2026-10-15",
+  "message": "긴 인생은 충분히 좋지 않을 수 있다. 그러나 좋은 인생은 충분히 길다.",
+  "author": "벤자민 프랭클린",
+  "authorProfile": "정치인, 미국 건국의 아버지",
   "source": {
     "name": "한국어 명언 API",
     "url": "https://github.com/gwongibeom/korean-advice-open-api"
   },
-  "fetchedAt": "2026-10-13T20:31:05.955Z"
+  "fetchedAt": "2026-10-14T19:11:48.033Z"
 }
