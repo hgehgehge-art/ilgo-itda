@@ -1,11 +1,11 @@
 {
-  "date": "2026-10-15",
-  "message": "긴 인생은 충분히 좋지 않을 수 있다. 그러나 좋은 인생은 충분히 길다.",
-  "author": "벤자민 프랭클린",
-  "authorProfile": "정치인, 미국 건국의 아버지",
+  "date": "2026-10-16",
+  "message": "내가 걷는 이 길이 옳다는 것을 확신한다면, 나는 굴하지 않고 계속 나아갈 것이다.",
+  "author": "에이브러햄 링컨",
+  "authorProfile": "미국 16대 대통령",
   "source": {
     "name": "한국어 명언 API",
     "url": "https://github.com/gwongibeom/korean-advice-open-api"
   },
-  "fetchedAt": "2026-10-14T19:11:48.033Z"
+  "fetchedAt": "2026-10-15T18:53:59.657Z"
 }
