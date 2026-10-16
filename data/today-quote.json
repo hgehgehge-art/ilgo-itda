@@ -1,11 +1,11 @@
 {
-  "date": "2026-10-16",
-  "message": "내가 걷는 이 길이 옳다는 것을 확신한다면, 나는 굴하지 않고 계속 나아갈 것이다.",
-  "author": "에이브러햄 링컨",
-  "authorProfile": "미국 16대 대통령",
+  "date": "2026-10-17",
+  "message": "자신감 있는 표정을 지으면 자신감이 생긴다.",
+  "author": "찰스 다윈",
+  "authorProfile": "생물 학자, <종의 기원>의 저자",
   "source": {
     "name": "한국어 명언 API",
     "url": "https://github.com/gwongibeom/korean-advice-open-api"
   },
-  "fetchedAt": "2026-10-15T18:53:59.657Z"
+  "fetchedAt": "2026-10-16T18:38:42.091Z"
 }
