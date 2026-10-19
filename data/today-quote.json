@@ -1,11 +1,11 @@
 {
-  "date": "2026-10-19",
-  "message": "내면의 평화는 진정한 자유의 첫 번째 단계이다.",
-  "author": "버지니아 울프",
-  "authorProfile": "영국 소설가, 에세이스트",
+  "date": "2026-10-20",
+  "message": "자유는 결코 인간이 타고난 것이 아니다. 그것은 인내와 용기와 희생을 통해 얻어지는 것이다.",
+  "author": "에이브러햄 링컨",
+  "authorProfile": "미국 16대 대통령",
   "source": {
     "name": "한국어 명언 API",
     "url": "https://github.com/gwongibeom/korean-advice-open-api"
   },
-  "fetchedAt": "2026-10-18T17:51:38.890Z"
+  "fetchedAt": "2026-10-19T20:23:44.990Z"
 }
