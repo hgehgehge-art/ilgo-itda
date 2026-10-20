@@ -6,10 +6,10 @@
   <title>그날의 토론 — 읽고, 잇다</title>
   <meta name="description" content="해외문학회 세미나에서 오간 키워드와 질문을 남기는 토론 기록">
   <script>document.documentElement.classList.add('js');</script>
-  <link rel="stylesheet" href="assets/css/style.css?v=20261021h">
-  <script type="module" src="assets/js/site.js?v=20261021h"></script>
-  <script type="module" src="assets/js/quote.js?v=20261021h"></script>
-  <script type="module" src="assets/js/discussions.js?v=20261021h"></script>
+  <link rel="stylesheet" href="assets/css/style.css?v=20261021i">
+  <script type="module" src="assets/js/site.js?v=20261021i"></script>
+  <script type="module" src="assets/js/quote.js?v=20261021i"></script>
+  <script type="module" src="assets/js/discussions.js?v=20261021i"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">본문으로 건너뛰기</a>
@@ -33,8 +33,8 @@
       <div class="container">
         <p class="eyebrow">세미나가 끝난 뒤</p>
         <h1 class="headline" id="disc-title">그날의 토론</h1>
-        <p class="lead">세미나에서 많이 오간 낱말과 함께 던진 질문을 남깁니다. 한 학기가 쌓이면 동아리의 대화 기록이 됩니다.</p>
-        <p class="sync-note">발언자는 '참석자 A'처럼 표시합니다. 본문 속 개인정보는 직접 지우고, 원문은 내려받는 파일에서 제외합니다.</p>
+        <p class="lead">세미나에서 오간 낱말과 질문을 남깁니다.</p>
+        <p class="sync-note">발언자는 '참석자 A'로 표시하고, 원문은 공개하지 않습니다.</p>
       </div>
     </section>
 
@@ -49,15 +49,14 @@
       <div class="container">
         <details class="staff" open>
           <summary><h2 class="title" id="staff-title">토론 기록 만들기</h2></summary>
-          <p class="lead">클로바노트 등에서 내려받은 받아쓰기 텍스트를 붙여 넣으면 자주 나온 낱말로 키워드 후보를 만듭니다. 확인하고 고친 뒤 게시해야 공개됩니다.</p>
-          <p class="staff-notice">세미나 시작 때 녹음·기록 사실을 알렸는지 확인하세요. 학번·전화번호처럼 토론과 무관한 개인정보는 지우고 붙여 넣으세요.</p>
-          <p class="hint" id="staff-off" hidden>서버가 연결되기 전에는 파일로 만드는 기능만 쓸 수 있습니다. 원문은 이 페이지 안에서만 처리합니다.</p>
+          <p class="lead">받아쓰기 텍스트를 붙여 넣고 키워드를 뽑으세요. 게시해야 공개됩니다.</p>
+          <p class="staff-notice">녹음 사실을 미리 알리고, 토론과 무관한 개인정보는 지운 뒤 붙여 넣으세요.</p>
+          <p class="hint" id="staff-off" hidden>서버 연결 전에는 파일로만 저장할 수 있습니다.</p>
 
           <form class="staff-form" id="staff-form" novalidate>
-            <p class="hint">키워드는 단어 빈도로 뽑는 후보입니다. AI 요약이 아니며, 요약과 질문은 직접 검토·작성합니다. 새로고침하면 입력은 사라지므로 파일로 내려받으세요.</p>
-            <div class="rsv-row"><button type="button" class="btn btn--quiet" id="draft-example">예시로 체험하기</button></div>
-            <div class="field"><label for="draft-title">토론 제목</label><input id="draft-title" maxlength="150" placeholder="예: 『데미안』 · 나만의 길"></div>
-            <div class="field"><label for="draft-file">텍스트 파일 열기 (.txt, .md / 500KB 이하)</label><input id="draft-file" type="file" accept=".txt,.md,text/plain,text/markdown"></div>
+                        <div class="rsv-row"><button type="button" class="btn btn--quiet" id="draft-example">예시로 체험하기</button></div>
+            <div class="field" data-offline><label for="draft-title">토론 제목</label><input id="draft-title" maxlength="150" placeholder="예: 『데미안』 · 나만의 길"></div>
+            <div class="field"><label for="draft-file">텍스트 파일 열기 (.txt, .md)</label><input id="draft-file" type="file" accept=".txt,.md,text/plain,text/markdown"></div>
             <div class="field" data-server>
               <label for="staff-seminar">세미나</label>
               <select id="staff-seminar"><option value="">불러오는 중…</option></select>
@@ -66,7 +65,7 @@
             <div class="field">
               <label for="staff-text">받아쓰기 텍스트 <span class="hint" id="staff-text-count">0자</span></label>
               <textarea id="staff-text" rows="8" aria-describedby="staff-text-help staff-text-error" placeholder="토론 받아쓰기 텍스트를 붙여 넣으세요 (200자 ~ 60,000자)"></textarea>
-              <p class="hint" id="staff-text-help">원문은 현재 페이지에서만 처리하며, 기록 파일에는 포함하지 않습니다.</p>
+              <p class="hint" id="staff-text-help">원문은 공개되지 않습니다.</p>
               <p class="field-error" id="staff-text-error" aria-live="polite"></p>
             </div>
 
@@ -82,15 +81,15 @@
             </div>
 
             <div class="field">
-              <label for="staff-summary">한 줄 요약 (선택)</label>
+              <label for="staff-summary">한 줄 요약</label>
               <textarea id="staff-summary" rows="3" maxlength="2000"></textarea>
             </div>
             <div class="field">
-              <label for="staff-questions">함께 던진 질문 (선택, 한 줄에 하나)</label>
+              <label for="staff-questions">함께 던진 질문 (한 줄에 하나)</label>
               <textarea id="staff-questions" rows="3"></textarea>
             </div>
             <div class="field">
-              <label for="staff-quotes">남기고 싶은 말 (선택, 한 줄에 하나. 예: 참석자 A: 문장)</label>
+              <label for="staff-quotes">남기고 싶은 말 (예: 참석자 A: 문장)</label>
               <textarea id="staff-quotes" rows="3"></textarea>
             </div>
 
@@ -105,8 +104,8 @@
               <button class="btn btn--quiet" type="submit" value="draft">초안 저장</button>
               <button class="btn" type="submit" value="publish">게시</button>
             </div>
-            <label class="check"><input id="draft-consent" type="checkbox"><span>기록의 공개 범위를 확인하고, 이름·학번·연락처를 지웠습니다.</span></label>
-            <div class="rsv-row"><button type="button" class="btn btn--quiet" id="draft-preview-button">기록 미리보기</button><button type="button" class="btn" id="draft-download">기록 파일 내려받기</button></div>
+            <label class="check" data-offline><input id="draft-consent" type="checkbox"><span>이름·학번·연락처를 지웠습니다.</span></label>
+            <div class="rsv-row"><button type="button" class="btn btn--quiet" id="draft-preview-button">기록 미리보기</button><button type="button" class="btn btn--quiet" id="draft-download" data-offline>기록 파일 내려받기</button></div>
             <div id="draft-preview" class="discussion" tabindex="-1" hidden></div>
             <p class="hint" id="staff-state-info"></p>
             <p class="rsv-result" id="staff-result" role="status" aria-live="polite"></p>

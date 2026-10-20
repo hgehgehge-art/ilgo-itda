@@ -58,13 +58,13 @@ function renderDiscussion(d) {
 async function loadPublished() {
   listStatus.textContent = '토론 기록을 불러오는 중…';
   if (!(mode === 'mock' || (mode === 'live' && DISCUSSIONS_ENABLED))) {
-    listStatus.textContent = '게시된 토론 기록은 아직 없습니다. 아래에서 텍스트를 정리하고 기록 파일을 만들 수 있어요.';
+    listStatus.textContent = '아직 게시된 기록이 없어요.';
     return [];
   }
   try {
     const items = await publishedDiscussions();
     list.replaceChildren(...items.map(renderDiscussion));
-    listStatus.textContent = items.length ? '' : '아직 게시된 토론 기록이 없어요. 세미나가 끝나면 운영진이 기록을 올립니다.';
+    listStatus.textContent = items.length ? '' : '아직 게시된 기록이 없어요.';
     // 세미나 화면의 '그날의 토론 보기'로 들어오면 그 기록으로 이동
     if (location.hash) document.getElementById(decodeURIComponent(location.hash.slice(1)))?.focus();
     return items;
@@ -149,6 +149,8 @@ async function setupStaff() {
   const online = mode === 'mock' || (mode === 'live' && DISCUSSIONS_ENABLED);
   $('staff-off').hidden = online;
   form.querySelectorAll('[data-server]').forEach(n => n.hidden = !online);
+  // 서버에 저장할 수 있으면 파일 내려받기는 숨긴다
+  form.querySelectorAll('[data-offline]').forEach(n => n.hidden = online);
   // 세미나 목록: 시작한 세미나(지난 세미나)만, 최근 순
   try {
     let res = { rows: [] };
@@ -270,7 +272,9 @@ function publicDraft() {
 function preview() {
   const d=publicDraft();
   const box=$('draft-preview'); box.replaceChildren();
-  const title=el('h3',{},d.title || '제목 없는 토론 초안'); box.append(title);
+  // 서버에 올릴 때는 고른 세미나 이름을 제목으로 쓴다
+  const chosen = seminarSel.value ? seminarSel.selectedOptions[0].textContent : '';
+  const title=el('h3',{},d.title || chosen || '제목 없는 토론 초안'); box.append(title);
   const c=el('div',{class:'cloud'}); renderCloud(c,d.keywords); box.append(c);
   if(d.summary) box.append(el('p',{},d.summary));
   d.questions.forEach(q=>box.append(el('p',{},`질문 · ${q}`)));
@@ -345,7 +349,7 @@ $('draft-example').addEventListener('click', () => {
   quotes.value = EXAMPLE.quotes.join('\n');
   preview();
   result.textContent =
-    "가상 예시를 채웠어요(실제 회원 발언이 아닙니다). ① 워드클라우드에서 필요 없는 낱말을 눌러 빼 보고 ② 요약·질문을 고친 뒤 ③ '기록 미리보기'로 공개될 모습을 확인해 보세요. 예시는 저장·게시되지 않습니다.";
+    '가상 예시를 채웠어요. 필요 없는 낱말을 눌러 빼 보고, 미리보기로 확인해 보세요. (실제 발언이 아니며 저장되지 않아요)';
   $('staff-cloud').scrollIntoView({ behavior: 'smooth', block: 'center' });
 });
 
