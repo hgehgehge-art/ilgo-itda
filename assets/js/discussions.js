@@ -1,8 +1,9 @@
 import { DISCUSSIONS_ENABLED } from './config.js';
 // 그날의 토론: 게시된 토론 기록을 보여 주고, 운영진이 받아쓰기 텍스트로 기록을 올린다.
-// 원문은 기본적으로 페이지 메모리에서만 처리한다. 운영진 서버 기능을 활성화한 경우에만 서버에 저장한다. 키워드 후보는 브라우저에서 만든다(keywords.js).
+// 서버(구글 시트 백엔드)가 연결되면 운영진 코드로 저장·게시하고, 연결 전에는 페이지 안에서만 처리해 파일로 내려받는다.
+// 원문은 공개하지 않는다. 키워드 후보는 브라우저에서 만든다(keywords.js).
 
-import { mode, sheetRows, publishedDiscussions, saveDiscussion, discussionForStaff } from './reservations-api.js';
+import { mode, sheetRows, publishedDiscussions, saveDiscussion, discussionForStaff, setMockSeminars } from './reservations-api.js';
 import { extractKeywords, renderCloud } from './keywords.js';
 
 const $ = (id) => document.getElementById(id);
@@ -56,7 +57,7 @@ function renderDiscussion(d) {
 
 async function loadPublished() {
   listStatus.textContent = '토론 기록을 불러오는 중…';
-  if (mode !== 'live' || !DISCUSSIONS_ENABLED) {
+  if (!(mode === 'mock' || (mode === 'live' && DISCUSSIONS_ENABLED))) {
     listStatus.textContent = '게시된 토론 기록은 아직 없습니다. 아래에서 텍스트를 정리하고 기록 파일을 만들 수 있어요.';
     return [];
   }
@@ -147,13 +148,24 @@ function fill(d) {
 }
 
 async function setupStaff() {
-  const online = mode === 'live' && DISCUSSIONS_ENABLED;
+  const online = mode === 'mock' || (mode === 'live' && DISCUSSIONS_ENABLED);
   $('staff-off').hidden = online;
   form.querySelectorAll('[data-server]').forEach(n => n.hidden = !online);
-  requestAi.disabled = true;
+  requestAi.disabled = !online;
+  if (online) {
+    $('staff-ai-label').textContent =
+      'AI 정리 요청 — Claude가 요약·질문·남기고 싶은 말 초안을 채웁니다(최대 30분, 운영진 확인 후 게시). 원문이 Anthropic 서버로 전송됩니다.';
+  }
   // 세미나 목록: 시작한 세미나(지난 세미나)만, 최근 순
   try {
-    const res = online ? await sheetRows('seminars', false) : {rows:[]};
+    let res = { rows: [] };
+    if (mode === 'live') res = await sheetRows('seminars');
+    else if (mode === 'mock') {
+      // 내 컴퓨터: 예시 일정으로 고르기 시험(운영진 코드는 local-test)
+      const ex = await (await fetch('data/seminars.json')).json();
+      res = { rows: ex.seminars };
+      setMockSeminars(ex.seminars);
+    }
     const past = (res.rows ?? [])
       .filter((s) => s.status === 'published' && new Date(s.startsAt) <= new Date())
       .sort((a, b) => b.startsAt.localeCompare(a.startsAt));

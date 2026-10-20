@@ -2,9 +2,9 @@
 // GitHub Actions(.github/workflows/discussion-ai.yml)에서 30분마다 실행한다.
 //
 // 필요한 GitHub Secrets
-//   ANTHROPIC_API_KEY          Claude API 키
-//   SUPABASE_URL               Supabase 프로젝트 주소
-//   SUPABASE_SERVICE_ROLE_KEY  Supabase 관리용 키(Secret key)
+//   ANTHROPIC_API_KEY  Claude API 키
+//   APPS_SCRIPT_URL    구글 시트 백엔드(Apps Script 웹 앱) 주소
+//   AI_WORKER_TOKEN    시트 메뉴 '읽고, 잇다 → AI 작업 토큰 만들기'에서 받은 토큰
 // 셋 중 하나라도 없으면 아무것도 하지 않고 끝낸다(사이트의 다른 기능에는 영향 없음).
 //
 // 개인정보: 원문은 Claude API로만 보내고, 결과 기록에는 원문·이름을 남기지 않는다.
@@ -14,23 +14,22 @@ import Anthropic from '@anthropic-ai/sdk';
 import { z } from 'zod';
 import { zodOutputFormat } from '@anthropic-ai/sdk/helpers/zod';
 
-const { ANTHROPIC_API_KEY, SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY } = process.env;
-if (!ANTHROPIC_API_KEY || !SUPABASE_URL || !SUPABASE_SERVICE_ROLE_KEY) {
-  console.log('ANTHROPIC_API_KEY·SUPABASE_URL·SUPABASE_SERVICE_ROLE_KEY 중 없는 값이 있어 건너뜁니다.');
+const { ANTHROPIC_API_KEY, APPS_SCRIPT_URL, AI_WORKER_TOKEN } = process.env;
+if (!ANTHROPIC_API_KEY || !APPS_SCRIPT_URL || !AI_WORKER_TOKEN) {
+  console.log('ANTHROPIC_API_KEY·APPS_SCRIPT_URL·AI_WORKER_TOKEN 중 없는 값이 있어 건너뜁니다.');
   process.exit(0);
 }
 
-const base = `${SUPABASE_URL.replace(/\/$/, '')}/rest/v1`;
-const sbHeaders = {
-  apikey: SUPABASE_SERVICE_ROLE_KEY,
-  ...(SUPABASE_SERVICE_ROLE_KEY.startsWith('eyJ') ? { authorization: `Bearer ${SUPABASE_SERVICE_ROLE_KEY}` } : {}),
-  'content-type': 'application/json',
-};
-
-async function sb(path, init = {}) {
-  const res = await fetch(`${base}${path}`, { ...init, headers: { ...sbHeaders, ...(init.headers ?? {}) } });
-  if (!res.ok) throw new Error(`Supabase 응답 ${res.status}`);
-  return res.status === 204 ? null : res.json();
+// 구글 시트 백엔드(Apps Script)에 토큰과 함께 요청한다. 토큰은 시트 메뉴에서 만들고 해시만 저장된다
+async function backend(body) {
+  const res = await fetch(APPS_SCRIPT_URL, {
+    method: 'POST',
+    headers: { 'content-type': 'text/plain;charset=utf-8' },
+    body: JSON.stringify({ ...body, token: AI_WORKER_TOKEN }),
+    signal: AbortSignal.timeout(60_000),
+  });
+  if (!res.ok) throw new Error(`Apps Script 응답 ${res.status}`);
+  return res.json();
 }
 
 const Result = z.object({
@@ -104,30 +103,27 @@ async function summarize(row) {
   };
 }
 
-const rows = await sb(
-  '/discussions?ai_status=eq.requested&select=seminar_id,source_text,keywords,seminars(title)&limit=5',
-);
-console.log(`AI 정리 대기: ${rows.length}건`);
+const pending = await backend({ action: 'aiPending' });
+if (pending.status !== 'ok') {
+  console.log(`::error::AI 대기 목록을 받지 못함(${pending.status}). AI_WORKER_TOKEN을 확인하세요.`);
+  process.exit(1);
+}
+console.log(`AI 정리 대기: ${pending.items.length}건`);
 
 let failed = 0;
-for (const r of rows) {
-  const row = { ...r, title: r.seminars?.title ?? '' };
+for (const item of pending.items) {
+  const row = { seminar_id: item.seminarId, source_text: item.text, keywords: item.keywords, title: item.title };
   try {
     const result = await summarize(row);
-    await sb(`/discussions?seminar_id=eq.${encodeURIComponent(r.seminar_id)}`, {
-      method: 'PATCH',
-      body: JSON.stringify({ ...result, ai_status: 'done', ai_note: '', updated_at: new Date().toISOString() }),
-    });
-    console.log(`${r.seminar_id}: 정리 완료(키워드 ${result.keywords.length}, 질문 ${result.questions.length}, 인용 ${result.quotes.length})`);
+    const saved = await backend({ action: 'aiSave', seminarId: item.seminarId, result });
+    if (saved.result !== 'ok') throw new Error(`저장 실패(${saved.result})`);
+    console.log(`${item.seminarId}: 정리 완료(키워드 ${result.keywords.length}, 질문 ${result.questions.length}, 인용 ${result.quotes.length})`);
   } catch (e) {
     failed += 1;
     // 오류 문구에는 원문을 넣지 않는다
     const note = e instanceof Anthropic.APIError ? `Claude API 오류 ${e.status ?? ''}`.trim() : String(e.message).slice(0, 100);
-    console.log(`::error::${r.seminar_id}: ${note}`);
-    await sb(`/discussions?seminar_id=eq.${encodeURIComponent(r.seminar_id)}`, {
-      method: 'PATCH',
-      body: JSON.stringify({ ai_status: 'failed', ai_note: note, updated_at: new Date().toISOString() }),
-    }).catch(() => {});
+    console.log(`::error::${item.seminarId}: ${note}`);
+    await backend({ action: 'aiSave', seminarId: item.seminarId, error: note }).catch(() => {});
   }
 }
 process.exit(failed ? 1 : 0);

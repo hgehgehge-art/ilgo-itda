@@ -126,6 +126,7 @@ function toIsoDate(text) {
 
 // 시트 한 행 → 책 한 권. 상태 열은 시트 수식이 계산한다('대출 중' / '대출 가능' / '확인 필요').
 function fromSheet(r) {
+  if (r && typeof r.copyId === 'string') return r;
   const onLoan = r['상태'] === '대출 중' || r['상태'] === '확인 필요';
   return {
     copyId: r['관리번호'],
@@ -196,21 +197,15 @@ async function init() {
   });
 
   apply();
-  if (data.fromSheet) refreshFromSheet(data.fetchedRows);
+  applyQuery();
 }
 
-// 저장된 목록으로 먼저 그린 뒤, 시트를 다시 읽어 바뀐 게 있으면 다시 그린다
-async function refreshFromSheet(shownRows) {
-  try {
-    const fresh = await sheetRows('books', true);
-    if (fresh.status !== 'ok' || JSON.stringify(fresh.rows) === shownRows) return;
-    books = sortBooks(fresh.rows.map(fromSheet));
-    const when = formatSynced(fresh.fetchedAt);
-    if (when) synced.textContent = `마지막으로 시트를 읽은 시각 ${when}`;
-    apply();
-  } catch {
-    // 저장된 목록을 계속 보여 준다
-  }
+// 다른 화면(독서 지도의 '관련 책')에서 books.html?q=44 처럼 들어오면 그 검색어로 시작한다
+function applyQuery() {
+  const q = new URLSearchParams(location.search).get('q');
+  if (!q) return;
+  input.value = q.slice(0, 50);
+  apply();
 }
 
 init();

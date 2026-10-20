@@ -1,44 +1,52 @@
-import { DISCUSSIONS_ENABLED } from './config.js';
-// 서버 호출을 한곳에 모은 모듈. Supabase의 공개 함수만 부르고 표는 직접 건드리지 않는다.
-//  - sheet_rows: 구글 시트(세미나 일정·도서 목록)를 서버가 읽어 돌려줌 (supabase/sheets.sql)
-//  - reserve_from_sheet, cancel_from_sheet: 시트의 최신 일정으로 맞춘 뒤 신청·취소
-//  - seminar_counts: 세미나별 신청 수
+// 서버 호출을 한곳에 모은 모듈. 서버는 구글 시트에 붙은 Apps Script 웹 앱 하나뿐이다(apps-script/Code.gs).
+//  - 읽기: GET ?action=seminars | books | discussions | places
+//  - 쓰기: POST(text/plain, JSON) { action: reserve | cancel | saveDiscussion | loadDiscussion | suggestPlace }
 //
-// config.js가 비어 있을 때:
-//  - localhost에서는 가짜 응답(메모리)으로 동작한다. 주소 뒤에 ?mock=결과 를 붙이면 모든 호출이 그 결과를 돌려준다.
+// config.js의 APPS_SCRIPT_URL이 비어 있을 때:
+//  - 내 컴퓨터(localhost)에서는 가짜 응답으로 동작한다. 주소 뒤에 ?mock=결과 를 붙이면 신청·취소가 그 결과를 돌려준다.
 //    예: ?mock=full, ?mock=closed, ?mock=not_found, ?mock=error
-//  - 배포된 사이트에서는 mode가 'off'가 되어 화면이 신청을 막는다.
+//  - 배포된 사이트에서는 mode가 'off'가 되어, 화면은 시트를 직접 읽어 일정만 보여 주고 신청은 막는다.
 
-import { SUPABASE_URL, SUPABASE_ANON_KEY } from './config.js';
+import { APPS_SCRIPT_URL } from './config.js';
 
 const isLocal = ['localhost', '127.0.0.1', '[::1]'].includes(location.hostname);
-const configured = Boolean(SUPABASE_URL && SUPABASE_ANON_KEY);
 
-export const mode = configured ? 'live' : isLocal ? 'mock' : 'off';
+export const mode = APPS_SCRIPT_URL ? 'live' : isLocal ? 'mock' : 'off';
 
-// ── 실제 서버 ──
-// 예전 방식 키(eyJ…로 시작하는 JWT)만 Authorization에 함께 보낸다. 새 키(sb_publishable_/sb_secret_)는 apikey 헤더만 쓴다.
-function authHeaders(key) {
-  const h = { apikey: key, 'content-type': 'application/json' };
-  if (key.startsWith('eyJ')) h.authorization = `Bearer ${key}`;
-  return h;
+// ── 실제 서버(Apps Script) ──
+async function getJson(action) {
+  const res = await fetch(`${APPS_SCRIPT_URL}?action=${encodeURIComponent(action)}`, {
+    signal: AbortSignal.timeout(20_000),
+    credentials: 'omit',
+  });
+  if (!res.ok) throw new Error(`서버 응답 ${res.status}`);
+  const data = await res.json();
+  if (data.status && data.status !== 'ok') throw new Error('서버 오류');
+  return data;
 }
 
-async function rpc(fn, args = {}) {
-  const res = await fetch(`${SUPABASE_URL.replace(/\/$/, '')}/rest/v1/rpc/${fn}`, {
+// Apps Script는 사전 요청(OPTIONS)을 받지 못하므로 text/plain으로 보낸다
+async function postJson(body) {
+  const res = await fetch(APPS_SCRIPT_URL, {
     method: 'POST',
-    headers: authHeaders(SUPABASE_ANON_KEY),
-    body: JSON.stringify(args),
-    signal: AbortSignal.timeout(10_000),
+    headers: { 'content-type': 'text/plain;charset=utf-8' },
+    body: JSON.stringify(body),
+    signal: AbortSignal.timeout(25_000),
+    credentials: 'omit',
   });
   if (!res.ok) throw new Error(`서버 응답 ${res.status}`);
   return res.json();
 }
 
+// 결과 문자열. 'busy'(동시 요청이 몰림)와 'error'는 화면에서 일시적 오류로 보인다
+const result = (r) => (r && typeof r.result === 'string' ? r.result : 'error');
+
 // ── 가짜 응답 (localhost 전용) ──
 const forced = new URLSearchParams(location.search).get('mock');
-const mockSeminars = new Map(); // id → { startsAt, capacity, status }
+const mockSeminars = new Map(); // id → { startsAt, capacity, status, title }
 const mockReservations = new Map(); // id → [{ name, pin }]
+const mockDiscussions = new Map(); // seminarId → 기록
+const mockPlaces = [];
 
 export function setMockSeminars(list, initialCounts = {}) {
   for (const s of list) {
@@ -53,98 +61,124 @@ export function setMockSeminars(list, initialCounts = {}) {
 
 const delay = () => new Promise((r) => setTimeout(r, 400));
 
-async function mockCall(fn, args) {
+async function mockReserve(fn, id, name, pin) {
   await delay();
   if (forced === 'error') throw new Error('가짜 오류');
-  if (forced && fn !== 'seminar_counts') return forced;
-
-  if (fn === 'seminar_counts') {
-    return [...mockReservations].map(([seminar_id, list]) => ({ seminar_id, count: list.length }));
-  }
-  const s = mockSeminars.get(args.p_seminar_id);
-  const name = String(args.p_name ?? '').trim();
-  const pin = String(args.p_pin ?? '');
-  const list = mockReservations.get(args.p_seminar_id);
+  if (forced) return forced;
+  const s = mockSeminars.get(id);
+  const n = String(name ?? '').trim();
+  const list = mockReservations.get(id);
   const started = s && new Date(s.startsAt) <= new Date();
-
   if (fn === 'reserve') {
-    if (!s || !name || !/^\d{4}$/.test(pin)) return 'invalid';
+    if (!s || !n || !/^\d{4}$/.test(pin)) return 'invalid';
     if (s.status !== 'published' || started) return 'closed';
-    if (list.some((r) => r.name === name)) return 'duplicate';
+    if (list.some((r) => r.name === n)) return 'duplicate';
     if (list.length >= s.capacity - 1) return 'full';
-    list.push({ name, pin });
+    list.push({ name: n, pin });
     return 'ok';
   }
-  if (fn === 'cancel_reservation') {
-    if (!s || started) return 'closed';
-    const i = list.findIndex((r) => r.name === name && r.pin === pin);
-    if (i === -1) return 'not_found';
-    list.splice(i, 1);
-    return 'ok';
-  }
-  throw new Error(`알 수 없는 함수 ${fn}`);
+  if (!s) return 'not_found';
+  if (started) return 'closed';
+  const i = list.findIndex((r) => r.name === n && r.pin === pin);
+  if (i === -1) return 'not_found';
+  list.splice(i, 1);
+  return 'ok';
 }
 
-function call(fn, args) {
-  if (mode === 'live') return rpc(fn, args);
-  if (mode === 'mock') return mockCall(fn, args);
-  return Promise.reject(new Error('신청 기능이 아직 연결되지 않았습니다'));
+// ── 세미나 ──
+
+// 결과: 'ok' | 'duplicate' | 'full' | 'closed' | 'invalid' | 'busy' | 'error'
+export async function reserve(seminarId, name, pin) {
+  if (mode === 'mock') return mockReserve('reserve', seminarId, name, pin);
+  if (mode !== 'live') throw new Error('신청 기능이 아직 연결되지 않았습니다');
+  return result(await postJson({ action: 'reserve', seminarId, name, pin }));
 }
 
-// 결과: 'ok' | 'duplicate' | 'full' | 'closed' | 'invalid'
-export function reserve(seminarId, name, pin) {
-  const args = { p_seminar_id: seminarId, p_name: name, p_pin: pin };
-  return mode === 'live' ? rpc('reserve_from_sheet', args) : call('reserve', args);
+// 결과: 'ok' | 'not_found' | 'closed' | 'busy' | 'error'
+export async function cancelReservation(seminarId, name, pin) {
+  if (mode === 'mock') return mockReserve('cancel', seminarId, name, pin);
+  if (mode !== 'live') throw new Error('신청 기능이 아직 연결되지 않았습니다');
+  return result(await postJson({ action: 'cancel', seminarId, name, pin }));
 }
 
-// 결과: 'ok' | 'not_found' | 'closed'
-export function cancelReservation(seminarId, name, pin) {
-  const args = { p_seminar_id: seminarId, p_name: name, p_pin: pin };
-  return mode === 'live' ? rpc('cancel_from_sheet', args) : call('cancel_reservation', args);
-}
-
-// 구글 시트 데이터. 결과: { status: 'ok', fetchedAt, rows } | { status: 'not_configured' } | { status: 'error' }
-// 서버가 연결되지 않았으면(내 컴퓨터의 가짜 응답 모드 포함) not_configured → 화면은 예시 데이터를 쓴다.
-// fresh=false: 서버에 저장된 값을 바로 받음(빠름) / fresh=true: 필요하면 시트를 다시 읽음(몇 초)
-export async function sheetRows(kind, fresh = true) {
-  if (mode !== 'live') return { status: 'not_configured' };
-  return rpc('sheet_rows', { p_kind: kind, p_fresh: fresh });
-}
-
-// 결과: Map(seminar_id → 신청 수, 발제자 제외)
+// 결과: Map(seminar id → 신청 수, 발제자 제외)
 export async function seminarCounts() {
-  const rows = await call('seminar_counts', {});
-  return new Map(rows.map((r) => [r.seminar_id, Number(r.count)]));
+  if (mode === 'mock') {
+    await delay();
+    if (forced === 'error') throw new Error('가짜 오류');
+    return new Map([...mockReservations].map(([id, list]) => [id, list.length]));
+  }
+  if (mode !== 'live') throw new Error('연결되지 않음');
+  const data = await getJson('seminars');
+  return new Map(Object.entries(data.counts ?? {}).map(([k, v]) => [k, Number(v)]));
 }
 
-// ── 그날의 토론 (supabase/discussions.sql) ──
-// 서버가 연결되지 않으면(내 컴퓨터 가짜 응답 모드 포함) 쓰지 않는다.
-function liveOnly(fn, args) {
-  if (mode !== 'live') return Promise.reject(new Error('서버가 연결되지 않았습니다'));
-  return rpc(fn, args);
+// 시트 데이터. 결과: { status: 'ok', fetchedAt, rows } | { status: 'not_configured' }
+//  - seminars: 사이트 형식의 세미나 목록(발제자 이름은 서버에서 가려서 옴)
+//  - books: 사이트 형식의 책 목록(빌린 사람 이름 없음)
+export async function sheetRows(kind) {
+  if (mode !== 'live') return { status: 'not_configured' };
+  const data = await getJson(kind);
+  return { status: 'ok', fetchedAt: data.fetchedAt, rows: kind === 'books' ? data.books : data.seminars };
 }
 
-// 누구나: 게시된 토론 기록 목록(원문 제외)
-export function publishedDiscussions() {
-  return DISCUSSIONS_ENABLED ? liveOnly('published_discussions', {}) : Promise.resolve([]);
+// ── 그날의 토론 ──
+
+export async function publishedDiscussions() {
+  if (mode === 'mock') return [...mockDiscussions.values()].filter((d) => d.state === 'published');
+  if (mode !== 'live') throw new Error('연결되지 않음');
+  return (await getJson('discussions')).discussions ?? [];
 }
 
-// 운영진: 저장. 결과 'ok' | 'bad_code' | 'not_found' | 'too_short' | 'too_long' | 'invalid' | 'limit'
-export function saveDiscussion(d) {
-  return liveOnly('save_discussion', {
-    p_code: d.code,
-    p_seminar_id: d.seminarId,
-    p_text: d.text,
-    p_keywords: d.keywords,
-    p_summary: d.summary,
-    p_questions: d.questions,
-    p_quotes: d.quotes,
-    p_publish: d.publish,
-    p_request_ai: d.requestAi,
-  });
+// 결과: 'ok' | 'bad_code' | 'not_found' | 'too_short' | 'too_long' | 'invalid' | 'limit' | 'busy' | 'error'
+export async function saveDiscussion(d) {
+  if (mode === 'mock') {
+    await delay();
+    if (d.code !== 'local-test') return 'bad_code'; // 내 컴퓨터에서 화면을 시험할 때만 쓰는 코드
+    const text = String(d.text).trim();
+    if (text.length < 200) return 'too_short';
+    if (text.length > 45000) return 'too_long';
+    const s = mockSeminars.get(d.seminarId);
+    mockDiscussions.set(d.seminarId, {
+      ...d,
+      title: s?.title ?? d.seminarId,
+      startsAt: s?.startsAt ?? new Date().toISOString(),
+      state: d.publish && !d.requestAi ? 'published' : 'draft',
+      aiStatus: d.requestAi ? 'requested' : 'none',
+    });
+    return 'ok';
+  }
+  if (mode !== 'live') throw new Error('연결되지 않음');
+  return result(await postJson({ action: 'saveDiscussion', ...d }));
 }
 
 // 운영진: 저장된 기록 불러오기. { status: 'ok' | 'empty' | 'bad_code', … }
-export function discussionForStaff(code, seminarId) {
-  return liveOnly('get_discussion_for_staff', { p_code: code, p_seminar_id: seminarId });
+export async function discussionForStaff(code, seminarId) {
+  if (mode === 'mock') {
+    if (code !== 'local-test') return { status: 'bad_code' };
+    const d = mockDiscussions.get(seminarId);
+    return d ? { status: 'ok', ...d } : { status: 'empty' };
+  }
+  if (mode !== 'live') throw new Error('연결되지 않음');
+  return postJson({ action: 'loadDiscussion', code, seminarId });
+}
+
+// ── 독서 지도 ──
+
+// 결과: { categories, places: [{ id, name, category, address, lat, lng, book, memo, naverUrl, source, recommender }] }
+export async function getPlaces() {
+  if (mode !== 'live') throw new Error('연결되지 않음');
+  return getJson('places');
+}
+
+// 결과: 'ok' | 'missing' | 'invalid_category' | 'too_long' | 'invalid_book' | 'duplicate' | 'limit' | 'busy' | 'error'
+export async function suggestPlace(p) {
+  if (mode === 'mock') {
+    await delay();
+    if (mockPlaces.some((x) => x.name === p.name && x.address === p.address)) return 'duplicate';
+    mockPlaces.push(p);
+    return 'ok';
+  }
+  if (mode !== 'live') throw new Error('연결되지 않음');
+  return result(await postJson({ action: 'suggestPlace', ...p }));
 }

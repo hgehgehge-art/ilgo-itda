@@ -1,6 +1,6 @@
 import { directSeminars } from './direct-sheets.js';
-// 세미나: 일정은 구글 시트(서버의 sheet_rows)에서, 시트가 연결되기 전에는 data/seminars.json(예시)에서 읽는다.
-// 인원과 신청·취소는 reservations-api.js로 처리한다.
+// 세미나: 일정·인원은 구글 시트 백엔드(Apps Script)에서, 서버가 없으면 공개 시트를 직접 읽어 일정만 보여 준다.
+// 신청·취소는 reservations-api.js로 처리한다.
 // 정원(capacity)에는 발제자 1명이 포함된다. 화면 인원 = 서버 신청 수 + 1.
 // 신청자 이름은 어디에도 표시하지 않는다.
 
@@ -332,39 +332,29 @@ async function refreshCounts() {
   }
 }
 
-// 시트가 연결되어 있으면 시트 일정, 아니면 예시 파일
+// 일정 읽는 순서: ① 서버(Apps Script: 일정+신청 인원, 발제자 이름은 가려서 옴)
+// ② 공개 시트 직접 읽기(일정만, 신청은 막음) ③ 예시 파일(내 컴퓨터 화면 확인용)
 async function loadSeminars() {
-  try { return await directSeminars(); } catch { /* 직접 읽기 실패 시 서버의 마지막 저장본 시도 */ }
-  let sheet = null;
-  try {
-    sheet = await sheetRows('seminars', false);
-  } catch {
-    sheet = { status: 'error' };
+  if (mode === 'live') {
+    try {
+      const sheet = await sheetRows('seminars');
+      return { syncedAt: sheet.fetchedAt, seminars: sheet.rows, fromServer: true };
+    } catch {
+      // 서버가 응답하지 않으면 일정만이라도 보여 준다
+    }
   }
-  if (sheet.status === 'ok') {
-    return { syncedAt: sheet.fetchedAt, seminars: sheet.rows, fromSheet: true, fetchedRows: JSON.stringify(sheet.rows) };
+  if (mode !== 'mock') {
+    try {
+      return await directSeminars();
+    } catch {
+      if (mode === 'live') throw new Error('일정을 읽지 못함');
+    }
   }
-  if (sheet.status !== 'not_configured') throw new Error('시트를 읽지 못함');
   const res = await fetch(DATA_URL, { cache: 'no-cache' });
   if (!res.ok) throw new Error(String(res.status));
   const data = await res.json();
   if (!Array.isArray(data.seminars)) throw new Error('형식 오류');
   return data;
-}
-
-// 저장된 일정으로 먼저 그린 뒤, 시트를 다시 읽어 바뀐 게 있으면 다시 그린다
-async function refreshFromSheet(shownRows) {
-  try {
-    const fresh = await sheetRows('seminars', true);
-    if (fresh.status !== 'ok' || JSON.stringify(fresh.rows) === shownRows) return;
-    // 입력 중인 양식이 있으면 지우지 않도록 다시 그리지 않는다
-    if ([...document.querySelectorAll('.rsv-form')].some((f) => !f.hidden)) return;
-    seminars = normalize(fresh.rows);
-    await refreshCounts();
-    render();
-  } catch {
-    // 저장된 일정을 계속 보여 준다
-  }
 }
 
 function normalize(list) {
@@ -381,29 +371,28 @@ function normalize(list) {
 }
 
 async function init() {
-  statusLine.classList.remove('is-error');statusLine.textContent='일정을 불러오는 중…';
+  statusLine.classList.remove('is-error');
+  statusLine.textContent = '일정을 불러오는 중…';
   let data;
   try {
     data = await loadSeminars();
   } catch {
-    statusLine.textContent = '정보를 불러오지 못했습니다. 잠시 뒤 새로고침해 주세요.';
+    statusLine.textContent = '정보를 불러오지 못했습니다. 잠시 뒤 다시 불러와 주세요.';
     statusLine.classList.add('is-error');
-    const retry=el('button',{type:'button',class:'btn btn--quiet'},'다시 불러오기');retry.addEventListener('click',()=>{retry.remove();init();});statusLine.after(retry);
+    const retry = el('button', { type: 'button', class: 'btn btn--quiet' }, '다시 불러오기');
+    retry.addEventListener('click', () => {
+      retry.remove();
+      init();
+    });
+    statusLine.after(retry);
     return;
   }
 
   seminars = normalize(data.seminars);
-
   notice.hidden = data.example !== true;
-  // 예시 일정은 서버에 없는 세미나이므로 실제 서버에는 신청을 보내지 않는다
-  signupOpen = mode === 'mock' || (mode === 'live' && data.example !== true);
-  if (data.direct) {
-    signupOpen = false;
-    statusLine.textContent = '구글 시트의 일정을 불러왔습니다. 온라인 신청 연결을 확인하는 중…';
-    render();
-    signupOpen = mode === 'live';
-  }
   mockNotice.hidden = mode !== 'mock';
+  // 신청은 서버에서 받은 실제 일정이거나, 내 컴퓨터의 가짜 응답일 때만 받는다
+  signupOpen = mode === 'mock' || (mode === 'live' && data.fromServer === true);
   if (mode === 'mock') {
     // 화면 확인용 초기 인원: 첫 예정 세미나 3명, 둘째 10명(마감)
     const now = new Date();
@@ -412,24 +401,21 @@ async function init() {
   }
 
   await refreshCounts();
-  if (mode === 'live') {
+  if (signupOpen) {
     try {
       discussed = new Set((await publishedDiscussions()).map((d) => d.seminarId));
     } catch {
       // 토론 링크만 빠지고 나머지는 그대로 보인다
     }
   }
-  if (data.fromSheet) refreshFromSheet(data.fetchedRows);
-  if (mode === 'live' && counts === null) signupOpen = false;
-  statusLine.textContent = data.example !== true && !signupOpen
-    ? '일정은 확인할 수 있습니다. 신청 서버에 연결되지 않아 온라인 신청·취소는 잠시 중단되었습니다. 동아리 운영진에게 문의해 주세요.'
-    : !signupOpen
-      ? mode === 'live'
-        ? MESSAGES.example
-        : MESSAGES.off
-      : counts
-        ? ''
-        : '신청 인원을 불러오지 못했습니다. 신청은 할 수 있지만 인원 표시는 정확하지 않을 수 있습니다.';
+  if (mode === 'live' && signupOpen && counts === null) signupOpen = false;
+  statusLine.textContent = signupOpen
+    ? ''
+    : mode === 'live'
+      ? '일정은 확인할 수 있습니다. 신청 서버가 응답하지 않아 온라인 신청·취소를 잠시 멈췄습니다. 잠시 뒤 새로고침하거나 운영진에게 문의해 주세요.'
+      : data.direct
+        ? '구글 시트의 일정을 보여 줍니다. 온라인 신청은 준비 중입니다.'
+        : MESSAGES.off;
   render();
 }
 

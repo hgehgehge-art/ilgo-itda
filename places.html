@@ -4,12 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>독서 지도 — 읽고, 잇다</title>
-  <meta name="description" content="해외문학회 세미나에서 오간 키워드와 질문을 남기는 토론 기록">
+  <meta name="description" content="해외문학회가 아끼는 서점·북카페·도서관·작품 속 장소를 모은 지도">
   <script>document.documentElement.classList.add('js');</script>
-  <link rel="stylesheet" href="assets/css/style.css?v=20261020b">
-  <script type="module" src="assets/js/site.js?v=20261020b"></script>
-  <script type="module" src="assets/js/quote.js?v=20261020b"></script>
-  <script type="module" src="assets/js/places.js?v=20261020b"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+  <link rel="stylesheet" href="assets/css/style.css?v=20261020c">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" defer></script>
+  <script type="module" src="assets/js/site.js?v=20261020c"></script>
+  <script type="module" src="assets/js/quote.js?v=20261020c"></script>
+  <script type="module" src="assets/js/places.js?v=20261020c"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">본문으로 건너뛰기</a>
@@ -28,10 +30,62 @@
   </header>
   <div id="quote-banner" class="quote-banner" hidden></div>
 
-  <main id="main"><section class="section page-head"><div class="container"><p class="eyebrow">책을 읽는 자리</p><h1 class="headline">독서 지도</h1><p class="lead">함께 가고 싶은 서점, 북카페, 도서관을 모읍니다.</p><p class="sync-note">확인된 공개 장소만 목록에 올립니다. 네이버 개인 저장 목록은 자동으로 가져오지 않습니다.</p></div></section>
-<section class="section section--tight"><div class="container"><details class="map-overview"><summary>지도 펼치기 · 서울 둘러보기</summary><iframe title="서울 지도 · 등록 장소 핀은 아직 없음" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=126.78,37.43,127.20,37.71&amp;layer=mapnik"></iframe><p class="hint">탐색용 기본 지도입니다. 등록된 장소 핀은 아직 없습니다. 지도 서비스가 열리지 않으면 아래 목록이나 네이버 지도 링크를 이용하세요. © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap 기여자</a></p></details><p><a href="https://map.naver.com/p/favorite/myPlace" target="_blank" rel="noopener noreferrer">내 네이버 저장 목록 열기 ↗</a></p><form id="place-filter" class="search" role="search"><label for="place-query">장소 검색</label><input id="place-query" class="search-input" type="search" placeholder="장소 이름·주소·메모"><label for="place-category">분류</label><select id="place-category"><option value="">전체</option><option>서점</option><option>북카페</option><option>도서관</option><option>작품 속 장소</option><option>모임 장소</option></select></form><p id="place-status" role="status" aria-live="polite">장소를 불러오는 중…</p><button id="place-retry" class="btn btn--quiet" type="button" hidden>다시 불러오기</button><div id="place-list" class="discussions"></div></div></section>
-<section class="section section--soft"><div class="container"><h2 class="title">좋아하는 곳 추천서 만들기</h2><p class="lead">추천서를 내려받아 운영진에게 전달하세요. 웹으로 자동 전송되거나 바로 게시되지는 않습니다.</p><p class="hint">집 주소나 연락처는 적지 마세요. 누구나 방문할 수 있는 공개 장소만 추천해 주세요.</p><form id="place-form" class="staff-form" novalidate>
-<div class="field"><label for="place-name">장소 이름 (필수)</label><input id="place-name" maxlength="100" required></div><div class="field"><label for="place-address">주소 (필수)</label><input id="place-address" maxlength="200" required></div><div class="field"><label for="place-type">분류</label><select id="place-type"><option>서점</option><option>북카페</option><option>도서관</option><option>작품 속 장소</option><option>모임 장소</option></select></div><div class="field"><label for="place-reason">추천 이유 (필수, 100자 이하)</label><textarea id="place-reason" maxlength="100" required></textarea></div><div class="field"><label for="place-link">네이버 지도 장소 링크 (선택)</label><input id="place-link" type="url" placeholder="https://map.naver.com/…"></div><div class="field"><label for="place-book">관련 책 (선택)</label><input id="place-book" maxlength="100"></div><label class="check"><input type="checkbox" id="place-consent"><span>공개 장소이며 개인정보가 없음을 확인했습니다.</span></label><button class="btn" type="submit">추천서 내려받기</button><p id="place-result" role="status" aria-live="polite"></p></form></div></section></main>  <footer class="site-footer">
+  <main id="main">
+    <section class="section page-head" aria-labelledby="places-title">
+      <div class="container">
+        <p class="eyebrow">책을 읽는 자리</p>
+        <h1 class="headline" id="places-title">독서 지도</h1>
+        <p class="lead">해외문학회가 아끼는 서점, 북카페, 도서관, 작품 속 장소를 모읍니다. 좋아하는 곳이 있다면 추천해 주세요.</p>
+        <p class="sync-note">운영진이 확인한 공개 장소만 지도에 올립니다. 네이버 지도 개인 저장 목록은 자동으로 가져올 수 없어, 운영진이 시트에 옮겨 적습니다.</p>
+        <p class="example-note" id="place-offline" hidden>장소 서버가 연결되기 전이라 저장된 목록을 보여 줍니다. 추천은 파일로 내려받아 운영진에게 전달해 주세요.</p>
+      </div>
+    </section>
+
+    <section class="section section--tight" aria-label="장소 목록과 지도">
+      <div class="container">
+        <form id="place-filter" class="search place-filter" role="search">
+          <label class="visually-hidden" for="place-query">장소 검색</label>
+          <input id="place-query" class="search-input" type="search" placeholder="장소 이름·주소·메모로 찾기">
+          <label class="visually-hidden" for="place-category">분류</label>
+          <select id="place-category" class="place-select">
+            <option value="">전체 분류</option>
+            <option>서점</option><option>북카페</option><option>도서관</option><option>작품 속 장소</option><option>모임 장소</option>
+          </select>
+          <label class="check"><input type="checkbox" id="place-member"><span>회원 추천만</span></label>
+        </form>
+
+        <details class="map-box" id="map-box">
+          <summary class="btn btn--quiet">지도 보기</summary>
+          <div id="place-map" class="place-map" role="region" aria-label="장소 지도. 핀을 누르면 장소 정보가 열립니다"></div>
+          <p class="hint" id="map-note"></p>
+        </details>
+
+        <p class="result-count" id="place-status" role="status" aria-live="polite">장소를 불러오는 중…</p>
+        <button id="place-retry" class="btn btn--quiet" type="button" hidden>다시 불러오기</button>
+        <div id="place-list" class="place-list"></div>
+      </div>
+    </section>
+
+    <section class="section section--soft" aria-labelledby="suggest-title">
+      <div class="container">
+        <h2 class="title" id="suggest-title">좋아하는 곳 추천하기</h2>
+        <p class="lead">운영진이 확인한 뒤 '회원 추천' 표시와 함께 지도에 올라갑니다.</p>
+        <p class="staff-notice">집 주소처럼 개인 장소는 받지 않습니다. 누구나 방문할 수 있는 공개 장소만 추천해 주세요. 실명 대신 닉네임을 써도 됩니다.</p>
+        <form id="place-form" class="staff-form" novalidate>
+          <div class="field"><label for="place-name">장소 이름 (필수)</label><input id="place-name" type="text" maxlength="50" autocomplete="off"></div>
+          <div class="field"><label for="place-address">주소 (필수, 도로명 주소)</label><input id="place-address" type="text" maxlength="120" autocomplete="off"></div>
+          <div class="field"><label for="place-type">분류</label><select id="place-type"><option>서점</option><option>북카페</option><option>도서관</option><option>작품 속 장소</option><option>모임 장소</option></select></div>
+          <div class="field"><label for="place-reason">추천 이유 (필수, 100자 이하) <span class="hint" id="place-reason-count">0/100</span></label><textarea id="place-reason" rows="2" maxlength="100"></textarea></div>
+          <div class="field"><label for="place-book">관련 책 전집 권번호 (선택, 예: 44)</label><input id="place-book" type="text" inputmode="numeric" maxlength="3" autocomplete="off"></div>
+          <div class="field"><label for="place-link">네이버 지도 장소 링크 (선택)</label><input id="place-link" type="url" placeholder="https://naver.me/…" autocomplete="off"></div>
+          <div class="field"><label for="place-nick">보여 줄 이름 (선택, 비우면 '해문 회원')</label><input id="place-nick" type="text" maxlength="20" autocomplete="off"></div>
+          <label class="check"><input type="checkbox" id="place-consent"><span>공개 장소이며 개인정보가 없음을 확인했습니다.</span></label>
+          <div class="rsv-row"><button class="btn" type="submit" id="place-submit">추천 보내기</button></div>
+          <p class="rsv-result" id="place-result" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>  <footer class="site-footer">
     <div class="container">
       <p>읽고, 잇다 — 한국외대 해외문학회 개인 프로젝트</p>
       <p>오늘의 한 문장 출처: <a href="https://github.com/gwongibeom/korean-advice-open-api">한국어 명언 API</a></p>
