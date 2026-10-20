@@ -7,7 +7,7 @@
  *  · 세미나: 동아리 주간세미나 시트를 그대로 읽는다(원본 수정 없음). 신청은 '세미나 신청' 탭에 쌓인다.
  *  · 책장: '도서 목록'·'대출 기록' 탭으로 대출 상태를 계산한다. 빌린 사람 이름은 내보내지 않는다.
  *  · 그날의 토론: '토론 기록' 탭. 운영진 코드로 저장·게시한다. AI 정리는 GitHub Actions가 맡는다.
- *  · 독서 지도: '독서 지도' 탭. 주소로 좌표를 채우고, 회원 추천은 '검토 대기'로 받는다.
+ *  · 독서 지도: '독서 지도' 탭. 주소로 좌표를 채우고, 회원 추천은 바로 지도에 올린다('반려'로 바꾸면 내려감).
  *
  * 개인정보: 신청자 이름·확인번호, 빌린 사람 이름, 토론 원문은 응답에 넣지 않는다.
  * 발제자 이름은 첫 글자만 보이게 가려서 내보낸다.
@@ -33,6 +33,9 @@ const HEADERS = {
 };
 
 const PLACE_CATEGORIES = ['서점', '북카페', '도서관', '작품 속 장소', '모임 장소'];
+// 회원 추천을 바로 지도에 올린다. 운영진은 시트의 '게시' 칸을 '반려'로 바꿔 내릴 수 있다.
+// false로 바꾸면 '검토 대기'로 받고, 운영진이 '게시'로 바꿔야 올라간다.
+const AUTO_PUBLISH_PLACES = true;
 const DEFAULT_TIME = '18:00';
 const DEFAULT_PLACE = '동아리방';
 const DEFAULT_CAPACITY = 11;
@@ -630,7 +633,7 @@ function getPlaces_() {
   return { status: 'ok', categories: PLACE_CATEGORIES, places };
 }
 
-// 결과: ok | missing | invalid_category | too_long | duplicate | limit
+// 결과: published(바로 지도에 올라감) | ok(검토 대기) | missing | invalid_category | too_long | invalid_book | duplicate | limit
 function suggestPlace_(b) {
   const name = String(b.name || '').trim();
   const address = String(b.address || '').trim();
@@ -659,11 +662,13 @@ function suggestPlace_(b) {
       link,
       '회원 추천',
       nickname || '해문 회원',
-      '검토 대기',
+      AUTO_PUBLISH_PLACES ? '게시' : '검토 대기',
       nowIso_(),
     ].map(asText_));
     SpreadsheetApp.flush();
-    return 'ok';
+    if (!AUTO_PUBLISH_PLACES) return 'ok';
+    CacheService.getScriptCache().remove('places'); // 다음 지도 요청 때 바로 보이도록
+    return 'published';
   });
 }
 

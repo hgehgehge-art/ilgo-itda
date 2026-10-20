@@ -85,13 +85,14 @@ const sug = (x) => env.post({ action: 'suggestPlace', name: '외대 도서관', 
 check('빈 이름 → missing', sug({ name: '' }), 'missing');
 check('없는 분류 → invalid_category', sug({ category: '카페' }), 'invalid_category');
 check('이유 101자 → too_long', sug({ reason: 'ㄱ'.repeat(101) }), 'too_long');
-check('추천 → ok', sug(), 'ok');
+check('추천 → 바로 게시(published)', sug(), 'published');
 check('같은 장소 → duplicate', sug({ address: '서울 동대문구  이문로107' }), 'duplicate');
-check('검토 대기는 지도에 안 나옴', env.get('places').places.length, 0);
-const ps = env.ops.getSheetByName('독서 지도'); ps.data[1][11] = '게시'; env.clearCache();
+const ps = env.ops.getSheetByName('독서 지도');
 const pl = env.get('places').places;
-check('게시 후 지도에 나오고 좌표가 채워짐', [pl.length, pl[0].lat, pl[0].source, pl[0].recommender, pl[0].book], [1, 37.5972, '회원 추천', '해문 회원', 44]);
+check('추천하자마자 지도에 나오고 좌표가 채워짐', [pl.length, pl[0].lat, pl[0].source, pl[0].recommender, pl[0].book], [1, 37.5972, '회원 추천', '해문 회원', 44]);
 check('좌표가 시트에 적힘', [ps.data[1][4], ps.data[1][5]], [37.5972, 127.0587]);
+ps.data[1][11] = '반려'; env.clearCache();
+check("운영진이 '반려'로 바꾸면 지도에서 내려감", env.get('places').places.length, 0);
 
 // 그 밖
 check('알 수 없는 읽기 요청', env.get('nope').status, 'error');

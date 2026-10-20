@@ -44,7 +44,7 @@ export function makeEnv({ seminarCsv, now }) {
       getUi: () => ({ alert: (m) => alerts.push(m) }),
     },
     PropertiesService: { getScriptProperties: () => ({ getProperty: (k) => props[k] ?? null, setProperty: (k, v) => (props[k] = v) }) },
-    CacheService: { getScriptCache: () => ({ get: (k) => cache[k] ?? null, put: (k, v) => (cache[k] = v), removeAll: (ks) => ks.forEach((k) => delete cache[k]) }) },
+    CacheService: { getScriptCache: () => ({ get: (k) => cache[k] ?? null, put: (k, v) => (cache[k] = v), remove: (k) => delete cache[k], removeAll: (ks) => ks.forEach((k) => delete cache[k]) }) },
     LockService: { getScriptLock: () => ({ tryLock: () => true, releaseLock() {} }) },
     Utilities: {
       DigestAlgorithm: { SHA_256: 'sha256' }, Charset: { UTF_8: 'utf8' },

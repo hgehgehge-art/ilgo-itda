@@ -171,13 +171,13 @@ export async function getPlaces() {
   return getJson('places');
 }
 
-// 결과: 'ok' | 'missing' | 'invalid_category' | 'too_long' | 'invalid_book' | 'duplicate' | 'limit' | 'busy' | 'error'
+// 결과: 'published' | 'ok' | 'missing' | 'invalid_category' | 'too_long' | 'invalid_book' | 'duplicate' | 'limit' | 'busy' | 'error'
 export async function suggestPlace(p) {
   if (mode === 'mock') {
     await delay();
     if (mockPlaces.some((x) => x.name === p.name && x.address === p.address)) return 'duplicate';
     mockPlaces.push(p);
-    return 'ok';
+    return 'published';
   }
   if (mode !== 'live') throw new Error('연결되지 않음');
   return result(await postJson({ action: 'suggestPlace', ...p }));

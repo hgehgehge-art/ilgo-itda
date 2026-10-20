@@ -1,5 +1,5 @@
 // 독서 지도: 구글 시트 '독서 지도' 탭의 공개 장소를 지도(Leaflet + OpenStreetMap, 키 없음)와 목록으로 보여 준다.
-// 회원 추천은 서버가 '검토 대기'로 저장하고, 운영진이 시트에서 '게시'로 바꾸면 지도에 올라간다.
+// 회원 추천은 서버가 바로 지도에 올린다. 운영진은 시트에서 '반려'로 바꿔 내릴 수 있다.
 // 서버가 연결되기 전에는 data/places.json을 보여 주고, 추천은 파일로 내려받는다.
 
 import { mode, getPlaces, suggestPlace } from './reservations-api.js';
@@ -165,6 +165,7 @@ async function load() {
 
 // ── 추천 ──
 const MESSAGES = {
+  published: '추천 고마워요! 지도에 바로 올라갔어요.',
   ok: '추천 고마워요! 운영진 확인 후 지도에 올라가요.',
   missing: '장소 이름·주소·추천 이유를 모두 적어 주세요.',
   invalid_category: '분류를 다시 골라 주세요.',
@@ -248,9 +249,15 @@ $('place-form').addEventListener('submit', async (e) => {
   }
   btn.disabled = false;
   result.textContent = MESSAGES[code] ?? MESSAGES.error;
-  if (code === 'ok') {
+  if (code === 'ok' || code === 'published') {
     $('place-form').reset();
     $('place-reason-count').textContent = '0/100';
+  }
+  if (code === 'published') {
+    // 방금 올린 장소가 보이도록 목록과 지도를 다시 불러온다
+    await load();
+    const added = places.find((p) => p.name === d.name && p.address === d.address);
+    if (added?.lat != null) showOnMap(added);
   }
 });
 
