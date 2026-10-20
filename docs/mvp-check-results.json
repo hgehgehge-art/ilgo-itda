@@ -1,0 +1,82 @@
+{
+  "date": "2026-10-20",
+  "environment": "로컬 Chromium, 서버 응답은 모의 처리. 실제 서버 저장은 미검증.",
+  "checks": [
+    {
+      "name": "360px index.html",
+      "result": "PASS"
+    },
+    {
+      "name": "360px books.html",
+      "result": "PASS"
+    },
+    {
+      "name": "360px seminars.html",
+      "result": "PASS"
+    },
+    {
+      "name": "360px discussions.html",
+      "result": "PASS"
+    },
+    {
+      "name": "360px places.html",
+      "result": "PASS"
+    },
+    {
+      "name": "빈 제목 안내",
+      "result": "PASS"
+    },
+    {
+      "name": "예시 → 키워드 → 미리보기",
+      "result": "PASS"
+    },
+    {
+      "name": "기록 파일 JSON / 원문·코드 제외",
+      "result": "PASS"
+    },
+    {
+      "name": "텍스트 파일 열기",
+      "result": "PASS"
+    },
+    {
+      "name": "키워드 HTML 실행 방지",
+      "result": "PASS"
+    },
+    {
+      "name": "지도 빈 결과",
+      "result": "PASS"
+    },
+    {
+      "name": "추천서 필수값 검증",
+      "result": "PASS"
+    },
+    {
+      "name": "잘못된 링크 차단",
+      "result": "PASS"
+    },
+    {
+      "name": "추천서 내려받기 / 검토 대기",
+      "result": "PASS"
+    },
+    {
+      "name": "지도 오류·재시도",
+      "result": "PASS"
+    },
+    {
+      "name": "장소 분류 필터",
+      "result": "PASS"
+    },
+    {
+      "name": "키보드 이동·초점 표시",
+      "result": "PASS"
+    },
+    {
+      "name": "1280px / 360px 토론 편집",
+      "result": "PASS"
+    },
+    {
+      "name": "JS 실행 오류 없음",
+      "result": "PASS"
+    }
+  ]
+}

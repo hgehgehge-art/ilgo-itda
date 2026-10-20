@@ -1,3 +1,4 @@
+import { directSeminars } from './direct-sheets.js';
 // 세미나: 일정은 구글 시트(서버의 sheet_rows)에서, 시트가 연결되기 전에는 data/seminars.json(예시)에서 읽는다.
 // 인원과 신청·취소는 reservations-api.js로 처리한다.
 // 정원(capacity)에는 발제자 1명이 포함된다. 화면 인원 = 서버 신청 수 + 1.
@@ -333,6 +334,7 @@ async function refreshCounts() {
 
 // 시트가 연결되어 있으면 시트 일정, 아니면 예시 파일
 async function loadSeminars() {
+  try { return await directSeminars(); } catch { /* 직접 읽기 실패 시 서버의 마지막 저장본 시도 */ }
   let sheet = null;
   try {
     sheet = await sheetRows('seminars', false);
@@ -379,12 +381,14 @@ function normalize(list) {
 }
 
 async function init() {
+  statusLine.classList.remove('is-error');statusLine.textContent='일정을 불러오는 중…';
   let data;
   try {
     data = await loadSeminars();
   } catch {
     statusLine.textContent = '정보를 불러오지 못했습니다. 잠시 뒤 새로고침해 주세요.';
     statusLine.classList.add('is-error');
+    const retry=el('button',{type:'button',class:'btn btn--quiet'},'다시 불러오기');retry.addEventListener('click',()=>{retry.remove();init();});statusLine.after(retry);
     return;
   }
 
@@ -393,6 +397,12 @@ async function init() {
   notice.hidden = data.example !== true;
   // 예시 일정은 서버에 없는 세미나이므로 실제 서버에는 신청을 보내지 않는다
   signupOpen = mode === 'mock' || (mode === 'live' && data.example !== true);
+  if (data.direct) {
+    signupOpen = false;
+    statusLine.textContent = '구글 시트의 일정을 불러왔습니다. 온라인 신청 연결을 확인하는 중…';
+    render();
+    signupOpen = mode === 'live';
+  }
   mockNotice.hidden = mode !== 'mock';
   if (mode === 'mock') {
     // 화면 확인용 초기 인원: 첫 예정 세미나 3명, 둘째 10명(마감)
@@ -410,8 +420,10 @@ async function init() {
     }
   }
   if (data.fromSheet) refreshFromSheet(data.fetchedRows);
-  statusLine.textContent =
-    !signupOpen
+  if (mode === 'live' && counts === null) signupOpen = false;
+  statusLine.textContent = data.example !== true && !signupOpen
+    ? '일정은 확인할 수 있습니다. 신청 서버에 연결되지 않아 온라인 신청·취소는 잠시 중단되었습니다. 동아리 운영진에게 문의해 주세요.'
+    : !signupOpen
       ? mode === 'live'
         ? MESSAGES.example
         : MESSAGES.off

@@ -1,5 +1,6 @@
+import { DISCUSSIONS_ENABLED } from './config.js';
 // 그날의 토론: 게시된 토론 기록을 보여 주고, 운영진이 받아쓰기 텍스트로 기록을 올린다.
-// 원문 텍스트는 서버에만 저장되고 공개되지 않는다. 키워드 후보는 브라우저에서 만든다(keywords.js).
+// 원문은 기본적으로 페이지 메모리에서만 처리한다. 운영진 서버 기능을 활성화한 경우에만 서버에 저장한다. 키워드 후보는 브라우저에서 만든다(keywords.js).
 
 import { mode, sheetRows, publishedDiscussions, saveDiscussion, discussionForStaff } from './reservations-api.js';
 import { extractKeywords, renderCloud } from './keywords.js';
@@ -55,8 +56,8 @@ function renderDiscussion(d) {
 
 async function loadPublished() {
   listStatus.textContent = '토론 기록을 불러오는 중…';
-  if (mode !== 'live') {
-    listStatus.textContent = '토론 기록은 서버가 연결된 공개 사이트에서 볼 수 있습니다.';
+  if (mode !== 'live' || !DISCUSSIONS_ENABLED) {
+    listStatus.textContent = '게시된 토론 기록은 아직 없습니다. 아래에서 텍스트를 정리하고 기록 파일을 만들 수 있어요.';
     return [];
   }
   try {
@@ -64,7 +65,7 @@ async function loadPublished() {
     list.replaceChildren(...items.map(renderDiscussion));
     listStatus.textContent = items.length ? '' : '아직 게시된 토론 기록이 없어요. 세미나가 끝나면 운영진이 기록을 올립니다.';
     // 세미나 화면의 '그날의 토론 보기'로 들어오면 그 기록으로 이동
-    if (location.hash) document.querySelector(location.hash)?.focus();
+    if (location.hash) document.getElementById(decodeURIComponent(location.hash.slice(1)))?.focus();
     return items;
   } catch {
     listStatus.textContent = '토론 기록을 불러오지 못했어요. 잠시 뒤 새로고침해 주세요.';
@@ -146,14 +147,13 @@ function fill(d) {
 }
 
 async function setupStaff() {
-  if (mode !== 'live') {
-    form.hidden = true;
-    $('staff-off').hidden = false;
-    return;
-  }
+  const online = mode === 'live' && DISCUSSIONS_ENABLED;
+  $('staff-off').hidden = online;
+  form.querySelectorAll('[data-server]').forEach(n => n.hidden = !online);
+  requestAi.disabled = true;
   // 세미나 목록: 시작한 세미나(지난 세미나)만, 최근 순
   try {
-    const res = await sheetRows('seminars', false);
+    const res = online ? await sheetRows('seminars', false) : {rows:[]};
     const past = (res.rows ?? [])
       .filter((s) => s.status === 'published' && new Date(s.startsAt) <= new Date())
       .sort((a, b) => b.startsAt.localeCompare(a.startsAt));
@@ -175,6 +175,7 @@ async function setupStaff() {
   });
   $('staff-add').addEventListener('click', () => {
     const w = addWord.value.trim();
+    if (keywords.length >= 40) { result.textContent = '키워드는 40개까지 추가할 수 있습니다.'; return; }
     if (!w || keywords.some((k) => k.word === w)) return;
     keywords = [...keywords, { word: w, count: 1 }];
     addWord.value = '';
@@ -202,6 +203,7 @@ async function setupStaff() {
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    if (!online) { result.textContent = '온라인 게시는 준비 중입니다. 기록 파일 내려받기를 이용해 주세요.'; return; }
     const publish = e.submitter?.value === 'publish';
     if (!seminarSel.value) {
       result.textContent = '세미나를 골라 주세요.';
@@ -258,3 +260,50 @@ async function setupStaff() {
 
 loadPublished();
 setupStaff();
+
+// 원문과 운영진 코드는 내려받는 파일에 넣지 않는다.
+function publicDraft() {
+  return { title: $('draft-title').value.trim(), keywords,
+    summary: summary.value.trim(), questions: lines(questions.value),
+    quotes: parseQuotes(quotes.value).map((q,i)=>({text:q.text,speaker:`참석자 ${String.fromCharCode(65+i%26)}`})),
+    status: 'draft', createdAt: new Date().toISOString() };
+}
+function preview() {
+  const d=publicDraft();
+  const box=$('draft-preview'); box.replaceChildren();
+  const title=el('h3',{},d.title || '제목 없는 토론 초안'); box.append(title);
+  const c=el('div',{class:'cloud'}); renderCloud(c,d.keywords); box.append(c);
+  if(d.summary) box.append(el('p',{},d.summary));
+  d.questions.forEach(q=>box.append(el('p',{},`질문 · ${q}`)));
+  d.quotes.forEach(q=>box.append(el('blockquote',{},`${q.speaker}: ${q.text}`)));
+  box.hidden=false; box.focus();
+  result.textContent='미리보기입니다. 아직 게시되지 않았습니다.';
+}
+$('draft-preview-button').addEventListener('click',preview);
+$('draft-download').addEventListener('click',()=>{
+  const d=publicDraft();
+  if(!d.title || (!d.keywords.length && !d.summary)) {
+    result.textContent='토론 제목과 키워드 또는 요약을 입력해 주세요.';
+    (!d.title ? $('draft-title') : summary).focus(); return;
+  }
+  if(!$('draft-consent').checked) { result.textContent='공개할 내용에서 개인정보를 지웠는지 확인해 주세요.'; $('draft-consent').focus(); return; }
+  const blob=new Blob([JSON.stringify(d,null,2)],{type:'application/json'});
+  const url=URL.createObjectURL(blob), a=el('a',{href:url,download:'discussion-draft.json'});
+  document.body.append(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(url),1000);
+  result.textContent='기록 파일을 내려받았습니다. 원문과 운영진 코드는 포함하지 않았습니다. 서버에는 게시되지 않았습니다.';
+});
+$('draft-file').addEventListener('change',async e=>{
+  const file=e.target.files[0]; if(!file)return;
+  if(!/\.(txt|md)$/i.test(file.name)||file.size>500000){result.textContent='500KB 이하의 .txt 또는 .md 파일을 골라 주세요.';e.target.value='';return;}
+  try { const contents=await file.text(); if(contents.length>60000)throw new Error('long'); text.value=contents;checkText();result.textContent='파일을 읽었습니다. 키워드 뽑기를 눌러 주세요.'; }
+  catch { result.textContent='파일을 읽지 못했거나 60,000자를 넘었습니다. 나누어 올려 주세요.'; }
+});
+$('draft-example').addEventListener('click',()=>{
+  if(text.value.trim() && !confirm('작성 중인 텍스트와 초안을 예시로 바꿀까요?'))return;
+  $('draft-title').value='기능 체험용 예시 · 자유와 책임';
+  text.value=('참석자 1: 자유는 선택에 대한 책임과 함께 생각해야 합니다. 가족과 사회가 기대하는 역할은 무엇일까요? '+
+    '참석자 2: 선택을 존중하는 사회에서 자유와 책임은 어떻게 만날까요? 가족의 기대와 개인의 선택을 이야기했습니다. ').repeat(3);
+  keywords=extractKeywords(text.value); summary.value='자유와 책임, 가족의 기대와 개인의 선택을 살펴보는 기능 체험용 가상 토론입니다.';
+  questions.value='자유에는 어떤 책임이 따를까요?\n가족의 기대와 개인의 선택은 어떻게 조화될까요?'; quotes.value='';checkText();drawCloud();
+  result.textContent='직접 만든 가상 예시입니다. 실제 회원의 발언이 아닙니다.';
+});

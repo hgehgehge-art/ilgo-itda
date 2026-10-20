@@ -1,3 +1,4 @@
+import { DISCUSSIONS_ENABLED } from './config.js';
 // 서버 호출을 한곳에 모은 모듈. Supabase의 공개 함수만 부르고 표는 직접 건드리지 않는다.
 //  - sheet_rows: 구글 시트(세미나 일정·도서 목록)를 서버가 읽어 돌려줌 (supabase/sheets.sql)
 //  - reserve_from_sheet, cancel_from_sheet: 시트의 최신 일정으로 맞춘 뒤 신청·취소
@@ -125,7 +126,7 @@ function liveOnly(fn, args) {
 
 // 누구나: 게시된 토론 기록 목록(원문 제외)
 export function publishedDiscussions() {
-  return liveOnly('published_discussions', {});
+  return DISCUSSIONS_ENABLED ? liveOnly('published_discussions', {}) : Promise.resolve([]);
 }
 
 // 운영진: 저장. 결과 'ok' | 'bad_code' | 'not_found' | 'too_short' | 'too_long' | 'invalid' | 'limit'

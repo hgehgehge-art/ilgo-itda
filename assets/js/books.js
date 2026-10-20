@@ -150,7 +150,8 @@ async function loadBooks() {
   if (sheet.status === 'ok') {
     return { syncedAt: sheet.fetchedAt, books: sheet.rows.map(fromSheet), fromSheet: true, fetchedRows: JSON.stringify(sheet.rows) };
   }
-  if (sheet.status !== 'not_configured') throw new Error('시트를 읽지 못함');
+  // 조회 서버가 중단되어도 공개 서지 목록을 계속 제공한다. 파일에는 example 표시가 있다.
+
   const res = await fetch(DATA_URL, { cache: 'no-cache' });
   if (!res.ok) throw new Error(String(res.status));
   const data = await res.json();
