@@ -148,7 +148,8 @@ async function loadBooks() {
   } catch {
     sheet = { status: 'error' };
   }
-  if (sheet.status === 'ok') {
+  // 운영 시트의 도서 목록이 아직 비어 있으면 예시 목록을 보여 준다(화면에 '준비 중' 안내)
+  if (sheet.status === 'ok' && sheet.rows.length) {
     return { syncedAt: sheet.fetchedAt, books: sheet.rows.map(fromSheet), fromSheet: true, fetchedRows: JSON.stringify(sheet.rows) };
   }
   // 조회 서버가 중단되어도 공개 서지 목록을 계속 제공한다. 파일에는 example 표시가 있다.
