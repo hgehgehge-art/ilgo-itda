@@ -163,7 +163,7 @@ function buildForm(s, state) {
     legend.textContent = kind === 'reserve' ? '참석 신청' : '신청 취소';
     help.textContent =
       kind === 'reserve'
-        ? '확인번호는 취소할 때 필요해요. 잊으면 운영진에게 요청하세요. 동명이인은 이름 뒤에 구분 표기(예: 김하늘B).'
+        ? '확인번호는 취소할 때 필요합니다. 잊으면 운영진에게 요청해야 합니다. 동명이인이 있으면 이름 뒤에 구분 표기를 붙여 주세요(예: 김하늘B).'
         : '신청할 때 입력한 이름과 확인번호를 그대로 입력해 주세요.';
     submit.textContent = kind === 'reserve' ? '신청' : '취소하기';
     form.hidden = false;
