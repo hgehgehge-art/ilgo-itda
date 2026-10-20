@@ -1,11 +1,11 @@
 {
-  "date": "2026-10-20",
-  "message": "자유는 결코 인간이 타고난 것이 아니다. 그것은 인내와 용기와 희생을 통해 얻어지는 것이다.",
-  "author": "에이브러햄 링컨",
-  "authorProfile": "미국 16대 대통령",
+  "date": "2026-10-21",
+  "message": "상상력은 지식보다 중요하다. 지식은 한계가 있지만 상상력은 세상의 모든 것을 품는다.",
+  "author": "알베르트 아인슈타인",
+  "authorProfile": "이론 물리학자",
   "source": {
     "name": "한국어 명언 API",
     "url": "https://github.com/gwongibeom/korean-advice-open-api"
   },
-  "fetchedAt": "2026-10-19T20:23:44.990Z"
+  "fetchedAt": "2026-10-20T18:57:12.744Z"
 }
