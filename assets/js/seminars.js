@@ -224,7 +224,7 @@ function buildForm(s, state) {
     }
     if (!code) return;
     // 신청·취소 뒤에는 인원을 다시 불러온다.
-    await refreshCounts();
+    await refreshCounts(true);
     if (['ok', 'full', 'closed'].includes(code)) {
       // 상태가 바뀔 수 있으므로 다시 그리고, 결과 문구는 남겨 둔다
       render({ keep: { id: s.id, message: result.textContent } });
@@ -320,13 +320,13 @@ function render({ keep } = {}) {
   if (keep) document.querySelector(`#seminar-${CSS.escape(keep.id)} .rsv-actions button`)?.focus();
 }
 
-async function refreshCounts() {
+async function refreshCounts(fresh = false) {
   if (!signupOpen) {
     counts = null;
     return;
   }
   try {
-    counts = await seminarCounts();
+    counts = await seminarCounts(fresh);
   } catch {
     counts = null;
   }
@@ -401,13 +401,6 @@ async function init() {
   }
 
   await refreshCounts();
-  if (signupOpen) {
-    try {
-      discussed = new Set((await publishedDiscussions()).map((d) => d.seminarId));
-    } catch {
-      // 토론 링크만 빠지고 나머지는 그대로 보인다
-    }
-  }
   if (mode === 'live' && signupOpen && counts === null) signupOpen = false;
   statusLine.textContent = signupOpen
     ? ''
@@ -417,6 +410,15 @@ async function init() {
         ? '구글 시트의 일정을 보여 줍니다. 온라인 신청은 준비 중입니다.'
         : MESSAGES.off;
   render();
+  // 지난 세미나의 '그날의 토론 보기' 링크는 화면을 먼저 그린 뒤 붙인다
+  if (signupOpen) {
+    publishedDiscussions()
+      .then((list) => {
+        discussed = new Set(list.map((d) => d.seminarId));
+        if (discussed.size && ![...document.querySelectorAll('.rsv-form')].some((f) => !f.hidden)) render();
+      })
+      .catch(() => {});
+  }
 }
 
 init();

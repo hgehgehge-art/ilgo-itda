@@ -1,6 +1,6 @@
 # 읽고, 잇다 — 해외문학회의 읽기와 대화를 잇는 웹사이트
 
-기준일: 2026년 10월 20일. 서버는 **구글 시트 하나**입니다. 시트에 붙은 Apps Script가 세미나 신청·대출 상태·토론 기록·독서 지도를 처리하고, 사이트(GitHub Pages)는 그 주소 하나만 부릅니다. Apps Script를 배포하기 전에는 세미나 일정 조회, 토론 기록 파일 만들기, 독서 지도 보기가 서버 없이 동작합니다. 정확한 확인 범위는 [6. 검증 기록](#6-검증-기록)에 있습니다.
+기준일: 2026년 10월 21일. 서버는 **구글 시트 하나**입니다. 시트에 붙은 Google Apps Script 웹 앱이 세미나 신청·대출 상태·토론 기록·독서 지도를 처리하고, 사이트(GitHub Pages)는 그 주소 하나만 부릅니다. 2026-10-21 Apps Script를 배포해 공개 사이트와 연결했습니다. 정확한 확인 범위는 [6. 검증 기록](#6-검증-기록)에 있습니다.
 
 ## 1. 목적과 서비스 배경
 
@@ -49,6 +49,7 @@
 
 - 공개 주소: https://hgehgehge-art.github.io/ilgo-itda/
 - GitHub 저장소: https://github.com/hgehgehge-art/ilgo-itda
+- 서버(Apps Script 웹 앱): https://script.google.com/macros/s/AKfycbytQ_nsPLZDbGlWWj8VUQKZd79e-NwpDYcMMPy55V0mheealqZbhd5DaaZxpQkM-2my8w/exec (사이트가 부르는 공개 주소. 예: 주소 뒤에 `?action=seminars`)
 
 | 화면 | 기능 |
 | --- | --- |
@@ -65,6 +66,34 @@
 **운영진이 토론 기록 올리기:** 토론 화면 아래 '토론 기록 만들기'에서 세미나를 고르고 받아쓰기 텍스트를 붙여 넣은 뒤 '키워드 뽑기' → 필요 없는 낱말은 눌러서 빼기 → 요약·질문을 다듬고 운영진 코드로 '초안 저장' 또는 '게시'. 'AI 정리 요청'을 켜면 30분 안에 Claude가 요약·질문 초안을 채우고, 운영진이 확인한 뒤 게시합니다.
 
 **회원이 장소 추천하기:** 독서 지도 아래 '좋아하는 곳 추천하기'에 이름·주소·분류·이유를 적고 확인란을 체크해 보냅니다. 보내자마자 '회원 추천'으로 지도에 핀이 생깁니다. 맞지 않는 글은 운영진이 시트의 '게시' 칸을 '반려'로 바꿔 내립니다.
+
+### 구조: 구글 시트 백엔드(Apps Script)
+
+별도 서버나 데이터베이스 없이, 동아리가 이미 쓰는 구글 시트를 데이터 저장소로 씁니다. 운영 시트에 붙인 Apps Script(`apps-script/Code.gs`)를 '웹 앱'으로 배포하면 인터넷 주소가 하나 생기고, 사이트는 이 주소로만 읽고 씁니다.
+
+```
+회원 브라우저 (GitHub Pages: HTML·CSS·JavaScript)
+      │  읽기 GET ?action=…   쓰기 POST {action: …}
+      ▼
+Apps Script 웹 앱 (제작자 구글 계정 권한으로 실행)
+      │  잠금(LockService)으로 신청을 한 줄로 세움 · 확인번호 해시 · 이름 가림 · 1분 캐시
+      ├─▶ 주간세미나 시트(동아리 원본, 읽기만)
+      └─▶ 운영 시트(비공개): 세미나 신청 · 도서 목록 · 대출 기록 · 토론 기록 · 독서 지도
+GitHub Actions ─▶ 오늘의 한 문장(매일), 토론 AI 정리(Claude, 30분마다 · 토큰으로 Apps Script 호출)
+```
+
+| 요청 | 하는 일 | 돌려주는 것 |
+| --- | --- | --- |
+| `GET ?action=seminars` | 주간세미나 시트를 읽어 일정으로 바꿈 | 일정(발제자 이름은 첫 글자만), 세미나별 신청 수 |
+| `GET ?action=books` | 도서 목록·대출 기록으로 상태 계산 | 책 목록, 대출 여부, 반납 예정일(빌린 사람 이름 없음) |
+| `GET ?action=discussions` | 게시된 토론 기록 | 키워드·요약·질문·남기고 싶은 말(원문 없음) |
+| `GET ?action=places` | 게시된 장소, 빈 좌표는 주소로 찾아 채움 | 장소 목록과 좌표 |
+| `POST reserve` / `cancel` | 잠금을 건 뒤 정원·중복·시작 여부를 확인하고 저장 | ok · duplicate · full · closed · invalid / ok · not_found · closed |
+| `POST saveDiscussion` / `loadDiscussion` | 운영진 코드 확인 후 저장·불러오기 | ok · bad_code · too_short 등 |
+| `POST suggestPlace` | 중복·글자 수·하루 횟수 확인 후 바로 게시 | published · duplicate · missing 등 |
+| `POST aiPending` / `aiSave` | AI 작업 토큰 확인 후 정리 대기 목록·결과 저장 | GitHub Actions 전용 |
+
+왜 Apps Script인가: 처음에는 Supabase(외부 데이터베이스)를 썼지만 무료 프로젝트가 사용이 뜸하면 일시 정지되어 사이트의 신청이 멈췄습니다. 구글 시트는 운영진이 이미 쓰는 도구라 따로 관리할 서버가 없고, 신청 명단을 시트에서 바로 볼 수 있으며, 카드 등록 없이 무료로 쓸 수 있습니다.
 
 ### 처음 설정(운영진, 한 번)
 
@@ -135,7 +164,11 @@ node scripts/serve.mjs
 | 5개 화면, 360px | 가로 넘침 없음 | 없음(메뉴 5개 포함) | 통과 | 로컬 Chrome |
 | 토론 키워드(예시 받아쓰기) | 자주 나온 낱말, 말끝 제외 | 가족 6·쓸모 3 등, '거죠' 제외 | 통과 | 로컬 Chrome |
 | 이전 서버(Supabase) 주소 요청 | 응답 | 주소 없음(NXDOMAIN, 무료 프로젝트 일시 정지) | 실패 → 구글 시트 백엔드로 교체 | 2026-10-20 |
-| 실제 구글 계정에 Apps Script 배포 후 신청·취소 | 공개 주소에서 끝까지 동작 | **미확인**(배포 전) | 확인 필요 | — |
+| 배포한 Apps Script에 읽기 요청 5종(ping·seminars·books·discussions·places) | 모두 JSON 응답 | 모두 HTTP 200, 2~4초. 일정 10건, 발제자 이름 가림 | 통과 | curl, 2026-10-21 00:08 |
+| 배포한 서버에 지난 세미나 신청·취소 / 없는 세미나 / 확인번호 '12a4' | closed / invalid / invalid | 일치 | 통과 | curl, 2026-10-21 |
+| 배포한 서버에 틀린 운영진 코드 / 빈 장소 추천 | bad_code / missing | 일치 | 통과 | curl, 2026-10-21 |
+| 공개 사이트 세미나 화면(브라우저에서 Apps Script 호출) | 실제 일정 표시 | 10건 표시. 처음 약 15초 걸려 요청 수를 줄임 | 통과·개선 | Chrome, 2026-10-21 |
+| 다가오는 실제 세미나에 신청 → 인원 증가 → 취소 | 끝까지 동작 | **미확인**: 시트에 10/8 이후 일정이 아직 없음 | 확인 필요 | 다음 일정이 시트에 오르면 확인 |
 
 '가짜 구글 환경 시험'(`node tests/apps-script.test.mjs`)은 시트·캐시·잠금·해시를 흉내 낸 로컬 환경에서 `apps-script/Code.gs`를 그대로 실행한 52개 항목입니다. 시험용 일정 파일은 실제 시트 구조에 가상 이름을 넣은 것입니다. 실제 구글 서버에서의 동작, 특히 동시 신청 잠금은 배포 후 다시 확인해야 합니다. 이전 화면 점검 결과는 [docs/mvp-check-results.json](docs/mvp-check-results.json)에 있습니다.
 

@@ -102,14 +102,17 @@ export async function cancelReservation(seminarId, name, pin) {
 }
 
 // 결과: Map(seminar id → 신청 수, 발제자 제외)
-export async function seminarCounts() {
+let lastSeminars = null; // { at, data }
+
+export async function seminarCounts(fresh = false) {
   if (mode === 'mock') {
     await delay();
     if (forced === 'error') throw new Error('가짜 오류');
     return new Map([...mockReservations].map(([id, list]) => [id, list.length]));
   }
   if (mode !== 'live') throw new Error('연결되지 않음');
-  const data = await getJson('seminars');
+  // 방금(10초 안) 일정을 받으며 함께 온 인원이 있으면 그대로 쓴다. 신청·취소 뒤에는 새로 받는다
+  const data = fresh || !lastSeminars || Date.now() - lastSeminars.at > 10_000 ? await getJson('seminars') : lastSeminars.data;
   return new Map(Object.entries(data.counts ?? {}).map(([k, v]) => [k, Number(v)]));
 }
 
@@ -119,6 +122,7 @@ export async function seminarCounts() {
 export async function sheetRows(kind) {
   if (mode !== 'live') return { status: 'not_configured' };
   const data = await getJson(kind);
+  if (kind === 'seminars') lastSeminars = { at: Date.now(), data };
   return { status: 'ok', fetchedAt: data.fetchedAt, rows: kind === 'books' ? data.books : data.seminars };
 }
 
