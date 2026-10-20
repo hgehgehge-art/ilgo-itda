@@ -6,16 +6,16 @@
   <title>읽고, 잇다 — 해외문학회</title>
   <meta name="description" content="한국외대 해외문학회의 책장(대출 상태)과 주간 세미나 참석 신청">
   <script>document.documentElement.classList.add('js');</script>
-  <link rel="stylesheet" href="assets/css/style.css?v=20261021f">
-  <script type="module" src="assets/js/site.js?v=20261021f"></script>
-  <script type="module" src="assets/js/quote.js?v=20261021f"></script>
+  <link rel="stylesheet" href="assets/css/style.css?v=20261021g">
+  <script type="module" src="assets/js/site.js?v=20261021g"></script>
+  <script type="module" src="assets/js/quote.js?v=20261021g"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">본문으로 건너뛰기</a>
 
   <header class="site-nav">
     <nav class="container" aria-label="주 메뉴">
-      <a class="brand" href="index.html">읽고, 잇다</a>
+      <a class="brand" href="index.html"><svg class="brand-mark" viewBox="0 0 28 20" aria-hidden="true"><rect x="1" y="10" width="3.2" height="9" rx=".8" transform="rotate(-50 2.6 19)"/><rect x="6.5" y="6" width="3.2" height="13" rx=".8" transform="rotate(-32 8.1 19)"/><rect x="12" y="3" width="3.2" height="16" rx=".8" transform="rotate(-18 13.6 19)"/><rect x="17.5" y="1.5" width="3.2" height="17.5" rx=".8" transform="rotate(-8 19.1 19)"/><rect x="23" y="1" width="3.2" height="18" rx=".8"/></svg><span>읽고, 잇다</span></a>
       <ul class="nav-links">
         <li><a href="index.html" aria-current="page">홈</a></li>
         <li><a href="books.html">책장</a></li>
@@ -69,22 +69,31 @@
       <div class="container reveal">
         <h2 class="title" id="features-title">책과 세미나, 그리고 그날의 대화를 웹으로.</h2>
         <p class="lead">로그인 없이 누구나 볼 수 있습니다. 세미나 신청은 이름과 확인번호만으로 합니다.</p>
-        <div class="grid">
-          <article class="card">
-            <h3>책장</h3>
-            <p>동아리가 소장한 민음사 세계문학전집을 제목·작가·권번호로 찾고, 지금 빌릴 수 있는지와 반납 예정일을 확인합니다.</p>
-            <div class="actions"><a class="link-arrow" href="books.html">책장으로</a></div>
-          </article>
-          <article class="card">
+        <div class="grid grid--four">
+          <a class="card card--link" href="seminars.html">
+            <span class="card-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span>
             <h3>세미나</h3>
-            <p>매주 오후 6시, 동아리방. 발제자를 포함해 11명까지 선착순으로 신청하고, 확인번호로 직접 취소합니다.</p>
-            <div class="actions"><a class="link-arrow" href="seminars.html">세미나로</a></div>
-          </article>
-          <article class="card">
+            <p>오후 6시, 동아리방. 발제자를 포함해 11명까지 선착순으로 신청하고, 확인번호로 직접 취소합니다.</p>
+            <span class="link-arrow">세미나 신청하기</span>
+          </a>
+          <a class="card card--link" href="books.html">
+            <span class="card-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5zM4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"/></svg></span>
+            <h3>책장</h3>
+            <p>동아리가 소장한 민음사 세계문학전집을 제목·작가·권번호로 찾고, 지금 빌릴 수 있는지 확인합니다.</p>
+            <span class="link-arrow">책 찾기</span>
+          </a>
+          <a class="card card--link" href="discussions.html">
+            <span class="card-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9h8M8 12h5"/></svg></span>
             <h3>그날의 토론</h3>
             <p>세미나가 끝나면 그날 많이 오간 낱말을 워드클라우드로, 함께 던진 질문을 카드로 남깁니다.</p>
-            <div class="actions"><a class="link-arrow" href="discussions.html">토론 기록으로</a></div>
-          </article>
+            <span class="link-arrow">토론 기록 보기</span>
+          </a>
+          <a class="card card--link" href="places.html">
+            <span class="card-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+            <h3>독서 지도</h3>
+            <p>회원들이 아끼는 서점·북카페·도서관을 지도에 모읍니다. 좋아하는 곳을 바로 추천할 수 있어요.</p>
+            <span class="link-arrow">지도 보기</span>
+          </a>
         </div>
       </div>
     </section>
@@ -92,17 +101,13 @@
     <section class="section section--soft" id="purpose" aria-labelledby="purpose-title">
       <div class="container reveal">
         <p class="eyebrow">프로젝트 목적</p>
-        <h2 class="title" id="purpose-title">종이 장부와 카톡 투표를 대신합니다.</h2>
-        <p class="lead">해외문학회 회장으로 일하며 겪은 두 가지 운영 문제를 고치려는 개인 프로젝트입니다.</p>
-        <div class="grid">
-          <div class="card">
-            <h3>대출 기록</h3>
-            <p>종이에 적던 대출·반납 기록을 운영진의 비공개 시트로 옮기고, 사이트에는 책마다 대출 가능 여부만 보여 줍니다. 빌린 사람의 이름은 공개하지 않습니다.</p>
-          </div>
-          <div class="card">
-            <h3>세미나 예약</h3>
-            <p>카카오톡 투표를 보고 회장이 직접 마감하던 일을, 정원이 차면 저절로 닫히는 웹 신청으로 바꿉니다.</p>
-          </div>
+        <h2 class="title" id="purpose-title">회장으로 겪은 네 가지 장면에서 시작했습니다.</h2>
+        <p class="lead">매주 반복되던 '사람이 세고, 확인하고, 공지하는 일'을 작은 웹 서비스로 바꿉니다.</p>
+        <div class="stories">
+          <div class="story"><span class="story-no">01</span><h3>12번째 사람은 누구였을까</h3><p>동아리방은 11명이 정원이라 카카오톡 투표가 11명이 되면 직접 종료했는데, 눌러 보니 12명이었습니다. 이제는 서버가 신청을 한 줄로 세워 11명에서 저절로 마감합니다.</p></div>
+          <div class="story"><span class="story-no">02</span><h3>사라진 대출 명부</h3><p>수기 명부를 잃어버리자 누가 어떤 책을 빌렸는지 알 수 없었습니다. 이제 대출 기록은 시트에 남고, 책장에서 바로 확인합니다.</p></div>
+          <div class="story"><span class="story-no">03</span><h3>좋았던 토론이 날아간다</h3><p>토론은 늘 좋았지만 끝나면 남는 것이 없었습니다. 이제 그날의 키워드와 질문을 기록으로 남깁니다.</p></div>
+          <div class="story"><span class="story-no">04</span><h3>각자 아는 좋은 곳</h3><p>좋아하는 장소를 나누면 회원끼리 더 가까워질 수 있습니다. 독서 지도에서 서로의 장소를 만납니다.</p></div>
         </div>
       </div>
     </section>
@@ -174,9 +179,15 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container">
-      <p>읽고, 잇다 — 한국외대 해외문학회 개인 프로젝트</p>
-      <p>오늘의 한 문장 출처: <a href="https://github.com/gwongibeom/korean-advice-open-api">한국어 명언 API</a></p>
+    <div class="container footer-grid">
+      <div>
+        <p class="footer-brand">읽고, 잇다</p>
+        <p>한국외대 중앙동아리 해외문학회의 책장·세미나·토론·독서 지도</p>
+      </div>
+      <nav aria-label="바닥글 메뉴">
+        <a href="seminars.html">세미나</a><a href="books.html">책장</a><a href="discussions.html">토론</a><a href="places.html">독서 지도</a><a href="https://github.com/hgehgehge-art/ilgo-itda">GitHub</a>
+      </nav>
+      <p class="footer-note">일정·신청·대출 기록은 구글 시트와 연결되어 있습니다. 오늘의 한 문장 출처: <a href="https://github.com/gwongibeom/korean-advice-open-api">한국어 명언 API</a> · 지도 © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a></p>
     </div>
   </footer>
 </body>
