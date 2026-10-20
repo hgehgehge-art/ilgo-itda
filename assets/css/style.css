@@ -464,6 +464,15 @@ a:hover {
   background: var(--accent);
   color: #fff;
 }
+.is-unknown .pill {
+  background: #e8e8ed;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+.check.is-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
 .is-loan .pill {
   background: #e8e8ed;
   color: var(--text);

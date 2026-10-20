@@ -17,6 +17,7 @@ const count = $('book-count');
 const more = $('book-more');
 const synced = $('book-synced');
 const notice = $('book-example');
+let listOnly = false; // 대출 기록 없이 책 목록만 있을 때
 
 let books = [];
 let filtered = [];
@@ -66,8 +67,10 @@ function renderCard(book) {
   const by = [book.author, book.translator && `${book.translator} 옮김`].filter(Boolean).join(' · ');
   li.append(el('p', { class: 'book-by' }, by));
 
-  const status = el('p', { class: `book-status ${onLoan ? 'is-loan' : 'is-free'}` });
-  status.append(el('span', { class: 'pill' }, onLoan ? '대출 중' : '대출 가능'));
+  // 대출 기록이 연결되기 전(목록만 있을 때)에는 대출 상태를 지어 보여 주지 않는다
+  const unknown = book.status === 'unknown';
+  const status = el('p', { class: `book-status ${unknown ? 'is-unknown' : onLoan ? 'is-loan' : 'is-free'}` });
+  status.append(el('span', { class: 'pill' }, unknown ? '대출 상태 확인 중' : onLoan ? '대출 중' : '대출 가능'));
   if (onLoan && book.dueDate) status.append(el('span', {}, `${formatDue(book.dueDate)} 반납 예정`));
   li.append(status);
   li.append(el('p', { class: 'book-copy' }, `관리번호 ${book.copyId}`));
@@ -97,7 +100,7 @@ function apply() {
     return;
   }
   const free = filtered.filter((b) => b.status === 'available').length;
-  count.textContent = `${filtered.length}권 · 대출 가능 ${free}권`;
+  count.textContent = listOnly ? `${filtered.length}권` : `${filtered.length}권 · 대출 가능 ${free}권`;
   renderMore();
 }
 
@@ -114,7 +117,7 @@ function isBook(b) {
     typeof b.copyId === 'string' &&
     typeof b.title === 'string' &&
     Number.isFinite(b.seriesNo) &&
-    (b.status === 'available' || b.status === 'on_loan')
+    (b.status === 'available' || b.status === 'on_loan' || b.status === 'unknown')
   );
 }
 
@@ -177,8 +180,16 @@ async function init() {
   books = sortBooks(data.books);
 
   const when = formatSynced(data.syncedAt);
-  synced.textContent = when ? `마지막으로 시트를 읽은 시각 ${when}` : '마지막으로 시트를 읽은 시각 알 수 없음';
-  notice.hidden = data.example !== true;
+  listOnly = data.listOnly === true;
+  synced.textContent = listOnly
+    ? '대출 기록 연결 전이라 책 목록만 보여 줍니다.'
+    : when
+      ? `마지막으로 시트를 읽은 시각 ${when}`
+      : '마지막으로 시트를 읽은 시각 알 수 없음';
+  notice.hidden = !(listOnly || data.example === true);
+  // 대출 상태를 모를 때는 '대출 가능한 책만' 거르기를 쓸 수 없다
+  onlyAvailable.disabled = listOnly;
+  onlyAvailable.closest('label')?.classList.toggle('is-disabled', listOnly);
 
   let timer;
   input.addEventListener('input', () => {

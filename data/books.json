@@ -1,6 +1,7 @@
 {
- "example": true,
- "syncedAt": "2026-10-04T12:00:00.000Z",
+ "listOnly": true,
+ "source": "민음사 세계문학전집 시리즈 목록(2026-10-04 확인)",
+ "syncedAt": null,
  "books": [
   {
    "copyId": "M-001-1",
@@ -9,7 +10,7 @@
    "author": "오비디우스",
    "translator": "이윤기",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -19,7 +20,7 @@
    "author": "오비디우스",
    "translator": "이윤기",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -29,7 +30,7 @@
    "author": "윌리엄 셰익스피어",
    "translator": "최종철",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -39,7 +40,7 @@
    "author": "프란츠 카프카",
    "translator": "전영애",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -49,7 +50,7 @@
    "author": "조지 오웰",
    "translator": "도정일",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -59,7 +60,7 @@
    "author": "마크 트웨인",
    "translator": "김욱동",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -69,7 +70,7 @@
    "author": "조지프 콘래드",
    "translator": "이상옥",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -79,8 +80,8 @@
    "author": "토마스 만",
    "translator": "임홍배, 안삼환, 한성자, 박동자",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-15"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-009-1",
@@ -89,7 +90,7 @@
    "author": "장폴 사르트르",
    "translator": "정명환",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -99,7 +100,7 @@
    "author": "김동인, 현진건, 이광수, 나도향, 최서해, 채만식, 이상, 이효석, 이태준, 정비석, 염상섭, 이남호, 김유정",
    "translator": "",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -109,7 +110,7 @@
    "author": "서머싯 몸",
    "translator": "송무",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -119,7 +120,7 @@
    "author": "서머싯 몸",
    "translator": "송무",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -129,7 +130,7 @@
    "author": "알렉산드르 솔제니친",
    "translator": "이영의",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -139,7 +140,7 @@
    "author": "너새니얼 호손",
    "translator": "천승걸",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -149,7 +150,7 @@
    "author": "아모스 오즈",
    "translator": "최창모",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -159,8 +160,8 @@
    "author": "위앤커",
    "translator": "전인초, 김선자",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-08"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-017-1",
@@ -169,7 +170,7 @@
    "author": "위앤커",
    "translator": "전인초, 김선자",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -179,7 +180,7 @@
    "author": "오노레 드 발자크",
    "translator": "박영근",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -189,8 +190,8 @@
    "author": "윌리엄 골딩",
    "translator": "유종호",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-13"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-020-1",
@@ -199,7 +200,7 @@
    "author": "김동리, 황순원, 오영수, 손창섭, 정한숙, 이호철, 장용학, 서기원, 박경리, 강신재, 선우휘, 이남호",
    "translator": "",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -209,7 +210,7 @@
    "author": "요한 볼프강 폰 괴테",
    "translator": "정서웅",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -219,7 +220,7 @@
    "author": "요한 볼프강 폰 괴테",
    "translator": "정서웅",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -229,7 +230,7 @@
    "author": "요한 볼프강 폰 괴테",
    "translator": "안삼환",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -239,7 +240,7 @@
    "author": "요한 볼프강 폰 괴테",
    "translator": "안삼환",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -249,7 +250,7 @@
    "author": "요한 볼프강 폰 괴테",
    "translator": "박찬기",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -259,7 +260,7 @@
    "author": "요한 볼프강 폰 괴테",
    "translator": "박찬기, 김주연, 송윤엽, 최민숙, 최승수",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -269,8 +270,8 @@
    "author": "도리스 레싱",
    "translator": "정덕애",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-17"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-028-1",
@@ -279,7 +280,7 @@
    "author": "루이제 린저",
    "translator": "박찬일",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -289,7 +290,7 @@
    "author": "밀란 쿤데라",
    "translator": "방미경",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -299,8 +300,8 @@
    "author": "잭 런던",
    "translator": "권택영",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-11"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-031-1",
@@ -309,7 +310,7 @@
    "author": "헨리 제임스",
    "translator": "최경도",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -319,7 +320,7 @@
    "author": "귄터 그라스",
    "translator": "장희창",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -329,7 +330,7 @@
    "author": "귄터 그라스",
    "translator": "장희창",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -339,7 +340,7 @@
    "author": "가브리엘 가르시아 마르케스",
    "translator": "조구호",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -349,7 +350,7 @@
    "author": "가브리엘 가르시아 마르케스",
    "translator": "조구호",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -359,7 +360,7 @@
    "author": "귀스타브 플로베르",
    "translator": "김화영",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -369,7 +370,7 @@
    "author": "마누엘 푸익",
    "translator": "송병선",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -379,8 +380,8 @@
    "author": "서머싯 몸",
    "translator": "송무",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-15"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-039-1",
@@ -389,7 +390,7 @@
    "author": "장 지오노",
    "translator": "박인철",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -399,7 +400,7 @@
    "author": "지그프리트 렌츠",
    "translator": "정서웅",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -409,8 +410,8 @@
    "author": "지그프리트 렌츠",
    "translator": "정서웅",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-09"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-042-1",
@@ -419,7 +420,7 @@
    "author": "라이너 마리아 릴케",
    "translator": "문현미",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -429,7 +430,7 @@
    "author": "사뮈엘 베케트",
    "translator": "오증자",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -439,17 +440,7 @@
    "author": "헤르만 헤세",
    "translator": "전영애",
    "isbn": "",
-   "status": "available",
-   "dueDate": null
-  },
-  {
-   "copyId": "M-044-2",
-   "seriesNo": 44,
-   "title": "데미안",
-   "author": "헤르만 헤세",
-   "translator": "전영애",
-   "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -459,7 +450,7 @@
    "author": "제임스 조이스",
    "translator": "이상옥",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -469,7 +460,7 @@
    "author": "조지 오웰",
    "translator": "정영목",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -479,7 +470,7 @@
    "author": "제롬 데이비드 샐린저",
    "translator": "정영목",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -489,7 +480,7 @@
    "author": "스탕달",
    "translator": "원윤수, 임미경",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -499,8 +490,8 @@
    "author": "스탕달",
    "translator": "원윤수, 임미경",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-13"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-050-1",
@@ -509,7 +500,7 @@
    "author": "헤르만 헤세",
    "translator": "김이섭",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -519,7 +510,7 @@
    "author": "윌리엄 셰익스피어",
    "translator": "최종철",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -529,7 +520,7 @@
    "author": "르 클레지오",
    "translator": "김윤진",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -539,7 +530,7 @@
    "author": "토마스 만",
    "translator": "홍성광",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -549,7 +540,7 @@
    "author": "토마스 만",
    "translator": "홍성광",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -559,7 +550,7 @@
    "author": "D. H. 로렌스",
    "translator": "정상준",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -569,8 +560,8 @@
    "author": "D. H. 로렌스",
    "translator": "정상준",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-11"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-061-1",
@@ -579,7 +570,7 @@
    "author": "가와바타 야스나리",
    "translator": "유숙자",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -589,7 +580,7 @@
    "author": "알렉산드르 푸시킨",
    "translator": "최선",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -599,7 +590,7 @@
    "author": "귄터 그라스",
    "translator": "김재혁",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -609,7 +600,7 @@
    "author": "귄터 그라스",
    "translator": "김재혁",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -619,7 +610,7 @@
    "author": "페터 한트케",
    "translator": "윤용호",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -629,7 +620,7 @@
    "author": "헤르만 헤세",
    "translator": "임홍배",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -639,7 +630,7 @@
    "author": "헤르만 헤세",
    "translator": "김누리",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -649,7 +640,7 @@
    "author": "니콜라이 고골",
    "translator": "조주관",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -659,7 +650,7 @@
    "author": "유진 오닐",
    "translator": "민승남",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -669,7 +660,7 @@
    "author": "안톤 체호프",
    "translator": "박현섭",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -679,8 +670,8 @@
    "author": "가오싱젠",
    "translator": "오수경",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-13"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-072-1",
@@ -689,7 +680,7 @@
    "author": "김만중",
    "translator": "송성욱",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -699,7 +690,7 @@
    "author": "외젠 이오네스코",
    "translator": "오세곤",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -709,7 +700,7 @@
    "author": "이솝",
    "translator": "유종호",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -719,7 +710,7 @@
    "author": "F. 스콧 피츠제럴드",
    "translator": "김욱동",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -729,7 +720,7 @@
    "author": "노발리스",
    "translator": "김재혁",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -739,7 +730,7 @@
    "author": "조지 오웰",
    "translator": "정회성",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -749,7 +740,7 @@
    "author": "이사벨 아옌데",
    "translator": "권미선",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -759,8 +750,8 @@
    "author": "이사벨 아옌데",
    "translator": "권미선",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-17"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-080-1",
@@ -769,7 +760,7 @@
    "author": "이반 세르게예비치 투르게네프",
    "translator": "이항재",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -779,7 +770,7 @@
    "author": "윌리엄 포크너",
    "translator": "김명주",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -789,8 +780,8 @@
    "author": "도리스 레싱",
    "translator": "서숙",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-11"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-083-1",
@@ -799,7 +790,7 @@
    "author": "파스칼",
    "translator": "이환",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -809,7 +800,7 @@
    "author": "로브그리예",
    "translator": "박이문, 박희원",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -819,7 +810,7 @@
    "author": "D. H. 로렌스",
    "translator": "이인규",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -829,7 +820,7 @@
    "author": "D. H. 로렌스",
    "translator": "이인규",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -839,7 +830,7 @@
    "author": "나쓰메 소세키",
    "translator": "",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -849,7 +840,7 @@
    "author": "제인 오스틴",
    "translator": "윤지관, 전승희",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -859,7 +850,7 @@
    "author": "레프 니콜라예비치 톨스토이",
    "translator": "연진희",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -869,8 +860,8 @@
    "author": "레프 니콜라예비치 톨스토이",
    "translator": "연진희",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-15"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-091-1",
@@ -879,7 +870,7 @@
    "author": "미셸 투르니에",
    "translator": "김화영",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -889,7 +880,7 @@
    "author": "V. S. 나이폴",
    "translator": "이상옥",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -899,8 +890,8 @@
    "author": "후안 룰포",
    "translator": "정창",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-09"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-094-1",
@@ -909,7 +900,7 @@
    "author": "프리드리히 니체",
    "translator": "장희창",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -919,7 +910,7 @@
    "author": "스탕달",
    "translator": "이동렬",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -929,7 +920,7 @@
    "author": "가브리엘 가르시아 마르케스",
    "translator": "송병선",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -939,7 +930,7 @@
    "author": "가브리엘 가르시아 마르케스",
    "translator": "송병선",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -949,7 +940,7 @@
    "author": "윌리엄 셰익스피어",
    "translator": "최종철",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -959,7 +950,7 @@
    "author": "백범영, 미상",
    "translator": "송성욱",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -969,8 +960,8 @@
    "author": "비톨트 곰브로비치",
    "translator": "윤진",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-13"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-102-1",
@@ -979,7 +970,7 @@
    "author": "비톨트 곰브로비치",
    "translator": "임미경",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -989,7 +980,7 @@
    "author": "다자이 오사무",
    "translator": "김춘미",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -999,8 +990,8 @@
    "author": "안토니오 스카르메타",
    "translator": "우석균",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-08"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-105-1",
@@ -1009,7 +1000,7 @@
    "author": "요한 볼프강 폰 괴테",
    "translator": "박찬기, 이봉무, 주경순",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1019,7 +1010,7 @@
    "author": "요한 볼프강 폰 괴테",
    "translator": "박찬기, 주경순, 이봉무",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1029,7 +1020,7 @@
    "author": "이탈로 칼비노",
    "translator": "이현경",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1039,7 +1030,7 @@
    "author": "라우라 에스키벨",
    "translator": "권미선",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1049,7 +1040,7 @@
    "author": "샬럿 브론테",
    "translator": "유종호",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1059,7 +1050,7 @@
    "author": "샬럿 브론테",
    "translator": "유종호",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1069,7 +1060,7 @@
    "author": "헤르만 헤세",
    "translator": "이노은",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1079,8 +1070,8 @@
    "author": "앤서니 버지스",
    "translator": "박시영",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-11"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-113-1",
@@ -1089,7 +1080,7 @@
    "author": "빅토르 위고",
    "translator": "정기수",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1099,7 +1090,7 @@
    "author": "빅토르 위고",
    "translator": "정기수",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1109,7 +1100,7 @@
    "author": "단테 알리기에리, 단테 가브리엘 로세티",
    "translator": "박우수",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1119,7 +1110,7 @@
    "author": "조지프 콘래드",
    "translator": "이상옥",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1129,7 +1120,7 @@
    "author": "조지프 콘래드",
    "translator": "이상옥",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1139,7 +1130,7 @@
    "author": "에밀리 브론테",
    "translator": "김종길",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1149,7 +1140,7 @@
    "author": "귄터 그라스",
    "translator": "안삼환",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1159,7 +1150,7 @@
    "author": "니콜라이 고골",
    "translator": "조주관",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1169,7 +1160,7 @@
    "author": "미겔 데 우나무노",
    "translator": "조민현",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1179,7 +1170,7 @@
    "author": "헨리 제임스",
    "translator": "최경도",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1189,8 +1180,8 @@
    "author": "F. 스콧 피츠제럴드",
    "translator": "김욱동",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-09"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-124-1",
@@ -1199,7 +1190,7 @@
    "author": "베르나르마리 콜테스",
    "translator": "임수현",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1209,7 +1200,7 @@
    "author": "황석영",
    "translator": "",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1219,7 +1210,7 @@
    "author": "새뮤얼 존슨",
    "translator": "이인규",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1229,7 +1220,7 @@
    "author": "윌리엄 셰익스피어",
    "translator": "최종철",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1239,7 +1230,7 @@
    "author": "헨릭 시엔키에비츠",
    "translator": "최성은",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1249,7 +1240,7 @@
    "author": "헨릭 시엔키에비츠",
    "translator": "최성은",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1259,7 +1250,7 @@
    "author": "버지니아 울프",
    "translator": "이미애",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1269,8 +1260,8 @@
    "author": "쥘리앙 그라크",
    "translator": "송진석",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-17"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-132-1",
@@ -1279,7 +1270,7 @@
    "author": "제인 오스틴",
    "translator": "윤지관",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1289,7 +1280,7 @@
    "author": "레오니드 치프킨",
    "translator": "이장욱",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1299,8 +1290,8 @@
    "author": "오르한 파묵",
    "translator": "이난아",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-11"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-135-1",
@@ -1309,7 +1300,7 @@
    "author": "D. H. 로렌스",
    "translator": "김정매",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1319,7 +1310,7 @@
    "author": "D. H. 로렌스",
    "translator": "김정매",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1329,7 +1320,7 @@
    "author": "서머싯 몸",
    "translator": "황소연",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1339,7 +1330,7 @@
    "author": "이탈로 칼비노",
    "translator": "이현경",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1349,7 +1340,7 @@
    "author": "존 바스",
    "translator": "이운경",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1359,7 +1350,7 @@
    "author": "존 바스",
    "translator": "이운경",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1369,7 +1360,7 @@
    "author": "존 바스",
    "translator": "이운경",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1379,8 +1370,8 @@
    "author": "조지 엘리엇",
    "translator": "한애경, 이봉지",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-15"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-143-1",
@@ -1389,7 +1380,7 @@
    "author": "조지 엘리엇",
    "translator": "한애경, 이봉지",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1399,7 +1390,7 @@
    "author": "마르그리트 뒤라스",
    "translator": "김인환",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1409,8 +1400,8 @@
    "author": "토머스 하디",
    "translator": "정종화",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-09"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-146-1",
@@ -1419,7 +1410,7 @@
    "author": "토머스 하디",
    "translator": "정종화",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1429,7 +1420,7 @@
    "author": "토머스 핀천",
    "translator": "김성곤",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1439,7 +1430,7 @@
    "author": "윌리엄 포크너",
    "translator": "이진준",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1449,7 +1440,7 @@
    "author": "김승옥",
    "translator": "",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1459,7 +1450,7 @@
    "author": "단테 알리기에리",
    "translator": "박상진",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1469,7 +1460,7 @@
    "author": "단테 알리기에리",
    "translator": "박상진",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1479,8 +1470,8 @@
    "author": "안드레이 플라토노프",
    "translator": "정보라",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-13"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-154-1",
@@ -1489,7 +1480,7 @@
    "author": "표도르 도스토옙스키",
    "translator": "김연경",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1499,7 +1490,7 @@
    "author": "표도르 도스토옙스키",
    "translator": "김연경",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1509,8 +1500,8 @@
    "author": "표도르 도스토옙스키",
    "translator": "김연경",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-08"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-157-1",
@@ -1519,7 +1510,7 @@
    "author": "앙드레 지드",
    "translator": "김화영",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1529,7 +1520,7 @@
    "author": "노먼 메일러",
    "translator": "권택영",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1539,7 +1530,7 @@
    "author": "너새니얼 호손",
    "translator": "김욱동",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1549,7 +1540,7 @@
    "author": "엔도 슈사쿠",
    "translator": "유숙자",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1559,7 +1550,7 @@
    "author": "테네시 윌리엄스",
    "translator": "김소임",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1569,7 +1560,7 @@
    "author": "도리스 레싱",
    "translator": "나영균",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1579,7 +1570,7 @@
    "author": "이사벨 아옌데",
    "translator": "권미선",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1589,8 +1580,8 @@
    "author": "이사벨 아옌데",
    "translator": "권미선",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-11"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-165-1",
@@ -1599,7 +1590,7 @@
    "author": "아돌포 비오이 카사레스",
    "translator": "송병선",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1609,7 +1600,7 @@
    "author": "도리스 레싱",
    "translator": "이태동",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1619,7 +1610,7 @@
    "author": "보들레르",
    "translator": "윤영애",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1629,7 +1620,7 @@
    "author": "제임스 M. 케인",
    "translator": "이만식",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1639,7 +1630,7 @@
    "author": "가브리엘 가르시아 마르케스",
    "translator": "송병선",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1649,7 +1640,7 @@
    "author": "치누아 아체베",
    "translator": "조규형",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1659,7 +1650,7 @@
    "author": "윌리엄 셰익스피어",
    "translator": "최종철",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1669,7 +1660,7 @@
    "author": "윌리엄 셰익스피어",
    "translator": "최종철",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1679,7 +1670,7 @@
    "author": "존 스타인벡",
    "translator": "김승욱",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1689,8 +1680,8 @@
    "author": "존 스타인벡",
    "translator": "김승욱",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-09"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-176-1",
@@ -1699,7 +1690,7 @@
    "author": "요한 페터 에커만",
    "translator": "장희창",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1709,7 +1700,7 @@
    "author": "요한 페터 에커만",
    "translator": "장희창",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1719,7 +1710,7 @@
    "author": "아이리스 머독",
    "translator": "유종호",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1729,7 +1720,7 @@
    "author": "프랑수아즈 사강",
    "translator": "김남주",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1739,7 +1730,7 @@
    "author": "하인리히 뵐",
    "translator": "김연수",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1749,7 +1740,7 @@
    "author": "존 스타인벡",
    "translator": "정회성",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1759,7 +1750,7 @@
    "author": "존 스타인벡",
    "translator": "정회성",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1769,7 +1760,7 @@
    "author": "이디스 워튼",
    "translator": "송은주",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1779,7 +1770,7 @@
    "author": "장 주네",
    "translator": "박형섭",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1789,7 +1780,7 @@
    "author": "앙드레 브르통",
    "translator": "오생근",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1799,8 +1790,8 @@
    "author": "조지프 헬러",
    "translator": "안정효",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-11"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-187-1",
@@ -1809,7 +1800,7 @@
    "author": "조지프 헬러",
    "translator": "안정효",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1819,7 +1810,7 @@
    "author": "미하일 알렉산드로비치 숄로호프",
    "translator": "이항재",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1829,7 +1820,7 @@
    "author": "장폴 사르트르",
    "translator": "정명환",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1839,7 +1830,7 @@
    "author": "랠프 엘리슨",
    "translator": "조영환",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1849,7 +1840,7 @@
    "author": "랠프 엘리슨",
    "translator": "조영환",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1859,7 +1850,7 @@
    "author": "존 치버",
    "translator": "김승욱",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1869,7 +1860,7 @@
    "author": "존 치버",
    "translator": "김승욱",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1879,8 +1870,8 @@
    "author": "세스 노터봄",
    "translator": "지명숙",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-15"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-195-1",
@@ -1889,7 +1880,7 @@
    "author": "마르그리트 유르스나르",
    "translator": "곽광수",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1899,7 +1890,7 @@
    "author": "마르그리트 유르스나르",
    "translator": "곽광수",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1909,8 +1900,8 @@
    "author": "윌리엄 스타이런",
    "translator": "한정아",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-09"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-198-1",
@@ -1919,7 +1910,7 @@
    "author": "윌리엄 스타이런",
    "translator": "한정아",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1929,7 +1920,7 @@
    "author": "F. 스콧 피츠제럴드",
    "translator": "한은경",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1939,7 +1930,7 @@
    "author": "허균, 백범영",
    "translator": "김탁환",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1949,7 +1940,7 @@
    "author": "로버트 쿠버",
    "translator": "양윤희",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1959,7 +1950,7 @@
    "author": "외젠 다비",
    "translator": "원윤수",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1969,7 +1960,7 @@
    "author": "마크 트웨인",
    "translator": "김욱동",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1979,7 +1970,7 @@
    "author": "김시습",
    "translator": "이지하",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -1989,8 +1980,8 @@
    "author": "토머스 하디",
    "translator": "정종화",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-13"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-206-1",
@@ -1999,7 +1990,7 @@
    "author": "토머스 하디",
    "translator": "정종화",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2009,7 +2000,7 @@
    "author": "글로리아 네일러",
    "translator": "이소영",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2019,8 +2010,8 @@
    "author": "치누아 아체베",
    "translator": "이소영",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-08"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-209-1",
@@ -2029,7 +2020,7 @@
    "author": "앨리스 워커",
    "translator": "김시현",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2039,7 +2030,7 @@
    "author": "조르주 베르나노스",
    "translator": "정영란",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2049,7 +2040,7 @@
    "author": "니콜라이 고골",
    "translator": "조주관",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2059,7 +2050,7 @@
    "author": "찰스 디킨스",
    "translator": "이인규",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2069,7 +2060,7 @@
    "author": "찰스 디킨스",
    "translator": "이인규",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2079,7 +2070,7 @@
    "author": "서머싯 몸",
    "translator": "안진환",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2089,7 +2080,7 @@
    "author": "A. J. 크로닌",
    "translator": "이은정",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2099,8 +2090,8 @@
    "author": "A. J. 크로닌",
    "translator": "이은정",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-11"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-217-1",
@@ -2109,7 +2100,7 @@
    "author": "소포클레스",
    "translator": "강대진",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2119,7 +2110,7 @@
    "author": "아서 밀러",
    "translator": "강유나",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2129,7 +2120,7 @@
    "author": "레프 니콜라예비치 톨스토이",
    "translator": "연진희",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2139,7 +2130,7 @@
    "author": "레프 니콜라예비치 톨스토이",
    "translator": "연진희",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2149,7 +2140,7 @@
    "author": "레프 니콜라예비치 톨스토이",
    "translator": "연진희",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2159,7 +2150,7 @@
    "author": "오스카 와일드",
    "translator": "정영목",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2169,7 +2160,7 @@
    "author": "기 드 모파상",
    "translator": "송덕호",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2179,7 +2170,7 @@
    "author": "카밀로 호세 셀라",
    "translator": "정동섭",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2189,7 +2180,7 @@
    "author": "엘리오 비토리니",
    "translator": "김운찬",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2199,7 +2190,7 @@
    "author": "잭 케루악",
    "translator": "이만식",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2209,8 +2200,8 @@
    "author": "잭 케루악",
    "translator": "이만식",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-09"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-228-1",
@@ -2219,7 +2210,7 @@
    "author": "미하일 유리예비치 레르몬토프",
    "translator": "오정미",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2229,7 +2220,7 @@
    "author": "카를로스 푸엔테스",
    "translator": "송상기",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2239,7 +2230,7 @@
    "author": "헤르만 헤세",
    "translator": "황승환",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2249,7 +2240,7 @@
    "author": "안토니오 무뇨스 몰리나",
    "translator": "나송주",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2259,7 +2250,7 @@
    "author": "켄 키지",
    "translator": "정회성",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2269,7 +2260,7 @@
    "author": "페터 한트케",
    "translator": "윤용호",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2279,7 +2270,7 @@
    "author": "밀란 쿤데라",
    "translator": "이재룡",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2289,7 +2280,7 @@
    "author": "아이리스 머독",
    "translator": "최옥영",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2299,7 +2290,7 @@
    "author": "아이리스 머독",
    "translator": "최옥영",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2309,7 +2300,7 @@
    "author": "에벌린 워",
    "translator": "안진환",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2319,8 +2310,8 @@
    "author": "테네시 윌리엄스",
    "translator": "김소임",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-08"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-239-1",
@@ -2329,7 +2320,7 @@
    "author": "표도르 도스토옙스키",
    "translator": "김연경",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2339,7 +2330,7 @@
    "author": "존 바스",
    "translator": "이운경",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2349,7 +2340,7 @@
    "author": "이탈로 칼비노",
    "translator": "이현경",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2359,7 +2350,7 @@
    "author": "카밀로 호세 셀라",
    "translator": "남진희",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2369,7 +2360,7 @@
    "author": "밀란 쿤데라",
    "translator": "김병욱",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2379,7 +2370,7 @@
    "author": "토마스 만",
    "translator": "임홍배, 박병덕",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2389,7 +2380,7 @@
    "author": "토마스 만",
    "translator": "임홍배, 박병덕",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2399,8 +2390,8 @@
    "author": "에리히 마리아 레마르크",
    "translator": "장희창",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-11"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-247-1",
@@ -2409,7 +2400,7 @@
    "author": "에드워드 올비",
    "translator": "강유나",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2419,7 +2410,7 @@
    "author": "헨리크 입센",
    "translator": "안미란",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2429,8 +2420,8 @@
    "author": "앙드레 지드",
    "translator": "원윤수",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-09"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-250-1",
@@ -2439,7 +2430,7 @@
    "author": "이광수, 정영훈",
    "translator": "",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2449,7 +2440,7 @@
    "author": "카를로스 푸엔테스",
    "translator": "김현철",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2459,7 +2450,7 @@
    "author": "카를로스 푸엔테스",
    "translator": "김현철",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2469,7 +2460,7 @@
    "author": "피에르 파올로 파솔리니",
    "translator": "이승수",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2479,7 +2470,7 @@
    "author": "미하일 불가코프",
    "translator": "정보라",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2489,7 +2480,7 @@
    "author": "에두아르도 멘도사",
    "translator": "김현철",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2499,7 +2490,7 @@
    "author": "에두아르도 멘도사",
    "translator": "김현철",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2509,8 +2500,8 @@
    "author": "우베 욘존",
    "translator": "손대영",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-13"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-258-1",
@@ -2519,7 +2510,7 @@
    "author": "마크 트웨인",
    "translator": "김욱동",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2529,7 +2520,7 @@
    "author": "이탈로 칼비노",
    "translator": "이현경",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2539,8 +2530,8 @@
    "author": "마거릿 애트우드",
    "translator": "차은정",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-08"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-261-1",
@@ -2549,7 +2540,7 @@
    "author": "마거릿 애트우드",
    "translator": "차은정",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2559,7 +2550,7 @@
    "author": "윌리엄 셰익스피어",
    "translator": "최종철",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2569,7 +2560,7 @@
    "author": "잉에보르크 바흐만",
    "translator": "남정애",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2579,7 +2570,7 @@
    "author": "에두아르도 멘도사",
    "translator": "권미선",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2589,7 +2580,7 @@
    "author": "프리드리히 뒤렌마트",
    "translator": "김혜숙",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2599,7 +2590,7 @@
    "author": "알베르 카뮈",
    "translator": "김화영",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2609,7 +2600,7 @@
    "author": "알베르 카뮈",
    "translator": "김화영",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2619,8 +2610,8 @@
    "author": "알렉상드르 뒤마",
    "translator": "",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-11"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-269-1",
@@ -2629,7 +2620,7 @@
    "author": "알프레트 되블린",
    "translator": "김재혁",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2639,7 +2630,7 @@
    "author": "알프레트 되블린",
    "translator": "김재혁",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2649,7 +2640,7 @@
    "author": "오르한 파묵",
    "translator": "이난아",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2659,7 +2650,7 @@
    "author": "알렉산드르 푸시킨",
    "translator": "최선",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2669,7 +2660,7 @@
    "author": "헤르만 헤세",
    "translator": "이영임",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2679,7 +2670,7 @@
    "author": "헤르만 헤세",
    "translator": "이영임",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2689,7 +2680,7 @@
    "author": "호르헤 루이스 보르헤스",
    "translator": "송병선",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2699,7 +2690,7 @@
    "author": "치누아 아체베",
    "translator": "이소영",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2709,7 +2700,7 @@
    "author": "프리드리히 실러",
    "translator": "홍성광",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2719,7 +2710,7 @@
    "author": "어니스트 헤밍웨이",
    "translator": "김욱동",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2729,8 +2720,8 @@
    "author": "어니스트 헤밍웨이",
    "translator": "김욱동",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-09"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-280-1",
@@ -2739,7 +2730,7 @@
    "author": "어니스트 헤밍웨이",
    "translator": "김욱동",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2749,7 +2740,7 @@
    "author": "호르헤 루이스 보르헤스",
    "translator": "송병선",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2759,7 +2750,7 @@
    "author": "너새니얼 호손",
    "translator": "정소영",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2769,7 +2760,7 @@
    "author": "제인 오스틴",
    "translator": "윤지관, 김영희",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2779,7 +2770,7 @@
    "author": "표도르 도스토옙스키",
    "translator": "김연경",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2789,7 +2780,7 @@
    "author": "표도르 도스토옙스키",
    "translator": "김연경",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2799,7 +2790,7 @@
    "author": "아서 밀러",
    "translator": "최영",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2809,7 +2800,7 @@
    "author": "아서 밀러",
    "translator": "최영",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2819,7 +2810,7 @@
    "author": "어니스트 헤밍웨이",
    "translator": "김욱동",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2829,7 +2820,7 @@
    "author": "어니스트 헤밍웨이",
    "translator": "김욱동",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2839,8 +2830,8 @@
    "author": "에두아르도 멘도사",
    "translator": "정창",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-08"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-291-1",
@@ -2849,7 +2840,7 @@
    "author": "조반니 보카치오",
    "translator": "박상진",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2859,7 +2850,7 @@
    "author": "조반니 보카치오",
    "translator": "박상진",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2869,7 +2860,7 @@
    "author": "조반니 보카치오",
    "translator": "박상진",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2879,7 +2870,7 @@
    "author": "크리스타 볼프",
    "translator": "전영애",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2889,7 +2880,7 @@
    "author": "오르한 파묵",
    "translator": "이난아",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2899,7 +2890,7 @@
    "author": "오르한 파묵",
    "translator": "이난아",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2909,7 +2900,7 @@
    "author": "헨리 제임스",
    "translator": "최경도",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2919,8 +2910,8 @@
    "author": "헨리 제임스",
    "translator": "최경도",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-11"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-299-1",
@@ -2929,7 +2920,7 @@
    "author": "윌리엄 포크너",
    "translator": "이태동",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2939,7 +2930,7 @@
    "author": "이상, 권영민",
    "translator": "",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2949,8 +2940,8 @@
    "author": "빅토르 위고",
    "translator": "정기수",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-17"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-302-1",
@@ -2959,7 +2950,7 @@
    "author": "빅토르 위고",
    "translator": "정기수",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2969,7 +2960,7 @@
    "author": "빅토르 위고",
    "translator": "정기수",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2979,7 +2970,7 @@
    "author": "빅토르 위고",
    "translator": "정기수",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2989,7 +2980,7 @@
    "author": "빅토르 위고",
    "translator": "정기수",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -2999,7 +2990,7 @@
    "author": "페터 한트케",
    "translator": "윤용호",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3009,7 +3000,7 @@
    "author": "제임스 조이스",
    "translator": "이종일",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3019,7 +3010,7 @@
    "author": "에드거 앨런 포",
    "translator": "전승희",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3029,8 +3020,8 @@
    "author": "게오르크 뷔히너",
    "translator": "홍성광",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-13"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-310-1",
@@ -3039,7 +3030,7 @@
    "author": "무라카미 하루키",
    "translator": "양억관",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3049,7 +3040,7 @@
    "author": "드니 디드로",
    "translator": "김희영",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3059,8 +3050,8 @@
    "author": "어니스트 헤밍웨이",
    "translator": "",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-08"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-313-1",
@@ -3069,7 +3060,7 @@
    "author": "어니스트 헤밍웨이",
    "translator": "",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3079,7 +3070,7 @@
    "author": "윌리엄 골딩",
    "translator": "안지현",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3089,7 +3080,7 @@
    "author": "장폴 사르트르",
    "translator": "지영래",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3099,7 +3090,7 @@
    "author": "버지니아 울프",
    "translator": "이미애",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3109,7 +3100,7 @@
    "author": "양승국",
    "translator": "",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3119,7 +3110,7 @@
    "author": "양승국",
    "translator": "",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3129,7 +3120,7 @@
    "author": "기 드 모파상",
    "translator": "이동렬",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3139,8 +3130,8 @@
    "author": "세스 노터봄",
    "translator": "김영중",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-11"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-321-1",
@@ -3149,7 +3140,7 @@
    "author": "레몽 라디게",
    "translator": "원윤수",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3159,7 +3150,7 @@
    "author": "귀스타브 플로베르",
    "translator": "지영화",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3169,7 +3160,7 @@
    "author": "귀스타브 플로베르",
    "translator": "지영화",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3179,7 +3170,7 @@
    "author": "후안 룰포",
    "translator": "정창",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3189,7 +3180,7 @@
    "author": "알랭푸르니에",
    "translator": "박영근",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3199,7 +3190,7 @@
    "author": "아쿠타가와 류노스케",
    "translator": "서은혜",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3209,7 +3200,7 @@
    "author": "앙리 보스코",
    "translator": "정영란",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3219,7 +3210,7 @@
    "author": "앙드레 말로",
    "translator": "최윤주",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3229,7 +3220,7 @@
    "author": "나지브 마흐푸즈",
    "translator": "배혜경",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3239,7 +3230,7 @@
    "author": "나지브 마흐푸즈",
    "translator": "배혜경",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3249,8 +3240,8 @@
    "author": "에리히 마리아 레마르크",
    "translator": "장희창",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-09"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-332-1",
@@ -3259,7 +3250,7 @@
    "author": "에리히 마리아 레마르크",
    "translator": "장희창",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3269,7 +3260,7 @@
    "author": "치누아 아체베",
    "translator": "이소영",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3279,7 +3270,7 @@
    "author": "귄터 그라스",
    "translator": "장희창",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3289,7 +3280,7 @@
    "author": "비톨트 곰브로비치",
    "translator": "최성은",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3299,7 +3290,7 @@
    "author": "앙드레 지드",
    "translator": "동성식",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3309,7 +3300,7 @@
    "author": "알렉산드르 솔제니친",
    "translator": "이영의",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3319,7 +3310,7 @@
    "author": "알렉산드르 솔제니친",
    "translator": "이영의",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3329,7 +3320,7 @@
    "author": "응구기 와 시옹오",
    "translator": "왕은철",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3339,7 +3330,7 @@
    "author": "임레 케르테스",
    "translator": "유진일",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3349,7 +3340,7 @@
    "author": "노먼 메일러",
    "translator": "이운경",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3359,8 +3350,8 @@
    "author": "노먼 메일러",
    "translator": "이운경",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-08"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-343-1",
@@ -3369,7 +3360,7 @@
    "author": "알베르 카뮈",
    "translator": "김화영",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3379,7 +3370,7 @@
    "author": "차오위",
    "translator": "오수경",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3389,7 +3380,7 @@
    "author": "모옌",
    "translator": "심규호, 유소영",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3399,7 +3390,7 @@
    "author": "한사오궁",
    "translator": "심규호, 유소영",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3409,7 +3400,7 @@
    "author": "윌리엄 골딩",
    "translator": "안지현",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3419,7 +3410,7 @@
    "author": "제인 오스틴",
    "translator": "전승희",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3429,7 +3420,7 @@
    "author": "마르그리트 뒤라스",
    "translator": "방미경",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3439,8 +3430,8 @@
    "author": "오 헨리",
    "translator": "김희용",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-11"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-351-1",
@@ -3449,7 +3440,7 @@
    "author": "찰스 디킨스",
    "translator": "이인규",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3459,7 +3450,7 @@
    "author": "찰스 디킨스",
    "translator": "이인규",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3469,8 +3460,8 @@
    "author": "레프 니콜라예비치 톨스토이",
    "translator": "연진희",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-17"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-354-1",
@@ -3479,7 +3470,7 @@
    "author": "레프 니콜라예비치 톨스토이",
    "translator": "연진희",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3489,7 +3480,7 @@
    "author": "레프 니콜라예비치 톨스토이",
    "translator": "연진희",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3499,7 +3490,7 @@
    "author": "레프 니콜라예비치 톨스토이",
    "translator": "연진희",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3509,7 +3500,7 @@
    "author": "에벌린 워",
    "translator": "백지민",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3519,7 +3510,7 @@
    "author": "다자이 오사무",
    "translator": "유숙자",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3529,7 +3520,7 @@
    "author": "임레 케르테스",
    "translator": "한경민",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3539,7 +3530,7 @@
    "author": "보리스 파스테르나크",
    "translator": "김연경",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3549,7 +3540,7 @@
    "author": "제인 오스틴(Jane Austen)",
    "translator": "윤지관",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3559,8 +3550,8 @@
    "author": "모옌",
    "translator": "심규호, 유소영",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-08"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-365-1",
@@ -3569,7 +3560,7 @@
    "author": "미셸 투르니에",
    "translator": "이원복",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3579,7 +3570,7 @@
    "author": "제인 오스틴",
    "translator": "김영희",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3589,7 +3580,7 @@
    "author": "이디스 워튼",
    "translator": "김욱동",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3599,7 +3590,7 @@
    "author": "이디스 워튼",
    "translator": "김욱동",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3609,7 +3600,7 @@
    "author": "자우메 카브레",
    "translator": "권가람",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3619,7 +3610,7 @@
    "author": "자우메 카브레",
    "translator": "권가람",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3629,7 +3620,7 @@
    "author": "자우메 카브레",
    "translator": "권가람",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3639,8 +3630,8 @@
    "author": "무라카미 하루키",
    "translator": "김난주",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-11"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-373-1",
@@ -3649,7 +3640,7 @@
    "author": "무라카미 하루키",
    "translator": "김난주",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3659,7 +3650,7 @@
    "author": "무라카미 하루키",
    "translator": "김난주",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3669,7 +3660,7 @@
    "author": "헨리 제임스",
    "translator": "정소영",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3679,7 +3670,7 @@
    "author": "헨리 제임스",
    "translator": "정소영",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3689,7 +3680,7 @@
    "author": "가브리엘 가르시아 마르케스",
    "translator": "송병선",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3699,7 +3690,7 @@
    "author": "코맥 매카시",
    "translator": "김시현",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3709,7 +3700,7 @@
    "author": "코맥 매카시",
    "translator": "김시현",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3719,7 +3710,7 @@
    "author": "코맥 매카시",
    "translator": "김시현",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3729,7 +3720,7 @@
    "author": "다자이 오사무",
    "translator": "유숙자",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3739,8 +3730,8 @@
    "author": "알베르 카뮈",
    "translator": "김화영",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-09"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-384-1",
@@ -3749,7 +3740,7 @@
    "author": "표도르 도스토옙스키",
    "translator": "김연경",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3759,7 +3750,7 @@
    "author": "표도르 도스토옙스키",
    "translator": "김연경",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3769,7 +3760,7 @@
    "author": "표도르 도스토옙스키",
    "translator": "김연경",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3779,7 +3770,7 @@
    "author": "마르그리트 뒤라스",
    "translator": "윤진",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3789,7 +3780,7 @@
    "author": "가즈오 이시구로",
    "translator": "송은경",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3799,7 +3790,7 @@
    "author": "스탕달",
    "translator": "원윤수",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3809,7 +3800,7 @@
    "author": "라오서",
    "translator": "오수경",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3819,7 +3810,7 @@
    "author": "임레 케르테스",
    "translator": "이상동",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3829,7 +3820,7 @@
    "author": "서머싯 몸",
    "translator": "황소연",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3839,7 +3830,7 @@
    "author": "서머싯 몸",
    "translator": "황소연",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3849,8 +3840,8 @@
    "author": "서머싯 몸",
    "translator": "황소연",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-08"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-395-1",
@@ -3859,7 +3850,7 @@
    "author": "헨리 데이비드 소로",
    "translator": "정회성",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3869,7 +3860,7 @@
    "author": "E.T.A. 호프만",
    "translator": "신동화",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3879,7 +3870,7 @@
    "author": "오르한 파묵",
    "translator": "이난아",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3889,7 +3880,7 @@
    "author": "오르한 파묵",
    "translator": "이난아",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3899,7 +3890,7 @@
    "author": "올가 토카르추크",
    "translator": "최성은",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3909,7 +3900,7 @@
    "author": "김수영, 이영준",
    "translator": "",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3919,7 +3910,7 @@
    "author": "이디스 워튼",
    "translator": "전승희",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3929,8 +3920,8 @@
    "author": "이디스 워튼",
    "translator": "전승희",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-11"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-403-1",
@@ -3939,7 +3930,7 @@
    "author": "다자이 오사무",
    "translator": "유숙자",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3949,7 +3940,7 @@
    "author": "이반 세르게예비치 투르게네프",
    "translator": "연진희",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3959,8 +3950,8 @@
    "author": "페르난도 바예호",
    "translator": "송병선",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-17"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-406-1",
@@ -3969,7 +3960,7 @@
    "author": "이사벨 아옌데",
    "translator": "조영실",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3979,7 +3970,7 @@
    "author": "사마천",
    "translator": "김원중",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3989,7 +3980,7 @@
    "author": "사마천",
    "translator": "김원중",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -3999,7 +3990,7 @@
    "author": "사마천",
    "translator": "김원중",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4009,7 +4000,7 @@
    "author": "사마천",
    "translator": "김원중",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4019,7 +4010,7 @@
    "author": "이상, 권영민",
    "translator": "",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4029,7 +4020,7 @@
    "author": "오노레 드 발자크",
    "translator": "이동렬",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4039,8 +4030,8 @@
    "author": "채만식, 권영민",
    "translator": "",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-09"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-414-1",
@@ -4049,7 +4040,7 @@
    "author": "조지프 콘래드",
    "translator": "이미애",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4059,7 +4050,7 @@
    "author": "조지프 콘래드",
    "translator": "이미애",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4069,8 +4060,8 @@
    "author": "에밀 졸라",
    "translator": "강충권",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-15"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-417-1",
@@ -4079,7 +4070,7 @@
    "author": "에밀 졸라",
    "translator": "강충권",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4089,7 +4080,7 @@
    "author": "가와바타 야스나리",
    "translator": "유숙자",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4099,7 +4090,7 @@
    "author": "윌리엄 골딩",
    "translator": "백지민",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4109,7 +4100,7 @@
    "author": "오노레 드 발자크",
    "translator": "선영아",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4119,7 +4110,7 @@
    "author": "잭 케루악",
    "translator": "김재성",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4129,7 +4120,7 @@
    "author": "외젠 이오네스코",
    "translator": "박형섭",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4139,7 +4130,7 @@
    "author": "아모스 오즈",
    "translator": "윤성덕, 김영화",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4149,8 +4140,8 @@
    "author": "마거릿 애트우드",
    "translator": "차은정",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-08"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-425-1",
@@ -4159,7 +4150,7 @@
    "author": "마거릿 애트우드",
    "translator": "차은정",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4169,7 +4160,7 @@
    "author": "마거릿 애트우드",
    "translator": "이은선",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4179,7 +4170,7 @@
    "author": "마거릿 애트우드",
    "translator": "이은선",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4189,7 +4180,7 @@
    "author": "아르투어 슈니츨러(Arthur Schnitzler)",
    "translator": "신동화",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4199,7 +4190,7 @@
    "author": "무라카미 하루키",
    "translator": "김난주",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4209,7 +4200,7 @@
    "author": "무라카미 하루키",
    "translator": "김난주",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4219,7 +4210,7 @@
    "author": "욘 포세",
    "translator": "손화수",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4229,7 +4220,7 @@
    "author": "프리드리히 실러",
    "translator": "홍성광",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4239,7 +4230,7 @@
    "author": "알렉산드르 푸시킨",
    "translator": "최선",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4249,7 +4240,7 @@
    "author": "시몬 드 보부아르",
    "translator": "강초롱",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4259,8 +4250,8 @@
    "author": "시몬 드 보부아르",
    "translator": "강초롱",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-09"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-436-1",
@@ -4269,7 +4260,7 @@
    "author": "조지 엘리엇",
    "translator": "",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4279,7 +4270,7 @@
    "author": "조지 엘리엇",
    "translator": "",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4289,7 +4280,7 @@
    "author": "레프 니콜라예비치 톨스토이",
    "translator": "김연경",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4299,7 +4290,7 @@
    "author": "제프리 초서",
    "translator": "이동일, 이동춘",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4309,7 +4300,7 @@
    "author": "제프리 초서",
    "translator": "이동일, 이동춘",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4319,7 +4310,7 @@
    "author": "에밀 졸라",
    "translator": "윤진",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4329,7 +4320,7 @@
    "author": "에밀 졸라",
    "translator": "윤진",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4339,7 +4330,7 @@
    "author": "표도르 도스토옙스키",
    "translator": "이항재",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4349,7 +4340,7 @@
    "author": "한사오궁",
    "translator": "심규호, 유소영",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4359,7 +4350,7 @@
    "author": "한사오궁",
    "translator": "심규호, 유소영",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4369,8 +4360,8 @@
    "author": "랠프 엘리슨",
    "translator": "왕은철",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-08"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-447-1",
@@ -4379,7 +4370,7 @@
    "author": "피터 케리",
    "translator": "황가한",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4389,7 +4380,7 @@
    "author": "아서 코넌 도일",
    "translator": "박산호",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4399,7 +4390,7 @@
    "author": "이반 세르게예비치 투르게네프",
    "translator": "연진희",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4409,7 +4400,7 @@
    "author": "허먼 멜빌",
    "translator": "이삼출",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4419,7 +4410,7 @@
    "author": "에드나 오브라이언",
    "translator": "임슬애",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4429,7 +4420,7 @@
    "author": "다와다 요코",
    "translator": "유라주",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4439,7 +4430,7 @@
    "author": "장아이링(張愛玲)",
    "translator": "문현선",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4449,8 +4440,8 @@
    "author": "자우메 카브레",
    "translator": "권가람",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-11"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-455-1",
@@ -4459,7 +4450,7 @@
    "author": "마이클 온다치",
    "translator": "",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4469,7 +4460,7 @@
    "author": "주세페 토마시 디 람페두사",
    "translator": "이현경",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4479,8 +4470,8 @@
    "author": "찰스 디킨스",
    "translator": "김희용",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-17"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-458-1",
@@ -4489,7 +4480,7 @@
    "author": "제프리 유제니디스Jeffrey Eugenides",
    "translator": "이화연",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4499,7 +4490,7 @@
    "author": "제프리 유제니디스Jeffrey Eugenides",
    "translator": "이화연",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4509,7 +4500,7 @@
    "author": "제프리 유제니디스Jeffrey Eugenides",
    "translator": "이화연, 송은주",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4519,7 +4510,7 @@
    "author": "안톤 체호프",
    "translator": "이항재",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4529,7 +4520,7 @@
    "author": "페터 플람",
    "translator": "",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4539,7 +4530,7 @@
    "author": "로버트 루이스 스티븐슨",
    "translator": "전승희",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4549,7 +4540,7 @@
    "author": "박지원",
    "translator": "안대회",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4559,8 +4550,8 @@
    "author": "알베르 카뮈",
    "translator": "김화영",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-09"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-466-1",
@@ -4569,7 +4560,7 @@
    "author": "제럴드 머네인",
    "translator": "차은정",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4579,7 +4570,7 @@
    "author": "나탈리 사로트",
    "translator": "위효정",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4589,8 +4580,8 @@
    "author": "윌리엄 S. 버로스",
    "translator": "조동섭",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-15"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-469-1",
@@ -4599,7 +4590,7 @@
    "author": "피천득",
    "translator": "",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4609,7 +4600,7 @@
    "author": "다자이 오사무",
    "translator": "유숙자",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4619,7 +4610,7 @@
    "author": "레프 니콜라예비치 톨스토이",
    "translator": "연진희",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4629,7 +4620,7 @@
    "author": "나쓰메 소세키",
    "translator": "김경원",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4639,7 +4630,7 @@
    "author": "오노레 드 발자크",
    "translator": "송덕호",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4649,7 +4640,7 @@
    "author": "안톤 체호프",
    "translator": "김혜란",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4659,8 +4650,8 @@
    "author": "리처드 예이츠",
    "translator": "이삼출",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-08"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-480-1",
@@ -4669,7 +4660,7 @@
    "author": "미르체아 커르터레스쿠",
    "translator": "한성숙",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4679,7 +4670,7 @@
    "author": "범입본",
    "translator": "안대회",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4689,7 +4680,7 @@
    "author": "버지니아 울프",
    "translator": "이미애",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4699,7 +4690,7 @@
    "author": "레오나르도 샤샤, 이현경",
    "translator": "",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4709,7 +4700,7 @@
    "author": "오노레 드 발자크",
    "translator": "",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4719,8 +4710,8 @@
    "author": "오노레 드 발자크",
    "translator": "",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-09"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-488-1",
@@ -4729,7 +4720,7 @@
    "author": "오노레 드 발자크",
    "translator": "",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4739,7 +4730,7 @@
    "author": "오노레 드 발자크",
    "translator": "",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4749,7 +4740,7 @@
    "author": "오노레 드 발자크",
    "translator": "",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4759,7 +4750,7 @@
    "author": "미겔 데 세르반테스",
    "translator": "박철",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4769,7 +4760,7 @@
    "author": "미겔 데 세르반테스",
    "translator": "박철",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4779,7 +4770,7 @@
    "author": "넬라 라슨",
    "translator": "서숙",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4789,7 +4780,7 @@
    "author": "아니 에르노",
    "translator": "윤석헌",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4799,7 +4790,7 @@
    "author": "세사르 아이라",
    "translator": "권미선",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4809,7 +4800,7 @@
    "author": "표도르 도스토옙스키",
    "translator": "김연경",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4819,8 +4810,8 @@
    "author": "표도르 도스토옙스키",
    "translator": "김연경",
    "isbn": "",
-   "status": "on_loan",
-   "dueDate": "2026-10-08"
+   "status": "unknown",
+   "dueDate": null
   },
   {
    "copyId": "M-500-1",
@@ -4829,7 +4820,7 @@
    "author": "이미륵",
    "translator": "안삼환",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4839,7 +4830,7 @@
    "author": "아베 코보",
    "translator": "송태욱",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   },
   {
@@ -4849,7 +4840,7 @@
    "author": "가브리엘레 단눈치오",
    "translator": "이현경",
    "isbn": "",
-   "status": "available",
+   "status": "unknown",
    "dueDate": null
   }
  ]

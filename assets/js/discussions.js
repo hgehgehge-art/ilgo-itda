@@ -310,12 +310,66 @@ $('draft-file').addEventListener('change',async e=>{
   try { const contents=await file.text(); if(contents.length>60000)throw new Error('long'); text.value=contents;checkText();result.textContent='파일을 읽었습니다. 키워드 뽑기를 눌러 주세요.'; }
   catch { result.textContent='파일을 읽지 못했거나 60,000자를 넘었습니다. 나누어 올려 주세요.'; }
 });
-$('draft-example').addEventListener('click',()=>{
-  if(text.value.trim() && !confirm('작성 중인 텍스트와 초안을 예시로 바꿀까요?'))return;
-  $('draft-title').value='기능 체험용 예시 · 자유와 책임';
-  text.value=('참석자 1: 자유는 선택에 대한 책임과 함께 생각해야 합니다. 가족과 사회가 기대하는 역할은 무엇일까요? '+
-    '참석자 2: 선택을 존중하는 사회에서 자유와 책임은 어떻게 만날까요? 가족의 기대와 개인의 선택을 이야기했습니다. ').repeat(3);
-  keywords=extractKeywords(text.value); summary.value='자유와 책임, 가족의 기대와 개인의 선택을 살펴보는 기능 체험용 가상 토론입니다.';
-  questions.value='자유에는 어떤 책임이 따를까요?\n가족의 기대와 개인의 선택은 어떻게 조화될까요?'; quotes.value='';checkText();drawCloud();
-  result.textContent='직접 만든 가상 예시입니다. 실제 회원의 발언이 아닙니다.';
+// ── 예시로 체험하기 ──
+// 클로바노트 받아쓰기 모양의 '가상' 토론. 실제 회원의 발언이 아니며 서버에 저장·게시할 수 없다.
+const EXAMPLE = {
+  title: '체험용 예시 · 프란츠 카프카 『변신』',
+  text: `참석자 1 00:00:12
+오늘 발제는 카프카의 『변신』이었는데요, 저는 그레고르가 벌레가 된 다음에도 출근 걱정부터 하는 장면이 제일 오래 남았어요. 몸이 바뀌었는데도 가족을 먹여 살려야 한다는 책임감이 먼저 나오잖아요.
+참석자 2 00:00:41
+저도 그 장면이요. 그레고르한테 일은 가족을 위한 거였는데, 일을 못 하게 되니까 가족 안에서 쓸모가 사라진 거죠. 가족이 그를 대하는 태도가 점점 차가워지는 게 쓸모와 연결된다고 생각했어요.
+참석자 3 00:01:20
+그런데 가족 입장도 이해가 갔어요. 아버지도, 어머니도, 여동생 그레테도 다시 일을 하기 시작하잖아요. 그레고르가 떠맡던 노동을 가족이 나눠 지면서 오히려 가족이 살아나는 느낌이었어요.
+참석자 4 00:02:05
+저는 그레테가 제일 복잡한 인물 같아요. 처음에는 오빠 방을 챙기고 먹을 것도 가져다주는데, 나중에는 저건 오빠가 아니라고 말하죠. 돌봄이 지치면 사랑도 변하는 걸까 하는 질문이 생겼어요.
+참석자 1 00:02:48
+그 질문 좋네요. 돌봄과 사랑은 같은 걸까요, 아니면 돌봄이 의무가 되면 사랑이 사라지는 걸까요.
+참석자 2 00:03:15
+마지막 장면에서 가족이 소풍을 가잖아요. 그레고르가 죽은 뒤에 가족이 홀가분해지는 게 너무 잔인하면서도 현실적이었어요. 가족에게 그레고르의 죽음은 해방이었던 거죠.
+참석자 3 00:03:52
+저는 변신이 꼭 벌레가 되는 이야기만은 아니라고 생각해요. 아프거나 일을 잃었을 때 우리도 가족 안에서 쓸모를 의심받잖아요. 그래서 이 소설이 지금 읽어도 낯설지 않은 것 같아요.
+참석자 4 00:04:30
+결국 이 작품은 쓸모로 사람을 재는 사회에서 가족이 무엇인지 묻는 소설 같아요. 오늘 토론에서 가족, 노동, 쓸모라는 말이 제일 많이 나온 것도 그래서겠죠.`,
+  summary:
+    "그레고르가 벌레가 된 뒤 가족 안에서 '쓸모'를 잃어 가는 과정을 중심으로, 가족의 차가워지는 태도가 냉정함인지 지친 돌봄의 결과인지 이야기했다. 그레테의 변화와 마지막 소풍 장면을 두고 돌봄과 사랑, 해방의 의미로 토론이 이어졌다.",
+  questions: [
+    '돌봄이 의무가 되면 사랑은 사라지는 걸까?',
+    '가족에게 그레고르의 죽음은 해방이었을까?',
+    '쓸모로 사람을 재는 사회에서 가족은 무엇일까?',
+  ],
+  // 원문에 그대로 있는 문장만 고른다. 발언자는 등장 순서대로 익명 표기
+  quotes: [
+    '참석자 A: 돌봄이 지치면 사랑도 변하는 걸까 하는 질문이 생겼어요.',
+    '참석자 B: 가족에게 그레고르의 죽음은 해방이었던 거죠.',
+    '참석자 C: 결국 이 작품은 쓸모로 사람을 재는 사회에서 가족이 무엇인지 묻는 소설 같아요.',
+  ],
+};
+const isExampleText = () => text.value.trim() === EXAMPLE.text.trim();
+
+$('draft-example').addEventListener('click', () => {
+  if (text.value.trim() && !isExampleText() && !confirm('작성 중인 텍스트와 초안을 예시로 바꿀까요?')) return;
+  $('draft-title').value = EXAMPLE.title;
+  text.value = EXAMPLE.text;
+  checkText();
+  keywords = extractKeywords(text.value);
+  drawCloud();
+  summary.value = EXAMPLE.summary;
+  questions.value = EXAMPLE.questions.join('\n');
+  quotes.value = EXAMPLE.quotes.join('\n');
+  preview();
+  result.textContent =
+    "가상 예시를 채웠어요(실제 회원 발언이 아닙니다). ① 워드클라우드에서 필요 없는 낱말을 눌러 빼 보고 ② 요약·질문을 고친 뒤 ③ '기록 미리보기'로 공개될 모습을 확인해 보세요. 예시는 저장·게시되지 않습니다.";
+  $('staff-cloud').scrollIntoView({ behavior: 'smooth', block: 'center' });
 });
+
+// 예시 텍스트로는 서버에 저장·게시하지 않는다(캡처 단계에서 막음)
+form.addEventListener(
+  'submit',
+  (e) => {
+    if (!isExampleText()) return;
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    result.textContent = '체험용 예시는 저장·게시할 수 없어요. 실제 받아쓰기 텍스트로 바꾼 뒤 저장해 주세요.';
+  },
+  true,
+);

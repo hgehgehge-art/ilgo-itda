@@ -680,6 +680,7 @@ function onOpen() {
     .addItem('1. 처음 설정(탭 만들기)', 'setupSheets')
     .addItem('2. 세미나 시트 연결', 'connectSeminarSheet')
     .addItem('3. 운영진 코드 정하기', 'setStaffCode')
+    .addItem('4. 도서 목록 채우기(민음사 세계문학전집)', 'fillBookList')
     .addItem('AI 작업 토큰 만들기(선택)', 'makeAiToken')
     .addItem('저장된 값 새로 고치기', 'refreshCache')
     .addToUi();
@@ -724,6 +725,31 @@ function makeAiToken() {
   SpreadsheetApp.getUi().alert(
     `아래 토큰을 GitHub Secrets의 AI_WORKER_TOKEN에 등록하세요. 이 창을 닫으면 다시 볼 수 없습니다.\n\n${token}`,
   );
+}
+
+// 민음사 공식 세계문학전집 목록(저장소의 sheets/book-list-draft.csv)으로 '도서 목록' 탭을 채운다
+const BOOK_LIST_URL = 'https://raw.githubusercontent.com/hgehgehge-art/ilgo-itda/main/sheets/book-list-draft.csv';
+
+function fillBookList() {
+  const ui = SpreadsheetApp.getUi();
+  const sheet = tab_('books');
+  if (sheet.getLastRow() > 1) {
+    const answer = ui.alert('도서 목록에 이미 내용이 있습니다. 민음사 공식 목록으로 바꿀까요? (대출 기록 탭은 그대로 둡니다)', ui.ButtonSet.YES_NO);
+    if (answer !== ui.Button.YES) return;
+  }
+  try {
+    const rows = Utilities.parseCsv(UrlFetchApp.fetch(BOOK_LIST_URL).getContentText('UTF-8'));
+    if (rows.length < 2 || rows[0][0] !== '관리번호') throw new Error('목록 형식이 다름');
+    const width = rows[0].length;
+    const grid = rows.filter((r) => r.length >= width).map((r) => r.slice(0, width));
+    sheet.clearContents();
+    sheet.getRange(1, 1, grid.length, width).setNumberFormat('@').setValues(grid);
+    sheet.setFrozenRows(1);
+    clearCache_();
+    ui.alert(`${grid.length - 1}권을 넣었습니다. 실물과 다른 권은 지우고, 같은 책이 두 권이면 'M-044-2'처럼 줄을 추가하세요.`);
+  } catch (err) {
+    ui.alert(`목록을 가져오지 못했습니다: ${err.message}`);
+  }
 }
 
 function refreshCache() {
