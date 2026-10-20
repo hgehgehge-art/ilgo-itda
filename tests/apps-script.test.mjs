@@ -68,17 +68,11 @@ check('게시 → ok', save(), 'ok');
 const pub = env.get('discussions').discussions;
 check('게시된 기록 1건, 원문 없음', [pub.length, JSON.stringify(pub).includes('참석자 1 00:01')], [1, false]);
 check('다시 저장해도 한 줄(덮어쓰기)', (save({ summary: '요약 수정' }), env.ops.getSheetByName('토론 기록').data.length), 2);
-check('AI 요청하면 초안으로', (save({ requestAi: true }), env.get('discussions').discussions.length), 0);
 const loaded = env.post({ action: 'loadDiscussion', code: '운영진코드123', seminarId: '2026-09-30' });
-check('운영진 불러오기: 원문·AI 요청 상태', [loaded.status, loaded.aiStatus, loaded.text.length > 200], ['ok', 'requested', true]);
+check('운영진 불러오기: 원문·게시 상태', [loaded.status, loaded.state, loaded.text.length > 200], ['ok', 'published', true]);
 check('운영진 불러오기 틀린 코드', env.post({ action: 'loadDiscussion', code: 'x', seminarId: '2026-09-30' }).status, 'bad_code');
-check('AI 토큰 없을 때 → bad_token', env.post({ action: 'aiPending', token: 'x' }).status, 'bad_token');
-env.props.AI_TOKEN_HASH = env.ctx.hashSecret_('TOKEN-ABC');
-const pending = env.post({ action: 'aiPending', token: 'TOKEN-ABC' });
-check('AI 대기 1건', [pending.status, pending.items.length, pending.items[0].seminarId], ['ok', 1, '2026-09-30']);
-check('AI 결과 저장', env.post({ action: 'aiSave', token: 'TOKEN-ABC', seminarId: '2026-09-30', result: { keywords: [{ word: '가족', count: 6 }], summary: 'AI 요약', questions: ['질문'], quotes: [{ speaker: '참석자 A', text: '저는 가족도 지쳐 있었다고 생각해요.' }] } }).result, 'ok');
-check('AI 결과 후 상태 완료·초안', [env.post({ action: 'loadDiscussion', code: '운영진코드123', seminarId: '2026-09-30' }).aiStatus, env.get('discussions').discussions.length], ['done', 0]);
-check('운영진 확인 후 게시', (save({ summary: 'AI 요약' }), env.get('discussions').discussions[0].summary), 'AI 요약');
+check('초안으로 저장하면 공개 목록에서 빠짐', (save({ publish: false }), env.get('discussions').discussions.length), 0);
+check('AI 요청은 받지 않음(알 수 없는 요청)', env.post({ action: 'aiPending', token: 'x' }).result, 'invalid');
 
 // 독서 지도
 const sug = (x) => env.post({ action: 'suggestPlace', name: '외대 도서관', category: '도서관', address: '서울 동대문구 이문로 107', reason: '조용해서 좋아요', nickname: '', book: '44', ...x }).result;

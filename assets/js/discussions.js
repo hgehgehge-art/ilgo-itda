@@ -86,10 +86,9 @@ const addWord = $('staff-add-word');
 const summary = $('staff-summary');
 const questions = $('staff-questions');
 const quotes = $('staff-quotes');
-const requestAi = $('staff-ai');
 const code = $('staff-code');
 const result = $('staff-result');
-const aiInfo = $('staff-ai-info');
+const stateInfo = $('staff-state-info');
 
 let keywords = [];
 
@@ -143,19 +142,13 @@ function fill(d) {
   quotes.value = (d.quotes ?? []).map((q) => `${q.speaker}: ${q.text}`).join('\n');
   checkText();
   drawCloud();
-  const ai = { requested: 'AI 정리를 기다리는 중입니다(최대 30분).', done: 'AI 정리 초안이 들어와 있습니다. 확인 후 게시하세요.', failed: `AI 정리에 실패했습니다. ${d.aiNote ?? ''}` };
-  aiInfo.textContent = `상태: ${d.state === 'published' ? '게시됨' : '초안'}. ${ai[d.aiStatus] ?? ''}`;
+  stateInfo.textContent = `상태: ${d.state === 'published' ? '게시됨' : '초안'}`;
 }
 
 async function setupStaff() {
   const online = mode === 'mock' || (mode === 'live' && DISCUSSIONS_ENABLED);
   $('staff-off').hidden = online;
   form.querySelectorAll('[data-server]').forEach(n => n.hidden = !online);
-  requestAi.disabled = !online;
-  if (online) {
-    $('staff-ai-label').textContent =
-      'AI 정리 요청 — Claude가 요약·질문·남기고 싶은 말 초안을 채웁니다(최대 30분, 운영진 확인 후 게시). 원문이 Anthropic 서버로 전송됩니다.';
-  }
   // 세미나 목록: 시작한 세미나(지난 세미나)만, 최근 순
   try {
     let res = { rows: [] };
@@ -251,19 +244,13 @@ async function setupStaff() {
         questions: lines(questions.value),
         quotes: parseQuotes(quotes.value),
         publish,
-        requestAi: requestAi.checked,
+        requestAi: false,
       });
     } catch {
       code_ = 'error';
     }
     buttons.forEach((b) => (b.disabled = false));
-    const asDraft = !publish || requestAi.checked;
-    result.textContent =
-      code_ === 'ok'
-        ? requestAi.checked
-          ? 'AI 정리를 요청하고 초안으로 저장했습니다. 30분 안에 정리되면 불러와서 확인한 뒤 게시하세요.'
-          : MESSAGES[asDraft ? 'ok_draft' : 'ok_publish']
-        : MESSAGES[code_] ?? MESSAGES.error;
+    result.textContent = code_ === 'ok' ? MESSAGES[publish ? 'ok_publish' : 'ok_draft'] : MESSAGES[code_] ?? MESSAGES.error;
     if (code_ === 'ok' && publish) loadPublished();
   });
 

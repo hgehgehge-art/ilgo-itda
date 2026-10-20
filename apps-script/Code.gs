@@ -6,7 +6,7 @@
  *
  *  · 세미나: 동아리 주간세미나 시트를 그대로 읽는다(원본 수정 없음). 신청은 '세미나 신청' 탭에 쌓인다.
  *  · 책장: '도서 목록'·'대출 기록' 탭으로 대출 상태를 계산한다. 빌린 사람 이름은 내보내지 않는다.
- *  · 그날의 토론: '토론 기록' 탭. 운영진 코드로 저장·게시한다. AI 정리는 GitHub Actions가 맡는다.
+ *  · 그날의 토론: '토론 기록' 탭. 운영진 코드로 저장·게시한다.
  *  · 독서 지도: '독서 지도' 탭. 주소로 좌표를 채우고, 회원 추천은 바로 지도에 올린다('반려'로 바꾸면 내려감).
  *
  * 개인정보: 신청자 이름·확인번호, 빌린 사람 이름, 토론 원문은 응답에 넣지 않는다.
@@ -80,10 +80,6 @@ function doPost(e) {
         return json_(loadDiscussion_(body.code, body.seminarId));
       case 'suggestPlace':
         return json_({ result: suggestPlace_(body) });
-      case 'aiPending':
-        return json_(aiPending_(body.token));
-      case 'aiSave':
-        return json_({ result: aiSave_(body) });
       default:
         return json_({ result: 'invalid' });
     }
@@ -481,8 +477,7 @@ function saveDiscussion_(b) {
   if (!keywords || !questions || !quotes || summary.length > 2000) return 'invalid';
   if (!underDailyLimit_('DISCUSSION', LIMITS.discussionSavesPerDay)) return 'limit';
 
-  // AI 정리를 요청하면 운영진이 결과를 확인할 때까지 초안으로 둔다
-  const publish = !!b.publish && !b.requestAi;
+  const publish = !!b.publish;
   return withLock_(() => {
     const sheet = tab_('discussions');
     const existing = records_(sheet).find((d) => d['세미나 ID'] === b.seminarId);
@@ -490,7 +485,7 @@ function saveDiscussion_(b) {
     const row = [
       b.seminarId,
       publish ? '게시' : '초안',
-      b.requestAi ? '요청' : existing ? existing['AI 상태'] || '' : '',
+      existing ? existing['AI 상태'] || '' : '',
       JSON.stringify(keywords),
       summary,
       JSON.stringify(questions),
@@ -498,7 +493,7 @@ function saveDiscussion_(b) {
       text,
       now,
       publish ? (existing && existing['게시 시각']) || now : '',
-      b.requestAi ? '' : existing ? existing['AI 메모'] || '' : '',
+      existing ? existing['AI 메모'] || '' : '',
     ];
     const cells = row.map(asText_);
     if (existing) sheet.getRange(existing._row, 1, 1, cells.length).setValues([cells]);
@@ -527,56 +522,6 @@ function loadDiscussion_(code, seminarId) {
     aiNote: d['AI 메모'],
     updatedAt: d['수정 시각'],
   };
-}
-
-// GitHub Actions의 AI 정리용. 토큰은 메뉴에서 만들고 해시만 저장한다
-function aiOk_(token) {
-  return checkSecret_(String(token || ''), props_().getProperty('AI_TOKEN_HASH'));
-}
-
-function aiPending_(token) {
-  if (!aiOk_(token)) return { status: 'bad_token' };
-  const seminars = {};
-  seminarList_().forEach((s) => (seminars[s.id] = s));
-  const items = records_(tab_('discussions'))
-    .filter((d) => d['AI 상태'] === '요청')
-    .slice(0, 5)
-    .map((d) => ({
-      seminarId: d['세미나 ID'],
-      title: seminars[d['세미나 ID']] ? seminars[d['세미나 ID']].title : '',
-      text: d['원문'],
-      keywords: parseJson_(d['키워드'], []),
-    }));
-  return { status: 'ok', items };
-}
-
-// 결과: ok | bad_token | not_found | invalid
-function aiSave_(b) {
-  if (!aiOk_(b.token)) return 'bad_token';
-  return withLock_(() => {
-    const sheet = tab_('discussions');
-    const d = records_(sheet).find((x) => x['세미나 ID'] === b.seminarId);
-    if (!d) return 'not_found';
-    const set = (name, value) => sheet.getRange(d._row, colIndex_(sheet, name)).setValue(asText_(value));
-    if (b.error) {
-      set('AI 상태', '실패');
-      set('AI 메모', String(b.error).slice(0, 200));
-    } else {
-      const r = b.result || {};
-      if (!Array.isArray(r.keywords) || !Array.isArray(r.questions) || !Array.isArray(r.quotes)) return 'invalid';
-      set('키워드', JSON.stringify(r.keywords.slice(0, 40)));
-      set('요약', String(r.summary || '').slice(0, 2000));
-      set('질문', JSON.stringify(r.questions.slice(0, 10)));
-      set('남기고 싶은 말', JSON.stringify(r.quotes.slice(0, 10)));
-      set('AI 상태', '완료');
-      set('AI 메모', '');
-      set('상태', '초안');
-    }
-    set('수정 시각', nowIso_());
-    SpreadsheetApp.flush();
-    clearCache_();
-    return 'ok';
-  });
 }
 
 // ── 독서 지도 ────────────────────────────────────────
@@ -681,7 +626,6 @@ function onOpen() {
     .addItem('2. 세미나 시트 연결', 'connectSeminarSheet')
     .addItem('3. 운영진 코드 정하기', 'setStaffCode')
     .addItem('4. 도서 목록 채우기(민음사 세계문학전집)', 'fillBookList')
-    .addItem('AI 작업 토큰 만들기(선택)', 'makeAiToken')
     .addItem('저장된 값 새로 고치기', 'refreshCache')
     .addToUi();
 }
@@ -717,14 +661,6 @@ function setStaffCode() {
   if (code.length < 6) return ui.alert('6자 이상이어야 합니다.');
   props_().setProperty('STAFF_CODE_HASH', hashSecret_(code));
   ui.alert('운영진 코드를 정했습니다.');
-}
-
-function makeAiToken() {
-  const token = Utilities.getUuid() + Utilities.getUuid();
-  props_().setProperty('AI_TOKEN_HASH', hashSecret_(token));
-  SpreadsheetApp.getUi().alert(
-    `아래 토큰을 GitHub Secrets의 AI_WORKER_TOKEN에 등록하세요. 이 창을 닫으면 다시 볼 수 없습니다.\n\n${token}`,
-  );
 }
 
 // 민음사 공식 세계문학전집 목록(저장소의 sheets/book-list-draft.csv)으로 '도서 목록' 탭을 채운다

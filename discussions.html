@@ -6,10 +6,10 @@
   <title>그날의 토론 — 읽고, 잇다</title>
   <meta name="description" content="해외문학회 세미나에서 오간 키워드와 질문을 남기는 토론 기록">
   <script>document.documentElement.classList.add('js');</script>
-  <link rel="stylesheet" href="assets/css/style.css?v=20261021e">
-  <script type="module" src="assets/js/site.js?v=20261021e"></script>
-  <script type="module" src="assets/js/quote.js?v=20261021e"></script>
-  <script type="module" src="assets/js/discussions.js?v=20261021e"></script>
+  <link rel="stylesheet" href="assets/css/style.css?v=20261021f">
+  <script type="module" src="assets/js/site.js?v=20261021f"></script>
+  <script type="module" src="assets/js/quote.js?v=20261021f"></script>
+  <script type="module" src="assets/js/discussions.js?v=20261021f"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">본문으로 건너뛰기</a>
@@ -94,10 +94,6 @@
               <textarea id="staff-quotes" rows="3"></textarea>
             </div>
 
-            <label class="check">
-              <input type="checkbox" id="staff-ai" disabled>
-              <span id="staff-ai-label">AI 요약은 서버 연결 후 사용할 수 있습니다. 지금은 원문을 AI 서비스로 보내지 않습니다.</span>
-            </label>
 
             <div class="field" data-server>
               <label for="staff-code">운영진 코드</label>
@@ -112,7 +108,7 @@
             <label class="check"><input id="draft-consent" type="checkbox"><span>기록의 공개 범위를 확인하고, 이름·학번·연락처를 지웠습니다.</span></label>
             <div class="rsv-row"><button type="button" class="btn btn--quiet" id="draft-preview-button">기록 미리보기</button><button type="button" class="btn" id="draft-download">기록 파일 내려받기</button></div>
             <div id="draft-preview" class="discussion" tabindex="-1" hidden></div>
-            <p class="hint" id="staff-ai-info"></p>
+            <p class="hint" id="staff-state-info"></p>
             <p class="rsv-result" id="staff-result" role="status" aria-live="polite"></p>
           </form>
         </details>
