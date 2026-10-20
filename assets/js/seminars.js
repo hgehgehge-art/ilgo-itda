@@ -3,7 +3,7 @@
 // 정원(capacity)에는 발제자 1명이 포함된다. 화면 인원 = 서버 신청 수 + 1.
 // 신청자 이름은 어디에도 표시하지 않는다.
 
-import { mode, reserve, cancelReservation, seminarCounts, setMockSeminars, sheetRows } from './reservations-api.js';
+import { mode, reserve, cancelReservation, seminarCounts, setMockSeminars, sheetRows, publishedDiscussions } from './reservations-api.js';
 
 const DATA_URL = 'data/seminars.json';
 const DEFAULT_PLACE = '동아리방';
@@ -38,6 +38,8 @@ let seminars = [];
 let counts = null; // Map | null(불러오지 못함)
 // 신청을 받는지: 가짜 응답(localhost)이거나, 서버가 연결되어 있고 실제 일정일 때만
 let signupOpen = false;
+// 토론 기록이 게시된 세미나 ID
+let discussed = new Set();
 
 // ── 표시 형식 (모두 한국시간) ──
 const KST = 'Asia/Seoul';
@@ -271,6 +273,11 @@ function buildCard(s) {
     body.append(bar);
   }
   if (s.note) body.append(el('p', { class: 'seminar-note' }, s.note));
+  if (discussed.has(s.id)) {
+    const p = el('p', { class: 'seminar-discussion' });
+    p.append(el('a', { href: `discussions.html#d-${encodeURIComponent(s.id)}`, class: 'link-arrow' }, '그날의 토론 보기'));
+    body.append(p);
+  }
   if (s.docUrl && /^https:\/\//.test(s.docUrl)) {
     const doc = el('p', { class: 'seminar-doc' });
     doc.append(el('a', { href: s.docUrl, target: '_blank', rel: 'noopener', class: 'link-arrow' }, '발제문 보기'));
@@ -395,6 +402,13 @@ async function init() {
   }
 
   await refreshCounts();
+  if (mode === 'live') {
+    try {
+      discussed = new Set((await publishedDiscussions()).map((d) => d.seminarId));
+    } catch {
+      // 토론 링크만 빠지고 나머지는 그대로 보인다
+    }
+  }
   if (data.fromSheet) refreshFromSheet(data.fetchedRows);
   statusLine.textContent =
     !signupOpen

@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>그날의 토론 — 읽고, 잇다</title>
+  <meta name="description" content="해외문학회 세미나에서 오간 키워드와 질문을 남기는 토론 기록">
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="stylesheet" href="assets/css/style.css?v=20261020">
+  <script type="module" src="assets/js/site.js?v=20261020"></script>
+  <script type="module" src="assets/js/quote.js?v=20261020"></script>
+  <script type="module" src="assets/js/discussions.js?v=20261020"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+
+  <header class="site-nav">
+    <nav class="container" aria-label="주 메뉴">
+      <a class="brand" href="index.html">읽고, 잇다</a>
+      <ul class="nav-links">
+        <li><a href="index.html">홈</a></li>
+        <li><a href="books.html">책장</a></li>
+        <li><a href="seminars.html">세미나</a></li>
+        <li><a href="discussions.html" aria-current="page">토론</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div id="quote-banner" class="quote-banner" hidden></div>
+
+  <main id="main">
+    <section class="section page-head" aria-labelledby="disc-title">
+      <div class="container">
+        <p class="eyebrow">세미나가 끝난 뒤</p>
+        <h1 class="headline" id="disc-title">그날의 토론</h1>
+        <p class="lead">세미나에서 많이 오간 낱말과 함께 던진 질문을 남깁니다. 한 학기가 쌓이면 동아리의 대화 기록이 됩니다.</p>
+        <p class="sync-note">발언자는 '참석자 A'처럼 익명으로 표시하고, 받아쓰기 원문은 공개하지 않습니다.</p>
+      </div>
+    </section>
+
+    <section class="section section--tight" aria-label="게시된 토론 기록">
+      <div class="container">
+        <p class="result-count" id="discussion-status" role="status" aria-live="polite">토론 기록을 불러오는 중…</p>
+        <div class="discussions" id="discussion-list"></div>
+      </div>
+    </section>
+
+    <section class="section section--soft" aria-labelledby="staff-title">
+      <div class="container">
+        <details class="staff">
+          <summary><h2 class="title" id="staff-title">운영진: 토론 기록 올리기</h2></summary>
+          <p class="lead">클로바노트 등에서 내려받은 받아쓰기 텍스트를 붙여 넣으면 자주 나온 낱말로 키워드 후보를 만듭니다. 확인하고 고친 뒤 게시해야 공개됩니다.</p>
+          <p class="staff-notice">세미나 시작 때 녹음·기록 사실을 알렸는지 확인하세요. 학번·전화번호처럼 토론과 무관한 개인정보는 지우고 붙여 넣으세요.</p>
+          <p class="hint" id="staff-off" hidden>기록 올리기는 서버가 연결된 공개 사이트에서만 쓸 수 있습니다.</p>
+
+          <form class="staff-form" id="staff-form" novalidate>
+            <div class="field">
+              <label for="staff-seminar">세미나</label>
+              <select id="staff-seminar"><option value="">불러오는 중…</option></select>
+            </div>
+
+            <div class="field">
+              <label for="staff-text">받아쓰기 텍스트 <span class="hint" id="staff-text-count">0자</span></label>
+              <textarea id="staff-text" rows="8" aria-describedby="staff-text-help staff-text-error" placeholder="토론 받아쓰기 텍스트를 붙여 넣으세요 (200자 ~ 60,000자)"></textarea>
+              <p class="hint" id="staff-text-help">원문은 서버에만 저장되고 공개되지 않습니다.</p>
+              <p class="field-error" id="staff-text-error" aria-live="polite"></p>
+            </div>
+
+            <div class="field">
+              <span class="field-label">키워드</span>
+              <div class="rsv-row"><button class="btn btn--quiet" type="button" id="staff-extract">키워드 뽑기</button></div>
+              <div class="cloud cloud--edit" id="staff-cloud" aria-label="키워드 후보. 누르면 뺍니다"></div>
+              <div class="add-word">
+                <label class="visually-hidden" for="staff-add-word">키워드 직접 추가</label>
+                <input id="staff-add-word" type="text" maxlength="20" placeholder="키워드 직접 추가">
+                <button class="btn btn--quiet" type="button" id="staff-add">추가</button>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="staff-summary">한 줄 요약 (선택)</label>
+              <textarea id="staff-summary" rows="3" maxlength="2000"></textarea>
+            </div>
+            <div class="field">
+              <label for="staff-questions">함께 던진 질문 (선택, 한 줄에 하나)</label>
+              <textarea id="staff-questions" rows="3"></textarea>
+            </div>
+            <div class="field">
+              <label for="staff-quotes">남기고 싶은 말 (선택, 한 줄에 하나. 예: 참석자 A: 문장)</label>
+              <textarea id="staff-quotes" rows="3"></textarea>
+            </div>
+
+            <label class="check">
+              <input type="checkbox" id="staff-ai">
+              <span>AI 정리 요청 — Claude가 요약·질문·인상 깊은 말 초안을 채웁니다(최대 30분). 원문이 Anthropic 서버로 전송됩니다.</span>
+            </label>
+
+            <div class="field">
+              <label for="staff-code">운영진 코드</label>
+              <input id="staff-code" type="password" autocomplete="off">
+            </div>
+
+            <div class="rsv-row">
+              <button class="btn btn--quiet" type="button" id="staff-load">저장된 기록 불러오기</button>
+              <button class="btn btn--quiet" type="submit" value="draft">초안 저장</button>
+              <button class="btn" type="submit" value="publish">게시</button>
+            </div>
+            <p class="hint" id="staff-ai-info"></p>
+            <p class="rsv-result" id="staff-result" role="status" aria-live="polite"></p>
+          </form>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>읽고, 잇다 — 한국외대 해외문학회 개인 프로젝트</p>
+      <p>오늘의 한 문장 출처: <a href="https://github.com/gwongibeom/korean-advice-open-api">한국어 명언 API</a></p>
+    </div>
+  </footer>
+</body>
+</html>

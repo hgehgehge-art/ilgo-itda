@@ -33,6 +33,16 @@ jobs:
         env:
           FORCE: ${{ inputs.force || 'false' }}
 
+      # 무료 Supabase 프로젝트는 한동안 요청이 없으면 일시 정지된다. 하루 한 번 시트 일정을 읽어 깨워 둔다.
+      # (공개용 키는 사이트 config.js에 이미 공개된 값이라 그대로 쓴다)
+      - name: 신청 서버 깨워 두기
+        continue-on-error: true
+        run: |
+          curl -s -m 30 -o /dev/null -w "Supabase 응답 %{http_code}\n" -X POST \
+            "https://sgdwvwkwawcclujacdln.supabase.co/rest/v1/rpc/sheet_rows" \
+            -H "apikey: sb_publishable_pQ5hdUjSmWUuKBxSmI5WOA_5Hs2n3xA" \
+            -H "content-type: application/json" -d '{"p_kind":"seminars","p_fresh":true}'
+
       - name: 바뀐 경우에만 커밋
         run: |
           git add data/today-quote.json

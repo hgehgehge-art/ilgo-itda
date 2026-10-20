@@ -115,3 +115,35 @@ export async function seminarCounts() {
   const rows = await call('seminar_counts', {});
   return new Map(rows.map((r) => [r.seminar_id, Number(r.count)]));
 }
+
+// ── 그날의 토론 (supabase/discussions.sql) ──
+// 서버가 연결되지 않으면(내 컴퓨터 가짜 응답 모드 포함) 쓰지 않는다.
+function liveOnly(fn, args) {
+  if (mode !== 'live') return Promise.reject(new Error('서버가 연결되지 않았습니다'));
+  return rpc(fn, args);
+}
+
+// 누구나: 게시된 토론 기록 목록(원문 제외)
+export function publishedDiscussions() {
+  return liveOnly('published_discussions', {});
+}
+
+// 운영진: 저장. 결과 'ok' | 'bad_code' | 'not_found' | 'too_short' | 'too_long' | 'invalid' | 'limit'
+export function saveDiscussion(d) {
+  return liveOnly('save_discussion', {
+    p_code: d.code,
+    p_seminar_id: d.seminarId,
+    p_text: d.text,
+    p_keywords: d.keywords,
+    p_summary: d.summary,
+    p_questions: d.questions,
+    p_quotes: d.quotes,
+    p_publish: d.publish,
+    p_request_ai: d.requestAi,
+  });
+}
+
+// 운영진: 저장된 기록 불러오기. { status: 'ok' | 'empty' | 'bad_code', … }
+export function discussionForStaff(code, seminarId) {
+  return liveOnly('get_discussion_for_staff', { p_code: code, p_seminar_id: seminarId });
+}
