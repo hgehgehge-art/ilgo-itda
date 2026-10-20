@@ -59,8 +59,8 @@
 | --- | --- |
 | [세미나](https://hgehgehge-art.github.io/ilgo-itda/seminars.html) | 주간세미나 시트의 일정, 신청 인원(예: 7/11), 이름·확인번호 4자리로 신청·취소. 정원은 동아리방 수용 인원인 11명(발제자 포함) |
 | [책장](https://hgehgehge-art.github.io/ilgo-itda/books.html) | 민음사 세계문학전집 제목·작가·권번호 검색, 대출 가능한 책만 보기, 반납 예정일 |
-| [그날의 토론](https://hgehgehge-art.github.io/ilgo-itda/discussions.html) | 받아쓰기 텍스트로 키워드 워드클라우드, 요약·질문·남기고 싶은 말, 운영진 코드로 저장·게시 |
 | [독서 지도](https://hgehgehge-art.github.io/ilgo-itda/places.html) | 서점·북카페·도서관·작품 속 장소를 지도 핀과 목록으로. 분류·회원 추천 필터, 관련 책으로 이동, 좋아하는 곳 추천 |
+| [그날의 토론](https://hgehgehge-art.github.io/ilgo-itda/discussions.html) | 받아쓰기 텍스트로 키워드 워드클라우드, 요약·질문·남기고 싶은 말, 운영진 코드로 저장·게시 |
 
 ## 4. 사용·실행·수정 방법
 
