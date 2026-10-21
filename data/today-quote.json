@@ -1,11 +1,11 @@
 {
-  "date": "2026-10-21",
-  "message": "상상력은 지식보다 중요하다. 지식은 한계가 있지만 상상력은 세상의 모든 것을 품는다.",
-  "author": "알베르트 아인슈타인",
-  "authorProfile": "이론 물리학자",
+  "date": "2026-10-22",
+  "message": "작은 일이 완벽함을 만든다. 그러나 완벽함은 결코 작은 일이 아니다.",
+  "author": "마이클 앤젤로",
+  "authorProfile": "이탈리아 르네상스 시대 화가, 조각가",
   "source": {
     "name": "한국어 명언 API",
     "url": "https://github.com/gwongibeom/korean-advice-open-api"
   },
-  "fetchedAt": "2026-10-20T18:57:12.744Z"
+  "fetchedAt": "2026-10-21T19:08:09.959Z"
 }
