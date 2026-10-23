@@ -1,11 +1,11 @@
 {
-  "date": "2026-10-23",
-  "message": "인생은 가까이서 보면 비극이지만, 멀리서 보면 희극이다.",
-  "author": "찰리 채플린",
-  "authorProfile": "영국 출신 코미디언, 배우, 영화 감독",
+  "date": "2026-10-24",
+  "message": "위대한 일은 작은 일들의 축적으로 이루어진다.",
+  "author": "빈센트 반 고흐",
+  "authorProfile": "네덜란드 화가",
   "source": {
     "name": "한국어 명언 API",
     "url": "https://github.com/gwongibeom/korean-advice-open-api"
   },
-  "fetchedAt": "2026-10-22T19:03:57.427Z"
+  "fetchedAt": "2026-10-23T18:53:59.333Z"
 }
