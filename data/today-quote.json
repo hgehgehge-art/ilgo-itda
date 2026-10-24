@@ -1,11 +1,11 @@
 {
-  "date": "2026-10-24",
-  "message": "위대한 일은 작은 일들의 축적으로 이루어진다.",
-  "author": "빈센트 반 고흐",
-  "authorProfile": "네덜란드 화가",
+  "date": "2026-10-25",
+  "message": "당신의 시간은 제한되어 있습니다. 다른 사람의 인생을 사느라 시간을 낭비하지 마세요.",
+  "author": "스티브 잡스",
+  "authorProfile": "미국 기업가, 애플 공동 창립자",
   "source": {
     "name": "한국어 명언 API",
     "url": "https://github.com/gwongibeom/korean-advice-open-api"
   },
-  "fetchedAt": "2026-10-23T18:53:59.333Z"
+  "fetchedAt": "2026-10-24T17:52:44.392Z"
 }
