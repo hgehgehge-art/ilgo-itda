@@ -1,11 +1,11 @@
 {
-  "date": "2026-10-27",
-  "message": "긴 인생은 충분히 좋지 않을 수 있다. 그러나 좋은 인생은 충분히 길다.",
-  "author": "벤자민 프랭클린",
-  "authorProfile": "정치인, 미국 건국의 아버지",
+  "date": "2026-10-28",
+  "message": "모든 경험은 삶의 양식이 되기 때문에 인생에 헛된 경험은 없습니다.",
+  "author": "미야모토 시게루",
+  "authorProfile": "닌텐도 대표이사",
   "source": {
     "name": "한국어 명언 API",
     "url": "https://github.com/gwongibeom/korean-advice-open-api"
   },
-  "fetchedAt": "2026-10-26T20:19:35.099Z"
+  "fetchedAt": "2026-10-27T19:50:32.266Z"
 }
