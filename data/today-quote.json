@@ -1,11 +1,11 @@
 {
-  "date": "2026-10-28",
-  "message": "모든 경험은 삶의 양식이 되기 때문에 인생에 헛된 경험은 없습니다.",
-  "author": "미야모토 시게루",
-  "authorProfile": "닌텐도 대표이사",
+  "date": "2026-10-29",
+  "message": "행복하기 위해선 절대 다른 사람들을 너무 의식해서는 안 된다.",
+  "author": "알베르 카뮈",
+  "authorProfile": "작가, 철학자",
   "source": {
     "name": "한국어 명언 API",
     "url": "https://github.com/gwongibeom/korean-advice-open-api"
   },
-  "fetchedAt": "2026-10-27T19:50:32.266Z"
+  "fetchedAt": "2026-10-28T20:05:56.118Z"
 }
