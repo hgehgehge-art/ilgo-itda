@@ -51,16 +51,16 @@
 
 ## 3. 공개 주소와 기능
 
-- 공개 주소: https://hgehgehge-art.github.io/ilgo-itda/
+- 공개 주소: https://ilgo-itda.vercel.app/
 - GitHub 저장소: https://github.com/hgehgehge-art/ilgo-itda
 - 서버(Apps Script 웹 앱): https://script.google.com/macros/s/AKfycbytQ_nsPLZDbGlWWj8VUQKZd79e-NwpDYcMMPy55V0mheealqZbhd5DaaZxpQkM-2my8w/exec (사이트가 부르는 공개 주소. 예: 주소 뒤에 `?action=seminars`)
 
 | 화면 | 기능 |
 | --- | --- |
-| [세미나](https://hgehgehge-art.github.io/ilgo-itda/seminars.html) | 주간세미나 시트의 일정, 신청 인원(예: 7/11), 이름·확인번호 4자리로 신청·취소. 정원은 동아리방 수용 인원인 11명(발제자 포함) |
-| [책장](https://hgehgehge-art.github.io/ilgo-itda/books.html) | 민음사 세계문학전집 제목·작가·권번호 검색, 대출 가능한 책만 보기, 반납 예정일 |
-| [독서 지도](https://hgehgehge-art.github.io/ilgo-itda/places.html) | 서점·북카페·도서관·작품 속 장소를 지도 핀과 목록으로. 분류·회원 추천 필터, 관련 책으로 이동, 좋아하는 곳 추천 |
-| [그날의 토론](https://hgehgehge-art.github.io/ilgo-itda/discussions.html) | 받아쓰기 텍스트로 키워드 워드클라우드, 요약·질문·남기고 싶은 말, 운영진 코드로 저장·게시 |
+| [세미나](https://ilgo-itda.vercel.app/seminars.html) | 주간세미나 시트의 일정, 신청 인원(예: 7/11), 이름·확인번호 4자리로 신청·취소. 정원은 동아리방 수용 인원인 11명(발제자 포함) |
+| [책장](https://ilgo-itda.vercel.app/books.html) | 민음사 세계문학전집 제목·작가·권번호 검색, 대출 가능한 책만 보기, 반납 예정일 |
+| [독서 지도](https://ilgo-itda.vercel.app/places.html) | 서점·북카페·도서관·작품 속 장소를 지도 핀과 목록으로. 분류·회원 추천 필터, 관련 책으로 이동, 좋아하는 곳 추천 |
+| [그날의 토론](https://ilgo-itda.vercel.app/discussions.html) | 받아쓰기 텍스트로 키워드 워드클라우드, 요약·질문·남기고 싶은 말, 운영진 코드로 저장·게시 |
 
 ## 4. 사용·실행·수정 방법
 
@@ -87,7 +87,7 @@
 별도 서버나 데이터베이스 없이, 동아리가 이미 쓰는 구글 시트를 데이터 저장소로 씁니다. 운영 시트에 붙인 Apps Script(`apps-script/Code.gs`)를 '웹 앱'으로 배포하면 인터넷 주소가 하나 생기고, 사이트는 이 주소로만 읽고 씁니다.
 
 ```
-회원 브라우저 (GitHub Pages: HTML·CSS·JavaScript)
+회원 브라우저 (Vercel: HTML·CSS·JavaScript)
       │  읽기 GET ?action=…   쓰기 POST {action: …}
       ▼
 Apps Script 웹 앱 (제작자 구글 계정 권한으로 실행)
