@@ -1,11 +1,11 @@
 {
-  "date": "2026-10-29",
-  "message": "행복하기 위해선 절대 다른 사람들을 너무 의식해서는 안 된다.",
-  "author": "알베르 카뮈",
-  "authorProfile": "작가, 철학자",
+  "date": "2026-10-30",
+  "message": "인생은 끔찍하거나 비참하거나 둘 중 하나다.",
+  "author": "우디 알렌",
+  "authorProfile": "영화 감독",
   "source": {
     "name": "한국어 명언 API",
     "url": "https://github.com/gwongibeom/korean-advice-open-api"
   },
-  "fetchedAt": "2026-10-28T20:05:56.118Z"
+  "fetchedAt": "2026-10-29T20:05:09.299Z"
 }
