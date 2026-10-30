@@ -1,11 +1,11 @@
 {
-  "date": "2026-10-30",
-  "message": "인생은 끔찍하거나 비참하거나 둘 중 하나다.",
-  "author": "우디 알렌",
-  "authorProfile": "영화 감독",
+  "date": "2026-10-31",
+  "message": "인간의 위대함은 자신의 삶을 변화시키는 능력에 있다.",
+  "author": "마하트마 간디",
+  "authorProfile": "인도 독립운동 지도자",
   "source": {
     "name": "한국어 명언 API",
     "url": "https://github.com/gwongibeom/korean-advice-open-api"
   },
-  "fetchedAt": "2026-10-29T20:05:09.299Z"
+  "fetchedAt": "2026-10-30T19:51:39.805Z"
 }
