@@ -1,11 +1,11 @@
 {
-  "date": "2026-11-03",
-  "message": "언제나 불가능해 보이던 일도 이루어지기 전까지는 그렇다.",
-  "author": "넬슨 만델라",
-  "authorProfile": "남아프리카 공화국의 정치가, 인권 운동가",
+  "date": "2026-11-04",
+  "message": "성공은 영원하지 않고, 실패도 치명적이지 않다. 중요한 것은 용기다.",
+  "author": "윈스턴 처칠",
+  "authorProfile": "영국 총리, 정치가",
   "source": {
     "name": "한국어 명언 API",
     "url": "https://github.com/gwongibeom/korean-advice-open-api"
   },
-  "fetchedAt": "2026-11-02T22:59:43.618Z"
+  "fetchedAt": "2026-11-03T20:47:10.004Z"
 }
