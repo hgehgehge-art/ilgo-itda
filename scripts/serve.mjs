@@ -19,8 +19,25 @@ const TYPES = {
   '.webp': 'image/webp',
 };
 
+// /api/reviews 는 Vercel과 같은 서버 함수(api/reviews.mjs)를 그대로 부른다.
+// 키는 실행할 때 환경 변수로 준다. 없으면 함수가 500(NO_KEY)을 돌려준다.
+async function api(req, res, path) {
+  const { handle } = await import(new URL('../api/reviews.mjs', import.meta.url));
+  const chunks = [];
+  for await (const c of req) chunks.push(c);
+  const request = new Request(new URL(req.url, `http://localhost:${PORT}`), {
+    method: req.method,
+    headers: req.headers,
+    body: ['GET', 'HEAD'].includes(req.method) ? undefined : Buffer.concat(chunks),
+  });
+  const out = await handle(request);
+  res.writeHead(out.status, Object.fromEntries(out.headers));
+  res.end(Buffer.from(await out.arrayBuffer()));
+}
+
 createServer(async (req, res) => {
   let path = decodeURIComponent(new URL(req.url, 'http://x').pathname);
+  if (path === '/api/reviews') return api(req, res, path);
   if (path.endsWith('/')) path += 'index.html';
   const file = normalize(join(ROOT, path));
   if (!file.startsWith(ROOT)) {

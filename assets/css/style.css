@@ -1308,3 +1308,61 @@ button.cloud-word:hover {
     transform: none;
   }
 }
+
+/* 세미나 한 줄 후기 */
+.reviews {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.reviews summary {
+  color: var(--accent);
+  font-weight: 600;
+  cursor: pointer;
+}
+.review-status {
+  margin: 12px 0 0;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+.review-list {
+  display: grid;
+  gap: 10px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.review {
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: var(--bg-soft);
+}
+.section--soft .review {
+  background: var(--bg-soft);
+}
+.review-body {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.review-meta {
+  margin: 6px 0 0;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+.review-form {
+  margin-top: 16px;
+}
+.review-form .rsv-fields {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2.4fr);
+}
+.review-trap {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+}
+@media (max-width: 640px) {
+  .review-form .rsv-fields {
+    grid-template-columns: 1fr;
+  }
+}

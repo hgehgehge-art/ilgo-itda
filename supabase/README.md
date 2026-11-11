@@ -47,9 +47,18 @@
 ## 파일
 
 - `migrations/20261111000000_seminar_reviews.sql`: 표, 색인, RLS, 권한, 정책
+- `../api/reviews.mjs`: 서버 함수. 읽기는 Publishable key, 쓰기는 Secret key
+- `../assets/js/reviews.js`: 지난 세미나 카드의 '한 줄 후기' 칸
+- `../tests/reviews.test.mjs`: 가짜 Supabase로 서버 함수 시험 (`node tests/reviews.test.mjs`)
 
-## 다음 단계
+## 남은 일 (직접)
 
-1. Supabase 대시보드에서 무료 프로젝트를 만들고 위 SQL을 실행합니다.
-2. `api/reviews.js`(서버 함수)와 세미나 화면의 후기 칸을 만듭니다.
-3. Vercel 환경 변수에 `SUPABASE_URL`, Publishable key, Secret key(Sensitive)를 넣고 다시 배포합니다.
+1. Supabase 대시보드에서 무료 프로젝트를 만들고(지역 Seoul) SQL Editor에서 위 SQL을 실행합니다.
+2. Vercel 프로젝트 ilgo-itda → Settings → Environment Variables에 `SUPABASE_URL`, `SUPABASE_PUBLISHABLE_KEY`, `SUPABASE_SECRET_KEY`(Sensitive)를 넣고 다시 배포합니다.
+3. 키를 넣기 전에는 후기 칸에 '후기 기능을 준비 중입니다'가 뜹니다(500 NO_KEY, 정상).
+
+## 내 컴퓨터에서 확인
+
+```bash
+SUPABASE_URL=… SUPABASE_PUBLISHABLE_KEY=… SUPABASE_SECRET_KEY=… node scripts/serve.mjs
+```

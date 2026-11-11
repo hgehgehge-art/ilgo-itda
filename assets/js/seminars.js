@@ -4,6 +4,7 @@ import { directSeminars } from './direct-sheets.js';
 // 정원(capacity)에는 발제자 1명이 포함된다. 화면 인원 = 서버 신청 수 + 1.
 // 신청자 이름은 어디에도 표시하지 않는다.
 
+import { buildReviews } from './reviews.js';
 import { mode, reserve, cancelReservation, seminarCounts, setMockSeminars, sheetRows, publishedDiscussions } from './reservations-api.js';
 
 const DATA_URL = 'data/seminars.json';
@@ -41,6 +42,8 @@ let counts = null; // Map | null(불러오지 못함)
 let signupOpen = false;
 // 토론 기록이 게시된 세미나 ID
 let discussed = new Set();
+// 한 줄 후기: 실제 일정이거나 내 컴퓨터(가짜 응답)일 때만 지난 세미나에 붙인다
+let reviewsOn = false;
 
 // ── 표시 형식 (모두 한국시간) ──
 const KST = 'Asia/Seoul';
@@ -285,6 +288,8 @@ function buildCard(s) {
     body.append(doc);
   }
 
+  if (reviewsOn && state.key === 'ended') body.append(buildReviews(s.id));
+
   let result = null;
   if (signupOpen && (state.key === 'open' || state.key === 'full')) {
     const f = buildForm(s, state);
@@ -391,6 +396,7 @@ async function init() {
   seminars = normalize(data.seminars);
   notice.hidden = data.example !== true;
   mockNotice.hidden = mode !== 'mock';
+  reviewsOn = mode === 'mock' || data.example !== true;
   // 신청은 서버에서 받은 실제 일정이거나, 내 컴퓨터의 가짜 응답일 때만 받는다
   signupOpen = mode === 'mock' || (mode === 'live' && data.fromServer === true);
   if (mode === 'mock') {
@@ -415,7 +421,7 @@ async function init() {
     publishedDiscussions()
       .then((list) => {
         discussed = new Set(list.map((d) => d.seminarId));
-        if (discussed.size && ![...document.querySelectorAll('.rsv-form')].some((f) => !f.hidden)) render();
+        if (discussed.size && ![...document.querySelectorAll('.rsv-form')].some((f) => !f.hidden) && !document.querySelector('.reviews[open]')) render();
       })
       .catch(() => {});
   }
