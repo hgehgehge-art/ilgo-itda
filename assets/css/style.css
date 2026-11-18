@@ -1366,3 +1366,54 @@ button.cloud-word:hover {
     grid-template-columns: 1fr;
   }
 }
+
+/* 책장: 책 추천 받기 (api/recommend.js) */
+.recommend {
+  padding: 24px;
+  border-radius: var(--radius);
+  background: var(--bg-soft);
+}
+.recommend-title {
+  margin: 0 0 6px;
+  font-size: 21px;
+}
+.recommend-label {
+  display: block;
+  margin-bottom: 14px;
+  color: var(--text-muted);
+}
+.recommend-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.recommend .search-input {
+  background: var(--bg);
+}
+.recommend-help {
+  margin: 10px 0 0;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+.recommend-help #rec-count {
+  white-space: nowrap;
+}
+.recommend-status {
+  margin: 14px 0 0;
+  font-weight: 600;
+}
+.recommend-status:empty {
+  display: none;
+}
+.recommend-list {
+  display: grid;
+  gap: 8px;
+  margin: 12px 0 0;
+  padding-left: 1.4em;
+}
+.recommend-list li {
+  overflow-wrap: anywhere;
+}
+.section--rec {
+  padding-bottom: 32px;
+}

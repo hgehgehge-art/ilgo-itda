@@ -1,0 +1,8 @@
+{
+  "name": "ilgo-itda",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  }
+}
