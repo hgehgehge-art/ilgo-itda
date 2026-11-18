@@ -10,7 +10,7 @@
   <script type="module" src="assets/js/site.js?v=20261021h"></script>
   <script type="module" src="assets/js/quote.js?v=20261021h"></script>
   <script type="module" src="assets/js/books.js?v=20261021h"></script>
-  <script type="module" src="assets/js/recommend.js?v=20261118a"></script>
+  <script type="module" src="assets/js/topics.js?v=20261118d"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">본문으로 건너뛰기</a>
@@ -43,13 +43,14 @@
     <section class="section section--tight section--rec" aria-labelledby="rec-title">
       <div class="container">
         <form class="recommend" id="rec-form" novalidate>
-          <h2 class="recommend-title" id="rec-title"><span class="recommend-badge">✨ AI</span>책 추천 받기</h2>
-          <label class="recommend-label" for="rec-query">읽고 싶은 책의 조건을 적으면 소장 도서 중에서 세 권을 골라 드려요.</label>
+          <h2 class="recommend-title" id="rec-title"><span class="recommend-badge">✨ AI</span>토론 주제 추천</h2>
+          <label class="recommend-label" for="rec-query">동아리 소장 도서 제목을 적으면 독서 토론에서 나눌 질문 세 개를 만들어 드려요.</label>
           <div class="recommend-row">
-            <input class="search-input" id="rec-query" type="text" maxlength="200" autocomplete="off" placeholder="예: 짧고 여운이 남는 러시아 소설" aria-describedby="rec-help rec-count">
-            <button class="btn" type="submit" id="rec-submit">추천 받기</button>
+            <input class="search-input" id="rec-query" type="text" maxlength="100" autocomplete="off" list="rec-titles" placeholder="예: 이방인, 데미안, 1984" aria-describedby="rec-help">
+            <datalist id="rec-titles"></datalist>
+            <button class="btn" type="submit" id="rec-submit">토론 주제 받기</button>
           </div>
-          <p class="recommend-help"><span id="rec-help">입력한 글은 AI에 보내지며 답은 틀릴 수 있어요. 이름·연락처 같은 개인정보는 적지 마세요.</span> <span id="rec-count">0/200</span></p>
+          <p class="recommend-help" id="rec-help">입력한 글은 AI에 보내지며 답은 틀릴 수 있어요. 이름·연락처 같은 개인정보는 적지 마세요.</p>
           <p class="recommend-status" id="rec-status" role="status" aria-live="polite"></p>
           <ol class="recommend-list" id="rec-list" hidden></ol>
         </form>

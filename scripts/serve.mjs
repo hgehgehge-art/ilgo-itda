@@ -19,9 +19,9 @@ const TYPES = {
   '.webp': 'image/webp',
 };
 
-// /api/reviews, /api/recommend 는 Vercel과 같은 서버 함수(api/ 폴더)를 그대로 부른다.
+// /api/reviews, /api/topics 는 Vercel과 같은 서버 함수(api/ 폴더)를 그대로 부른다.
 // 키는 실행할 때 환경 변수로 준다. 없으면 함수가 500(NO_KEY)을 돌려준다.
-const APIS = { '/api/reviews': '../api/reviews.mjs', '/api/recommend': '../api/recommend.js' };
+const APIS = { '/api/reviews': '../api/reviews.mjs', '/api/topics': '../api/topics.js' };
 async function api(req, res, path) {
   const { handle } = await import(new URL(APIS[path], import.meta.url));
   const chunks = [];
