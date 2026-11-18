@@ -1551,3 +1551,209 @@ button.cloud-word:hover {
 .section--rec {
   padding-bottom: 32px;
 }
+
+/* ════════════════════════════════════════════════════════════
+   화려한 테마 (2026-11-18): 남색→보라 그라데이션 + 노랑 포인트.
+   앞의 규칙을 덮어쓰기만 하므로 이 블록을 지우면 예전 모습으로 돌아간다.
+   ════════════════════════════════════════════════════════════ */
+:root {
+  --grad: linear-gradient(135deg, #1f3c6e 0%, #3b5bdb 45%, #7b2cbf 100%);
+  --grad-gold: linear-gradient(90deg, #ffd43b, #ff922b);
+  --glow: 0 18px 40px rgba(59, 91, 219, 0.18);
+  --glow-hover: 0 24px 50px rgba(123, 44, 191, 0.25);
+}
+
+/* 상단 메뉴: 로고 글자 그라데이션, 현재 메뉴는 알약 */
+.brand span {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.nav-links a[aria-current="page"] {
+  background: var(--grad);
+  color: #fff;
+}
+.nav-links a:not([aria-current]):hover {
+  background: rgba(59, 91, 219, 0.08);
+}
+/* 좁은 화면에서 메뉴가 두 줄이 되면 높이도 늘어나게(아래 띠를 덮지 않게) */
+@media (max-width: 600px) {
+  .site-nav {
+    height: auto;
+  }
+}
+
+/* 오늘의 한 문장 띠 */
+.quote-banner {
+  background: linear-gradient(90deg, rgba(59, 91, 219, 0.08), rgba(123, 44, 191, 0.08));
+}
+
+/* 큰 제목: 그라데이션 글자 */
+.headline,
+.title {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding-bottom: 0.06em;
+}
+.eyebrow {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(59, 91, 219, 0.1);
+  color: #3b5bdb;
+  font-size: 14px;
+}
+
+/* 홈 첫 화면과 하위 페이지 머리: 은은한 빛 번짐 */
+.hero,
+.page-head {
+  position: relative;
+  isolation: isolate;
+}
+.hero::before,
+.page-head::before {
+  content: "";
+  position: absolute;
+  inset: -40px 0 auto;
+  height: 420px;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(40% 60% at 15% 30%, rgba(59, 91, 219, 0.16), transparent 70%),
+    radial-gradient(35% 55% at 85% 20%, rgba(123, 44, 191, 0.14), transparent 70%),
+    radial-gradient(30% 40% at 60% 80%, rgba(255, 212, 59, 0.14), transparent 70%);
+}
+
+/* 버튼 */
+.btn {
+  background: var(--grad);
+  background-size: 150% 150%;
+  box-shadow: 0 8px 22px rgba(59, 91, 219, 0.3);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-position 0.3s ease;
+}
+.btn:hover:not(:disabled) {
+  background: var(--grad);
+  background-position: 100% 0;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(123, 44, 191, 0.35);
+}
+.btn--quiet {
+  background: #fff;
+  color: #3b5bdb;
+  box-shadow: inset 0 0 0 1.5px rgba(59, 91, 219, 0.35), 0 6px 16px rgba(59, 91, 219, 0.12);
+}
+.btn--quiet:hover:not(:disabled) {
+  background: #fff;
+  color: #7b2cbf;
+}
+
+/* 카드 공통: 흰 바탕, 그림자, 위쪽 색 띠, 마우스 올리면 떠오름 */
+.card,
+.book,
+.seminar,
+.discussion,
+.place {
+  background: #fff;
+  box-shadow: var(--glow);
+  border: 1px solid rgba(59, 91, 219, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.section--soft .card,
+.section--soft .seminar {
+  background: #fff;
+}
+.card:hover,
+.book:hover,
+.seminar:hover,
+.discussion:hover,
+.place:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--glow-hover);
+}
+.card {
+  position: relative;
+  overflow: hidden;
+}
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 5px;
+  background: var(--grad);
+}
+.card-icon {
+  color: #7b2cbf;
+}
+.section--soft {
+  background: linear-gradient(180deg, #f5f6ff 0%, #f8f3ff 100%);
+}
+
+/* 책장 카드: 책등을 그라데이션으로, 대출 가능은 노랑 알약 */
+.book::before {
+  width: 10px;
+  background: var(--grad);
+}
+.book-no {
+  color: #7b2cbf;
+  font-weight: 700;
+}
+.is-free .pill {
+  background: var(--grad-gold);
+  color: #2b2a6b;
+}
+
+/* 검색창 */
+.search-input {
+  background: #fff;
+  box-shadow: 0 6px 20px rgba(59, 91, 219, 0.12);
+  border: 1px solid rgba(59, 91, 219, 0.15);
+}
+.search-input:focus-visible {
+  outline: 3px solid rgba(123, 44, 191, 0.45);
+}
+
+/* 배지 */
+.badge--done,
+.section--soft .badge--done {
+  background: var(--grad);
+}
+
+/* 바닥글: 짙은 그라데이션 */
+.site-footer {
+  background: linear-gradient(135deg, #14213d 0%, #2b2a6b 60%, #4a1f6e 100%);
+  color: rgba(255, 255, 255, 0.78);
+}
+.site-footer a {
+  color: #ffd43b;
+}
+.site-footer .footer-brand {
+  color: #fff;
+}
+.site-footer nav a {
+  color: rgba(255, 255, 255, 0.85);
+}
+.site-footer nav a:hover {
+  color: #ffd43b;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .book,
+  .seminar,
+  .discussion,
+  .place,
+  .btn {
+    transition: none;
+  }
+  .card:hover,
+  .book:hover,
+  .seminar:hover,
+  .discussion:hover,
+  .place:hover,
+  .btn:hover {
+    transform: none;
+  }
+}
