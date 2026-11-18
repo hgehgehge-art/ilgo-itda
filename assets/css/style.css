@@ -1757,3 +1757,134 @@ button.cloud-word:hover {
     transform: none;
   }
 }
+
+/* 토론 주제 + AI 토론 (assets/js/topics.js) */
+.recommend-list li {
+  flex-wrap: wrap;
+}
+.recommend-list .topic-text {
+  flex: 1 1 240px;
+}
+.topic-go {
+  margin-left: auto;
+  padding: 8px 14px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--grad-gold);
+  color: #2b2a6b;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(255, 146, 43, 0.4);
+  transition: transform 0.15s ease;
+}
+.topic-go:hover {
+  transform: translateY(-2px);
+}
+.debate {
+  margin-top: 18px;
+  padding: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 18px;
+  background: rgba(10, 10, 40, 0.25);
+  animation: rec-in 0.4s ease forwards;
+}
+.debate-head {
+  margin: 0 0 12px;
+  font-size: 17px;
+  font-weight: 700;
+}
+.debate-badge {
+  display: inline-block;
+  margin-right: 6px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  font-size: 13px;
+}
+.debate-log {
+  display: grid;
+  gap: 10px;
+  margin: 0 0 12px;
+  padding: 0;
+  list-style: none;
+  max-height: 420px;
+  overflow-y: auto;
+}
+.bubble {
+  max-width: 88%;
+  padding: 12px 16px;
+  border-radius: 18px;
+  opacity: 0;
+  animation: rec-in 0.4s ease forwards;
+}
+.bubble--user {
+  justify-self: end;
+  border-bottom-right-radius: 6px;
+  background: #fff;
+  color: #1d1d1f;
+}
+.bubble--ai {
+  justify-self: start;
+  border-bottom-left-radius: 6px;
+  background: linear-gradient(135deg, rgba(255, 212, 59, 0.22), rgba(255, 146, 43, 0.22));
+  border: 1px solid rgba(255, 212, 59, 0.45);
+}
+.bubble-who {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  opacity: 0.75;
+}
+.bubble-text {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.bubble-text + .bubble-text {
+  margin-top: 6px;
+}
+.bubble-text strong {
+  color: #ffd43b;
+}
+.debate-input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 0;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.96);
+  color: #1d1d1f;
+  font: inherit;
+  resize: vertical;
+}
+.debate-input:focus-visible {
+  outline: 3px solid #ffd43b;
+}
+.debate-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+.debate-left {
+  flex: 1 1 180px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.8);
+}
+.recommend .btn--ghost {
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  box-shadow: none;
+}
+.debate[aria-busy="true"] .debate-left {
+  animation: rec-pulse 1.2s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .debate,
+  .bubble {
+    animation: none;
+    opacity: 1;
+  }
+}

@@ -59,7 +59,7 @@ test('정상: 소장 도서로 토론 질문 세 개', async () => {
 });
 
 test('지시문: 역할·형식·근거·금지', () => {
-  for (const s of ['[역할]', '[형식]', '[근거]', '[금지]', '해외문학회', '토론', '60자', '개인정보', '결말']) {
+  for (const s of ['[역할]', '[형식]', '[스타일]', '[근거]', '[금지]', '해외문학회', '밸런스 게임', '60자', '개인정보', '결말']) {
     assert.ok(SYSTEM_PROMPT.includes(s), s);
   }
 });
@@ -164,4 +164,27 @@ test('화면·서버 코드에 키 값이 없음', () => {
   assert.ok(!/sk-[A-Za-z0-9_-]{10,}/.test(server), '키 값을 코드에 적지 않음');
   const html = readFileSync('books.html', 'utf8');
   assert.ok(html.includes('입력한 글은 AI에 보내지며 답은 틀릴 수 있어요'));
+});
+
+test('토론 모드: 반론과 다음 질문을 돌려준다', async () => {
+  const f = fake('반론: 무관심도 선택이에요.\n질문: 그럼 침묵도 책임이 있을까요?');
+  const [st, body] = await res(post({ title: '이방인', mode: 'debate', question: '뫼르소는 유죄일까?', messages: [{ role: 'user', content: '무죄라고 생각해요' }] }, ENV, f));
+  assert.equal(st, 200);
+  assert.equal(body.rebut, '무관심도 선택이에요.');
+  assert.equal(body.question, '그럼 침묵도 책임이 있을까요?');
+  assert.equal(body.turnsLeft, 3);
+  assert.match(f.calls[0].body.messages[0].content, /상대 토론자/);
+  assert.equal(f.calls[0].body.messages.at(-1).content, '무죄라고 생각해요');
+});
+
+test('토론 모드: 빈 의견·순서 틀림 → 400, 너무 많이 주고받음 → DEBATE_OVER', async () => {
+  const base = { title: '이방인', mode: 'debate', question: '질문?' };
+  for (const messages of [[], [{ role: 'user', content: '' }], [{ role: 'assistant', content: 'x' }], [{ role: 'user', content: '가'.repeat(301) }]]) {
+    const [st] = await res(post({ ...base, messages }));
+    assert.equal(st, 400);
+  }
+  const many = Array.from({ length: 9 }, (_, i) => ({ role: i % 2 ? 'assistant' : 'user', content: 'x' }));
+  const [st, body] = await res(post({ ...base, messages: many }));
+  assert.equal(st, 400);
+  assert.equal(body.error, 'DEBATE_OVER');
 });

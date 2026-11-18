@@ -6,11 +6,11 @@
   <title>책장 — 읽고, 잇다</title>
   <meta name="description" content="한국외대 해외문학회의 책장(대출 상태)과 주간 세미나 참석 신청">
   <script>document.documentElement.classList.add('js');</script>
-  <link rel="stylesheet" href="assets/css/style.css?v=20261118c">
+  <link rel="stylesheet" href="assets/css/style.css?v=20261118e">
   <script type="module" src="assets/js/site.js?v=20261021h"></script>
   <script type="module" src="assets/js/quote.js?v=20261021h"></script>
   <script type="module" src="assets/js/books.js?v=20261021h"></script>
-  <script type="module" src="assets/js/topics.js?v=20261118d"></script>
+  <script type="module" src="assets/js/topics.js?v=20261118e"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">본문으로 건너뛰기</a>
@@ -44,7 +44,7 @@
       <div class="container">
         <form class="recommend" id="rec-form" novalidate>
           <h2 class="recommend-title" id="rec-title"><span class="recommend-badge">✨ AI</span>토론 주제 추천</h2>
-          <label class="recommend-label" for="rec-query">동아리 소장 도서 제목을 적으면 독서 토론에서 나눌 질문 세 개를 만들어 드려요.</label>
+          <label class="recommend-label" for="rec-query">소장 도서 제목을 적으면 AI가 토론 질문을 만들고, 질문을 고르면 AI가 반대편 토론자가 되어 의견을 주고받아요.</label>
           <div class="recommend-row">
             <input class="search-input" id="rec-query" type="text" maxlength="100" autocomplete="off" list="rec-titles" placeholder="예: 이방인, 데미안, 1984" aria-describedby="rec-help">
             <datalist id="rec-titles"></datalist>
@@ -53,6 +53,17 @@
           <p class="recommend-help" id="rec-help">입력한 글은 AI에 보내지며 답은 틀릴 수 있어요. 이름·연락처 같은 개인정보는 적지 마세요.</p>
           <p class="recommend-status" id="rec-status" role="status" aria-live="polite"></p>
           <ol class="recommend-list" id="rec-list" hidden></ol>
+          <div class="debate" id="debate" hidden>
+            <p class="debate-head"><span class="debate-badge">🎙️ AI 토론</span> <span id="debate-q"></span></p>
+            <ol class="debate-log" id="debate-log" aria-live="polite"></ol>
+            <label class="visually-hidden" for="debate-input">내 의견</label>
+            <textarea class="debate-input" id="debate-input" maxlength="300" rows="3" placeholder="이 질문에 대한 내 생각을 적어 보세요. AI가 반대 입장에서 반론해요."></textarea>
+            <div class="debate-row">
+              <span class="debate-left" id="debate-left"></span>
+              <button class="btn btn--ghost" type="button" id="debate-reset">다른 질문 고르기</button>
+              <button class="btn" type="button" id="debate-send">의견 보내기</button>
+            </div>
+          </div>
         </form>
       </div>
     </section>
