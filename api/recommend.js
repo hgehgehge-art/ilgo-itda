@@ -85,9 +85,10 @@ export function parse(text) {
 }
 
 class Upstream extends Error {
-  constructor(code) {
+  constructor(code, detail) {
     super(code);
     this.code = code;
+    this.detail = detail; // 상류 상태 코드와 짧은 오류 이유(키는 담기지 않음)
   }
 }
 
@@ -112,7 +113,14 @@ async function ask(query, key, fetchImpl, signal) {
     throw new Upstream(signal.aborted || e?.name === 'TimeoutError' || e?.name === 'AbortError' ? 'TIMEOUT' : 'UPSTREAM');
   }
   if (res.status === 429) throw new Upstream('RATE_LIMIT');
-  if (!res.ok) throw new Upstream('UPSTREAM');
+  if (!res.ok) {
+    let reason = '';
+    try {
+      const e = await res.json();
+      reason = String(e?.error?.message ?? e?.message ?? e?.error ?? '').slice(0, 160);
+    } catch {}
+    throw new Upstream('UPSTREAM', { status: res.status, reason });
+  }
   let data;
   try {
     data = await res.json();
@@ -153,7 +161,11 @@ export async function handle(request, env = process.env, fetchImpl = fetch, { ti
   } catch (e) {
     const code = e instanceof Upstream ? e.code : 'UPSTREAM';
     // 첫 답은 받았고 다시 받다가 실패했으면 받은 것만이라도 돌려준다
-    if (!best.items.length) return fail(code === 'RATE_LIMIT' ? 429 : code === 'TIMEOUT' ? 504 : 502, code);
+    if (!best.items.length) {
+      const r = fail(code === 'RATE_LIMIT' ? 429 : code === 'TIMEOUT' ? 504 : 502, code);
+      if (!e?.detail) return r;
+      return json(r.status, { error: code, message: MESSAGES[code], upstream: e.detail });
+    }
   }
   if (!best.items.length) return json(200, { items: [], message: MESSAGES.NO_MATCH });
   return json(200, { items: best.items });
